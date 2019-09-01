@@ -1,1 +1,4 @@
-body {}
+.basic-function  {  
+    background-image: url("/background-baisic-function.jpg");
+    background-size: cover;
+  }
