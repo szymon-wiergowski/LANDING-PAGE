@@ -13,6 +13,13 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="css/all.css" rel="stylesheet">
+
+
+    <!-- Custom Fonts -->
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+        rel="stylesheet" type="text/css">
+
     <title>DrinkApp</title>
 </head>
 
@@ -37,115 +44,74 @@
     <article>
         <!-- SZYMON  bla-->
 
-        <section id="hero">
-
+        <section id="hero" class="masthead d-flex">
+            <div class="container text-center my-auto">
+                <h1 class="mb-1">DrinkApp</h1>
+                <h3 class="mb-5">
+                    <em>DrinkApp™ to najlepszy przepis na drinki i koktajle.</em>
+                </h3>
+                <a class="btn btn-primary btn-xl js-scroll-trigger" href="#basic-function">Find Out More</a>
+            </div>
+            <div class="overlay"></div>
         </section>
 
         <!-- SZYMON -->
 
 
-        </div>
-        <section id="basic-function">
-            <!-- SZYMON icon       
-        <i class="fas fa-blender"> Stwórz swój drink</i>      
-        <i class="fas fa-cocktail">Lista drinków</i>
-        <i class="fas fa-store-alt">Sprawdź ile masz promili</i> 
-        <i class="fas fa-store-alt">Sklepy w okolicy</i>-->
-           
 
-        <!-- <section id="basic-function" class="basic-function bg-primary text-white text-center">
-                <div class="container">
-                    <div class="content-section-basic-function">
-                    <h3 class="text-secondary mb-0">Spis planowanych funkcji produktu</h3>
-                    <h2 class="mb-5">Stwórz swój drink</h2>
-                    </div>
-                    <div class="row">
+        <section class="content-section bg-info text-white text-center" id="basic-function">
+            <div class="container">
+                <div class="content-section-heading">
+                    <h2 class="mb-5">Spis planowanych funkcji produktu</h2>
+                </div>
+                <div class="row">
                     <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                         <span class="service-icon rounded-circle mx-auto mb-3">
-                        <i class="icon-screen-smartphone"></i>
+                            <i class="fas fa-cocktail"></i>
                         </span>
                         <h4>
-                        <strong>Responsive</strong>
+                            <strong class="text-warning">Stwórz swój drink</strong>
                         </h4>
-                        <p class="text-faded mb-0">Looks great on any screen size!</p>
+                        <p class="text-faded mb-0">Podaj zawartość Twojej lodówki a aplikacja wybierze dla
+                            Ciebie wyjątkowy
+                            drink.</p>
                     </div>
                     <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                         <span class="service-icon rounded-circle mx-auto mb-3">
-                        <i class="icon-pencil"></i>
+                            <i class="fas fa-clipboard-list"></i>
                         </span>
                         <h4>
-                        <strong>Redesigned</strong>
+                            <strong class="text-warning">Lista <br> drinków</strong>
                         </h4>
-                        <p class="text-faded mb-0">Freshly redesigned for Bootstrap 4.</p>
+                        <p class="text-faded mb-0">W bazie jest ponad 250 drinków, m.in. na bazie: wódki, whiskey
+                            oraz bez
+                            alkoholowe.</p>
                     </div>
                     <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
                         <span class="service-icon rounded-circle mx-auto mb-3">
-                        <i class="icon-like"></i>
+                            <i class="fas fa-microscope"></i>
                         </span>
                         <h4>
-                        <strong>Favorited</strong>
+                            <strong class="text-warning">Sprawdź ile masz promili</strong>
                         </h4>
-                        <p class="text-faded mb-0">Millions of users
-                        <i class="fas fa-heart"></i>
-                        Start Bootstrap!</p>
+                        <p class="text-faded mb-0">Sprawdź jak szybko się upijasz, jak szybko upijają się inni, kiedy
+                            znów będziecie trzeźwi.</p>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <span class="service-icon rounded-circle mx-auto mb-3">
-                        <i class="icon-mustache"></i>
+                            <i class="fas fa-map-marked-alt"></i>
                         </span>
                         <h4>
-                        <strong>Question</strong>
+                            <strong class="text-warning">Sklepy w okolicy</strong>
                         </h4>
-                        <p class="text-faded mb-0">I mustache you a question...</p>
-                    </div>
-                    </div>
-                </div>
-                </section>
-                -->
-
-
-
-            <div class="jumbotron jumbotron-fluid bg-warning">
-                <h2 class="text-center mt-0">Spis planowanych funkcji produktu</h2>
-                <hr class="divider my-4">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-blender text-primary mb-4"></i>
-                            <h3 class="h3 mb-2">Stwórz swój drink</h3>
-                            <p class="text-muted mb-0">Podaj zawartość Twojej lodówki a aplikacja wybierze dla
-                                Ciebie wyjątkowy
-                                drink.
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-cocktail text-primary mb-4"></i>
-                            <h3 class="h3 mb-2">Lista drinków</h3>
-                            <p class="text-muted mb-0">W bazie jest ponad 250 drinków, m.in. na bazie: wódki, whiskey a
-                                także bez
-                                alkoholu.</p>
-                        </div>
-                        <div class="col-3">
-                            <h3 class="h3 mb-2">Sprawdź ile masz promili</h3>
-                            <p class="text-muted mb-0">Wypiłeś już cztery drinki i nie wiesz czy możesz kierować?, nie
-                                ma problemu,
-                                aplikacja poinformuje Ciebie czy to bezpieczne.</p>
-                        </div>
-                        <div class="col-3">
-                            <i class="fas fa-store-alt text-primary mb-4"></i>
-                            <h3 class="h3 mb-2">Sklepy w okolicy</h3>
-                            <p class="text-muted mb-0">Znajdź szybko najbliższy sklep aby uzupełnić stan lodówki, nie
-                                pozówl by
-                                imperza
-                                się
-                                skończyła.</p>
-                        </div>
+                        <p class="text-faded mb-0">Znajdź szybko najbliższy sklep aby uzupełnić stan lodówki, nie
+                            pozówl by
+                            imperza
+                            się
+                            skończyła.</p>
                     </div>
                 </div>
-
+            </div>
         </section>
 
         <!-- ŁUKASZ -->
