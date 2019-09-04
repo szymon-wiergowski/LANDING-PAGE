@@ -12,7 +12,7 @@ body {
     height: auto;
     padding-top: 8rem;
     padding-bottom: 8rem;
-    background-image: url("/image/hero_background.jpg");
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("hero_background_III.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -20,7 +20,7 @@ body {
   
   .masthead h1 {
     font-size: 4rem;
-    margin: 0;
+    margin: 30%;
     padding: 0;
   }
   
@@ -66,6 +66,7 @@ h4,
 h5,
 h6 {
   font-weight: 700;
+  co
 }
 
 
