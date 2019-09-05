@@ -12,18 +12,15 @@ body {
     height: auto;
     padding-top: 8rem;
     padding-bottom: 8rem;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("hero_background_III.jpg");
-    background-position: center center;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), #FFDF00;
+    background-position: right;
     background-repeat: no-repeat;
     background-size: cover;
   }
-  
-  .masthead h1 {
-    font-size: 4rem;
-    margin: 30%;
-    padding: 0;
+  .masthead i {
+    font-size: 7rem;
+    margin: 3rem;
   }
-  
   @media (min-width: 992px) {
     .masthead {
       height: 100vh;
@@ -39,7 +36,7 @@ body {
     width: 7rem;
     display: block;
     line-height: 7.5rem;
-    font-size: 2.25rem;
+    font-size: 3.25rem;
     -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
   }
@@ -66,7 +63,6 @@ h4,
 h5,
 h6 {
   font-weight: 700;
-  co
 }
 
 
