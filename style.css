@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     font-family: 'Source Sans Pro';
 }
@@ -62,3 +63,35 @@ font-weight: 700;
 }
 
 
+=======
+.card {
+    align-items: center;
+    justify-content: center;
+}
+
+.card-img-top {
+    width: 50%;
+    height: 40%;
+    margin-top: 30px;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+}
+
+.contact-list {
+    list-style-type: none;
+    display: inline;
+    margin: 0 0;
+}
+
+.contact-link {
+    text-decoration: none;
+    color: black;
+}
+
+.fab {
+    margin-right: 6px;
+} 
+>>>>>>> 2c0539bc9e62d1f2cf9f04d3075b9734da406b70
