@@ -1,60 +1,61 @@
 body {
     font-family: 'Source Sans Pro';
+}
+.btn-xl {
+  padding: 1.25rem 2.5rem;
+}
+.masthead {
+  min-height: 30rem;
+  position: relative;
+  display: table;
+  width: 100%;
+  height: auto;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("/image/hero_background_VII.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+.container{
+  background-color:rgba(0, 0, 0, 0.5);
+  border-radius: 1rem;
+  padding: 1%;
+}
+@media (min-width: 992px) {
+.masthead {
+    height: 100vh;
   }
-  .btn-xl {
-    padding: 1.25rem 2.5rem;
+.masthead h1 {
+    font-size: 5.5rem;
   }
-  .masthead {
-    min-height: 30rem;
-    position: relative;
-    display: table;
-    width: 100%;
-    height: auto;
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), #FFDF00;
-    background-position: right;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  .masthead i {
-    font-size: 7rem;
-    margin: 3rem;
-  }
-  @media (min-width: 992px) {
-    .masthead {
-      height: 100vh;
-    }
-    .masthead h1 {
-      font-size: 5.5rem;
-    }
-  }
+}
 .service-icon {
-    background-color: #fff;
-    color: #1D809F;
-    height: 7rem;
-    width: 7rem;
-    display: block;
-    line-height: 7.5rem;
-    font-size: 3.25rem;
-    -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
-  }
+  background-color: #fff;
+  color: #1D809F;
+  height: 7rem;
+  width: 7rem;
+  display: block;
+  line-height: 7.5rem;
+  font-size: 3.25rem;
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
 
 .content-section {
-    padding-top: 7.5rem;
-    padding-bottom: 7.5rem;
-   
-  }
-  
-  .content-section-heading h2 {
-    font-size: 3rem;
-  }
-  
-  .content-section-heading h3 {
-    font-size: 1rem;
-    text-transform: uppercase;
-  }
+  padding-top: 7.5rem;
+  padding-bottom: 7.5rem;
+}
+
+.content-section-heading h2 {
+  font-size: 3rem;
+}
+
+.content-section-heading h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
 
 h1,
 h2,
@@ -62,7 +63,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 700;
+font-weight: 700;
 }
 
 
