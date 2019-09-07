@@ -1,10 +1,10 @@
 body {
     font-family: 'Source Sans Pro';
 }
-.btn-xl {
+.hero_button {
   padding: 1.25rem 2.5rem;
 }
-.masthead {
+.hero_section {
   min-height: 30rem;
   position: relative;
   display: table;
@@ -12,26 +12,26 @@ body {
   height: auto;
   padding-top: 8rem;
   padding-bottom: 8rem;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("/image/hero_background_VII.jpg");
+  background-image: url("/image/hero_background.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   
 }
-.container{
+.hero_item{
   background-color:rgba(0, 0, 0, 0.5);
   border-radius: 1rem;
   padding: 1%;
 }
 @media (min-width: 992px) {
-.masthead {
+.hero_section {
     height: 100vh;
   }
-.masthead h1 {
+.hero_section h1 {
     font-size: 5.5rem;
   }
 }
-.service-icon {
+.basic_function_icon {
   background-color: #fff;
   color: #1D809F;
   height: 7rem;
@@ -43,26 +43,21 @@ body {
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
-.content-section {
+.basic_function_section {
   padding-top: 7.5rem;
   padding-bottom: 7.5rem;
 }
 
-.content-section-heading h2 {
+.basic_function_heading h2 {
   font-size: 3rem;
 }
 
-.content-section-heading h3 {
+.basic_function_heading h3 {
   font-size: 1rem;
   text-transform: uppercase;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
 font-weight: 700;
 }
 
