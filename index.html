@@ -11,48 +11,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://kit.fontawesome.com/7a22d60c37.js"></script>
     <title>DrinkApp</title>
 </head>
 
 <body>
 
-    <!-- NATALIA -->
-
-    <nav>
-        <!-- 
-1. HERO
-2. SPIS FUNKCJI PRODUKTU
-3. DODATKOWE INFORMACJE O PRODUKCIE
-4. ZAPIS NA PREMIERE
-5. INFORMACJE O ZESPOLE
- -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Hero <span class="sr-only"></span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Spis funkcji produktu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Dodatkowe informacje o produkcie</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Zapis na premierę</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Informacje o zespole</a>
-                    </li>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Hero <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Spis funkcji produktu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Dodatkowe informacje o produkcie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Zapis na premierę</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Informacje o zespole</a>
+                </li>
 
-                    </li>
-                </ul>
-            </div>
-        </nav>
+                </li>
+            </ul>
+        </div>
+    </nav>
     </nav>
 
     <header class="hero">
@@ -84,6 +75,8 @@
             <form>
                 <h3>Zapis na premierę.</h3>
                 <div class="form-group">
+                    </br<>
+                    </br>
                     <label for="premier-email"><h5>Gdy zapiszesz się na wydarzenie, zostanie wysłany tylko jeden e-mail z zaproszeniem.</h5></label>
                     <input type="email" class="form-control" id="premier-email" aria-describedby="emailHelp" placeholder="Adress email">
                     <small class="form-text text-muted">Nigdy nie udostępnimy Twojego adresu e-mail nikomu
@@ -95,8 +88,55 @@
 
         <!-- BARTEK -->
 
-        <section id="team">
-
+        <section id="team" class="row">
+            <div class="card col-xl-3 col-md-6">
+                <img class="card-img-top img-fluid rounded-circle" src="images/Natalia-Nowak.jpg" alt="Alternatywny opis obrazka">
+                <div class="card-block">
+                    <h4 class="card-title text-center pt-3">Natalia Nowak</h4>
+                    <div class="contact">
+                        <ul class="contact-list">
+                            <li><i class="fab fa-github"></i><a class="contact-link" href="https://github.com/bartosz-walasek" target="blank">GitHub</a></li>
+                            <li><i class="fab fa-linkedin-in"></i><a class="contact-link" href="https://www.linkedin.com/in/bartosz-walasek/" target="blank">Linkedin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card col-xl-3 col-md-6">
+                <img class="card-img-top img-fluid rounded-circle" src="images/Lukasz-Smolnicki.jpeg" alt="Alternatywny opis obrazka">
+                <div class="card-block">
+                    <h4 class="card-title text-center pt-3">Łukasz Smolnicki</h4>
+                    <div class="contact">
+                        <ul class="contact-list">
+                            <li><i class="fab fa-github"></i><a class="contact-link" href="https://github.com/bartosz-walasek" target="blank">GitHub</a></li>
+                            <li><i class="fab fa-linkedin-in"></i><a class="contact-link" href="https://www.linkedin.com/in/bartosz-walasek/" target="blank">Linkedin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card col-xl-3 col-md-6">
+                <img class="card-img-top img-fluid rounded-circle" src="images/Bartosz-Walasek.jpg" alt="Bartosz Walasek">
+                <div class="card-block">
+                    <h4 class="card-title text-center pt-3">Bartosz Walasek</h4>
+                    <div class="contact">
+                        <ul class="contact-list">
+                            <li><i class="fab fa-github"></i><a class="contact-link" href="https://github.com/bartosz-walasek" target="blank">GitHub</a></li>
+                            <li><i class="fab fa-linkedin-in"></i><a class="contact-link" href="https://www.linkedin.com/in/bartosz-walasek/" target="blank">Linkedin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card col-xl-3 col-md-6">
+                <img class="card-img-top img-fluid rounded-circle" src="images/Szymon-Wiergowski.jpeg" alt="Alternatywny opis obrazka">
+                <div class="card-block">
+                    <h4 class="card-title text-center pt-3">Szymon Wiergowski</h4>
+                    <div class="contact">
+                        <ul class="contact-list">
+                            <li><i class="fab fa-github"></i><a class="contact-link" href="https://github.com/bartosz-walasek" target="blank">GitHub</a></li>
+                            <li><i class="fab fa-linkedin-in"></i><a class="contact-link" href="https://www.linkedin.com/in/bartosz-walasek/" target="blank">Linkedin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </section>
     </article>
 
