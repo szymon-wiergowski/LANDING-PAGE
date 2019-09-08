@@ -1,3 +1,49 @@
+<<<<<<< HEAD
+        .card {
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .card-img-top {
+            width: 50%;
+            height: 40%;
+            margin-top: 30px;
+        }
+        
+        .contact {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-list {
+            list-style-type: none;
+            display: inline;
+            margin: 0 0;
+        }
+        
+        .contact-link {
+            text-decoration: none;
+            color: black;
+        }
+        
+        .fab {
+            margin-right: 6px;
+        }
+        /*Navbar*/
+        
+        .navbar-light .navbar-nav .nav-link {
+            color: #212529;
+        }
+        
+        .navbar-expand-lg {
+            -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+            position: fixed;
+            width: 100%;
+        }
+=======
 /* TEAM */
 
 .card {
@@ -33,3 +79,4 @@
 .contact-link:hover {
     color: black;
 }
+>>>>>>> 8dca6ced26d858ddee886d44be56536d77293d31
