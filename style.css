@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 body {
     font-family: 'Source Sans Pro';
 }
@@ -68,6 +69,8 @@ font-weight: 700;
 
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> bf2e14e8d06fd11850e4da1b58707b52947583a4
         .card {
             align-items: center;
             justify-content: center;
@@ -111,6 +114,7 @@ font-weight: 700;
             justify-content: flex-start;
             position: fixed;
             width: 100%;
+<<<<<<< HEAD
         }
 =======
 /* TEAM */
@@ -150,3 +154,6 @@ font-weight: 700;
 }
 >>>>>>> 8dca6ced26d858ddee886d44be56536d77293d31
 >>>>>>> 87d768a75c945cb89ddf3fbfef33da3a86d1fbdb
+=======
+        }
+>>>>>>> bf2e14e8d06fd11850e4da1b58707b52947583a4
