@@ -1,4 +1,4 @@
-    <!-- NIE USUWAĆ <a href="#make_a_drink">Stwórz swój drink</a>
+<!-- NIE USUWAĆ <a href="#make_a_drink">Stwórz swój drink</a>
         <a href="#hero">Lista drinków</a>
         <a href="#shops">Sklepy w okolicy</a>
         <a href="#form">Formularz kontaktowy</a>
@@ -11,6 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+        rel="stylesheet" type="text/css">
     <script src="https://kit.fontawesome.com/7a22d60c37.js"></script>
     <title>DrinkApp</title>
 </head>
@@ -46,21 +49,73 @@
     </nav>
     </nav>
 
-    <header class="hero">
 
-    </header>
 
-    <article class="container">
-        <!-- SZYMON -->
-
-        <section id="hero">
-
+    <article>
+        <!-- SZYMON  -->
+        <section class="hero_section masthead d-flex" id="hero">
+            <div class="hero_item container text-center my-auto ">
+                <h1 class="mb-1 text-white">DrinkApp</h1>
+                <h3 class="mb-5 text-white">
+                    <em>DrinkApp™ to najlepszy przepis na drinki i koktajle.</em>
+                    <br> <br>
+                    <em>Mapa ze sklepami i alkomat online.</em>
+                </h3>
+                <a class="hero_button btn btn-info btn-xl" href="#sign-up">Dowiedz się więcej</a>
+            </div>
         </section>
-
         <!-- SZYMON -->
-
-        <section id="basic-function">
-
+        <section class="basic_function_section bg-info text-white text-center" id="basic-function">
+            <div class="basic_function_item container">
+                <div class="basic_function_heading">
+                    <h2 class="mb-5 text-warning">Drink service</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                        <span class="basic_function_icon rounded-circle mx-auto mb-3">
+                            <i class="fas fa-cocktail text-dark"></i>
+                        </span>
+                        <h4>
+                            <strong class="text-warning">Stwórz swój drink</strong>
+                        </h4>
+                        <p class="text-faded mb-0">Odkryjesz wyjątkowe
+                            smaki, wystaczy że podasz kilka składników.</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                        <span class="basic_function_icon rounded-circle mx-auto mb-3">
+                            <i class="fas fa-clipboard-list text-secondary"></i>
+                        </span>
+                        <h4>
+                            <strong class="text-warning">Lista <br> drinków</strong>
+                        </h4>
+                        <p class="text-faded mb-0">W bazie jest ponad 250 przepisów, m.in. na bazie: wódki, whiskey
+                            oraz bezalkoholowe.</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+                        <span class="basic_function_icon rounded-circle mx-auto mb-3">
+                            <i class="fas fa-microscope text-danger"></i>
+                        </span>
+                        <h4>
+                            <strong class="text-warning">Sprawdź ile masz promili</strong>
+                        </h4>
+                        <p class="text-faded mb-0">Sprawdź jak szybko się upijasz, jak szybko upijają się inni, kiedy
+                            znów będziecie trzeźwi.</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <span class="basic_function_icon rounded-circle mx-auto mb-3">
+                            <i class="fas fa-map-marked-alt text-success"></i>
+                        </span>
+                        <h4>
+                            <strong class="text-warning">Sklepy w okolicy</strong>
+                        </h4>
+                        <p class="text-faded mb-0">Znajdź szybko najbliższy sklep aby uzupełnić lodówkę, nie
+                            pozówl by
+                            imperza
+                            się
+                            skończyła.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- ŁUKASZ -->
@@ -89,29 +144,34 @@
         <!-- BARTEK -->
 
         <section id="team" class="row">
-            <div class="card col-xl-3 col-md-6">
-                <img class="card-img-top img-fluid rounded-circle" src="images/Natalia-Nowak.jpg" alt="Alternatywny opis obrazka">
-                <div class="card-block">
-                    <h4 class="card-title text-center pt-3">Natalia Nowak</h4>
-                    <div class="contact">
-                        <ul class="contact-list">
-                            <li><i class="fab fa-github"></i><a class="contact-link" href="https://github.com/bartosz-walasek" target="blank">GitHub</a></li>
-                            <li><i class="fab fa-linkedin-in"></i><a class="contact-link" href="https://www.linkedin.com/in/bartosz-walasek/" target="blank">Linkedin</a></li>
-                        </ul>
-                    </div>
-                </div>
+          <div class="card col-xl-3 col-md-6">
+            <img class="card-img-top img-fluid rounded-circle" src="images/Natalia-Nowak.jpg"
+              alt="Natalia Nowak">
+            <div class="card-block">
+              <h4 class="card-title text-center pt-3">Natalia Nowak</h4>
+              <div class="contact">
+                <ul class="contact-list">
+                  <li><i class="fab fa-github"></i><a class="contact-link" href="#"
+                      target="blank">GitHub</a></li>
+                  <li><i class="fab fa-linkedin-in"></i><a class="contact-link"
+                      href="#" target="blank">Linkedin</a></li>
+                </ul>
+              </div>
             </div>
-            <div class="card col-xl-3 col-md-6">
-                <img class="card-img-top img-fluid rounded-circle" src="images/Lukasz-Smolnicki.jpeg" alt="Alternatywny opis obrazka">
-                <div class="card-block">
-                    <h4 class="card-title text-center pt-3">Łukasz Smolnicki</h4>
-                    <div class="contact">
-                        <ul class="contact-list">
-                            <li><i class="fab fa-github"></i><a class="contact-link" href="https://github.com/bartosz-walasek" target="blank">GitHub</a></li>
-                            <li><i class="fab fa-linkedin-in"></i><a class="contact-link" href="https://www.linkedin.com/in/bartosz-walasek/" target="blank">Linkedin</a></li>
-                        </ul>
-                    </div>
-                </div>
+          </div>
+          <div class="card col-xl-3 col-md-6">
+            <img class="card-img-top img-fluid rounded-circle" src="images/Lukasz-Smolnicki.jpeg"
+              alt="Łukasz Smolnicki">
+            <div class="card-block">
+              <h4 class="card-title text-center pt-3">Łukasz Smolnicki</h4>
+              <div class="contact">
+                <ul class="contact-list">
+                  <li><i class="fab fa-github"></i><a class="contact-link" href="#"
+                      target="blank">GitHub</a></li>
+                  <li><i class="fab fa-linkedin-in"></i><a class="contact-link"
+                      href="#" target="blank">Linkedin</a></li>
+                </ul>
+              </div>
             </div>
             <div class="card col-xl-3 col-md-6">
                 <img class="card-img-top img-fluid rounded-circle" src="images/Bartosz-Walasek.jpg" alt="Bartosz Walasek">
@@ -125,17 +185,20 @@
                     </div>
                 </div>
             </div>
-            <div class="card col-xl-3 col-md-6">
-                <img class="card-img-top img-fluid rounded-circle" src="images/Szymon-Wiergowski.jpeg" alt="Alternatywny opis obrazka">
-                <div class="card-block">
-                    <h4 class="card-title text-center pt-3">Szymon Wiergowski</h4>
-                    <div class="contact">
-                        <ul class="contact-list">
-                            <li><i class="fab fa-github"></i><a class="contact-link" href="https://github.com/bartosz-walasek" target="blank">GitHub</a></li>
-                            <li><i class="fab fa-linkedin-in"></i><a class="contact-link" href="https://www.linkedin.com/in/bartosz-walasek/" target="blank">Linkedin</a></li>
-                        </ul>
-                    </div>
-                </div>
+          </div>
+          <div class="card col-xl-3 col-md-6">
+            <img class="card-img-top img-fluid rounded-circle" src="images/Szymon-Wiergowski.jpeg"
+              alt="Szymon Wiergowski">
+            <div class="card-block">
+              <h4 class="card-title text-center pt-3">Szymon Wiergowski</h4>
+              <div class="contact">
+                <ul class="contact-list">
+                  <li class="contact-list-item"><i class="fab fa-github"></i><a class="contact-link" href="#"
+                      target="blank">GitHub</a></li>
+                  <li class="contact-list-item"><i class="fab fa-linkedin-in"></i><a class="contact-link"
+                      href="#" target="blank">Linkedin</a></li>
+                </ul>
+              </div>
             </div>
         </section>
     </article>
