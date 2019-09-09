@@ -1,8 +1,10 @@
+<<<<<<< HEAD
 body {
     font-family: 'Source Sans Pro';
 }
 .hero_button {
   padding: 1.25rem 2.5rem;
+  margin: 1.5rem;
 }
 .hero_section {
   min-height: 30rem;
@@ -21,7 +23,8 @@ body {
 .hero_item{
   background-color:rgba(0, 0, 0, 0.5);
   border-radius: 1rem;
-  padding: 1%;
+  padding: 1rem;
+  
 }
 @media (min-width: 992px) {
 .hero_section {
@@ -29,6 +32,7 @@ body {
   }
 .hero_section h1 {
     font-size: 5.5rem;
+    margin: 2rem;
   }
 }
 .basic_function_icon {
@@ -62,3 +66,87 @@ font-weight: 700;
 }
 
 
+=======
+<<<<<<< HEAD
+        .card {
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .card-img-top {
+            width: 50%;
+            height: 40%;
+            margin-top: 30px;
+        }
+        
+        .contact {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-list {
+            list-style-type: none;
+            display: inline;
+            margin: 0 0;
+        }
+        
+        .contact-link {
+            text-decoration: none;
+            color: black;
+        }
+        
+        .fab {
+            margin-right: 6px;
+        }
+        /*Navbar*/
+        
+        .navbar-light .navbar-nav .nav-link {
+            color: #212529;
+        }
+        
+        .navbar-expand-lg {
+            -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+            position: fixed;
+            width: 100%;
+        }
+=======
+/* TEAM */
+
+.card {
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+    padding: 30px 0;
+}
+
+.card-img-top {
+    width: 50%;
+    object-fit: cover;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.contact-link {
+    margin-left: 6px;
+    text-decoration: none;
+    color: black;
+}
+
+.contact-link:hover {
+    color: black;
+}
+>>>>>>> 8dca6ced26d858ddee886d44be56536d77293d31
+>>>>>>> 87d768a75c945cb89ddf3fbfef33da3a86d1fbdb
