@@ -3,6 +3,7 @@ body {
 }
 .hero_button {
   padding: 1.25rem 2.5rem;
+  margin: 1.5rem;
 }
 .hero_section {
   min-height: 30rem;
@@ -21,7 +22,8 @@ body {
 .hero_item{
   background-color:rgba(0, 0, 0, 0.5);
   border-radius: 1rem;
-  padding: 1%;
+  padding: 1rem;
+  
 }
 @media (min-width: 992px) {
 .hero_section {
@@ -29,6 +31,7 @@ body {
   }
 .hero_section h1 {
     font-size: 5.5rem;
+    margin: 2rem;
   }
 }
 .basic_function_icon {
