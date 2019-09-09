@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     font-family: 'Source Sans Pro';
 }
@@ -65,3 +66,87 @@ font-weight: 700;
 }
 
 
+=======
+<<<<<<< HEAD
+        .card {
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .card-img-top {
+            width: 50%;
+            height: 40%;
+            margin-top: 30px;
+        }
+        
+        .contact {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-list {
+            list-style-type: none;
+            display: inline;
+            margin: 0 0;
+        }
+        
+        .contact-link {
+            text-decoration: none;
+            color: black;
+        }
+        
+        .fab {
+            margin-right: 6px;
+        }
+        /*Navbar*/
+        
+        .navbar-light .navbar-nav .nav-link {
+            color: #212529;
+        }
+        
+        .navbar-expand-lg {
+            -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+            position: fixed;
+            width: 100%;
+        }
+=======
+/* TEAM */
+
+.card {
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+    padding: 30px 0;
+}
+
+.card-img-top {
+    width: 50%;
+    object-fit: cover;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.contact-link {
+    margin-left: 6px;
+    text-decoration: none;
+    color: black;
+}
+
+.contact-link:hover {
+    color: black;
+}
+>>>>>>> 8dca6ced26d858ddee886d44be56536d77293d31
+>>>>>>> 87d768a75c945cb89ddf3fbfef33da3a86d1fbdb
