@@ -1,68 +1,72 @@
 body {
     font-family: 'Source Sans Pro';
 }
+
 .hero_button {
-  padding: 1.25rem 2.5rem;
-  margin: 1.5rem;
+    padding: 1.25rem 2.5rem;
+    margin: 1.5rem;
 }
+
 .hero_section {
-  min-height: 30rem;
-  position: relative;
-  display: table;
-  width: 100%;
-  height: auto;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
-  background-image: url("images/hero-background.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  
+    min-height: 30rem;
+    position: relative;
+    display: table;
+    width: 100%;
+    height: auto;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    background-image: url("images/hero-background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-.hero_item{
-  background-color:rgba(0, 0, 0, 0.5);
-  border-radius: 1rem;
-  padding: 1rem;
-  
+
+.hero_item {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 1rem;
+    padding: 1rem;
 }
+
 @media (min-width: 992px) {
-.hero_section {
-    height: 100vh;
-  }
-.hero_section h1 {
-    font-size: 5.5rem;
-    margin: 2rem;
-  }
+    .hero_section {
+        height: 100vh;
+    }
+    .hero_section h1 {
+        font-size: 5.5rem;
+        margin: 2rem;
+    }
 }
+
 .basic_function_icon {
-  background-color: #fff;
-  color: #1D809F;
-  height: 7rem;
-  width: 7rem;
-  display: block;
-  line-height: 7.5rem;
-  font-size: 3.25rem;
-  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    color: #1D809F;
+    height: 7rem;
+    width: 7rem;
+    display: block;
+    line-height: 7.5rem;
+    font-size: 3.25rem;
+    -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
 .basic_function_section {
-  padding-top: 7.5rem;
-  padding-bottom: 7.5rem;
+    padding-top: 7.5rem;
+    padding-bottom: 7.5rem;
 }
 
 .basic_function_heading h2 {
-  font-size: 3rem;
+    font-size: 3rem;
 }
 
 .basic_function_heading h3 {
-  font-size: 1rem;
-  text-transform: uppercase;
+    font-size: 1rem;
+    text-transform: uppercase;
 }
 
 .strong {
-font-weight: 700;
+    font-weight: 700;
 }
+
 
 /* TEAM */
 
@@ -100,3 +104,15 @@ font-weight: 700;
     color: black;
 }
 
+.navbar-light .navbar-nav .nav-link {
+    color: #212529;
+}
+
+.navbar-expand-lg {
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    position: fixed;
+    width: 100%;
+}
