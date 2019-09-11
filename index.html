@@ -1,8 +1,3 @@
-<!-- NIE USUWAĆ <a href="#make_a_drink">Stwórz swój drink</a>
-        <a href="#hero">Lista drinków</a>
-        <a href="#shops">Sklepy w okolicy</a>
-        <a href="#form">Formularz kontaktowy</a>
-        <a href="#team">Zespół</a> -->
 <!doctype html>
 <html lang="pl">
 
@@ -16,11 +11,12 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
     rel="stylesheet" type="text/css">
   <script src="https://kit.fontawesome.com/7a22d60c37.js"></script>
+  <link href="css/bootstrap-social.css" rel="stylesheet">
+
   <title>DrinkApp</title>
 </head>
 
 <body>
-
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -51,26 +47,24 @@
   </nav>
   </nav>
 
-
-
   <article>
-    <!-- SZYMON  -->
+
     <section class="hero_section masthead d-flex" id="hero">
       <div class="hero_item container text-center my-auto ">
-        <h1 class="mb-1 text-white">DrinkApp</h1>
-        <h3 class="mb-5 text-white">
+        <h1 class="mb-1 text-white strong">DrinkApp</h1>
+        <h3 class="mb-5 text-white strong">
           <em>DrinkApp™ to najlepszy przepis na drinki i koktajle.</em>
           <br> <br>
           <em>Mapa ze sklepami i alkomat online.</em>
         </h3>
-        <a class="hero_button btn btn-info btn-xl" href="#sign-up">Dowiedz się więcej</a>
+        <a class="hero_button btn btn-info btn-xl" href="#sign-up">Zapis na premierę.</a>
       </div>
     </section>
-    <!-- SZYMON -->
+
     <section class="basic_function_section bg-info text-white text-center" id="basic-function">
       <div class="basic_function_item container">
         <div class="basic_function_heading">
-          <h2 class="mb-5 text-warning">Drink service</h2>
+          <h2 class="mb-5 text-warning strong">Drink service</h2>
         </div>
         <div class="row">
           <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
@@ -78,7 +72,7 @@
               <i class="fas fa-cocktail text-dark"></i>
             </span>
             <h4>
-              <strong class="text-warning">Stwórz swój drink</strong>
+              <strong class="text-warning strong">Stwórz swój drink</strong>
             </h4>
             <p class="text-faded mb-0">Odkryjesz wyjątkowe
               smaki, wystaczy że podasz kilka składników.</p>
@@ -87,8 +81,8 @@
             <span class="basic_function_icon rounded-circle mx-auto mb-3">
               <i class="fas fa-clipboard-list text-secondary"></i>
             </span>
-            <h4>
-              <strong class="text-warning">Lista <br> drinków</strong>
+            <h4 class="strong">
+              <strong class="text-warning">Lista drinków</strong>
             </h4>
             <p class="text-faded mb-0">W bazie jest ponad 250 przepisów, m.in. na bazie: wódki, whiskey
               oraz bezalkoholowe.</p>
@@ -97,7 +91,7 @@
             <span class="basic_function_icon rounded-circle mx-auto mb-3">
               <i class="fas fa-microscope text-danger"></i>
             </span>
-            <h4>
+            <h4 class="strong">
               <strong class="text-warning">Sprawdź ile masz promili</strong>
             </h4>
             <p class="text-faded mb-0">Sprawdź jak szybko się upijasz, jak szybko upijają się inni, kiedy
@@ -107,7 +101,7 @@
             <span class="basic_function_icon rounded-circle mx-auto mb-3">
               <i class="fas fa-map-marked-alt text-success"></i>
             </span>
-            <h4>
+            <h4 class="strong">
               <strong class="text-warning">Sklepy w okolicy</strong>
             </h4>
             <p class="text-faded mb-0">Znajdź szybko najbliższy sklep aby uzupełnić lodówkę, nie
@@ -120,30 +114,72 @@
       </div>
     </section>
 
-    <!-- ŁUKASZ -->
-
-    <section id="more-functions">
-
+    <section id="more-functions" class="">
+      <div class="container">
+        <div class="row py-5">
+          <div class="col-6">
+1 kolumna more functions
+          </div>
+          <div class="col-6">
+2 kolumna more functions
+          </div>
+        </div>
+        <div class="row py-5">
+          <div class="col-12">
+            <h2 class="strong">Sprawdź nas w naszych mediach społecznościowych.</h2>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <a class="btn btn-block btn-social btn-twitter" href="http://twitter.com/" target="_blank">
+              <span class="fab fa-twitter"></span> Twittnij o nas!
+            </a>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <a class="btn btn-block btn-social btn-facebook" href="http://facebook.com/" target="_blank">
+              <span class="fab fa-facebook"></span> Facebook
+            </a>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <a class="btn btn-block btn-social btn-google" href="http://googleplus.com/" target="_blank">
+              <span class="fab fa-google"></span> Google +
+            </a>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <a class="btn btn-block btn-social btn-instagram" href="http://instagram.com/" target="_blank">
+              <span class="fab fa-instagram"></span> Instagram
+            </a>
+          </div>
+        </div>
+        <div class="row py-5">
+          <div class="col-12">
+            warunki korzystania z niego, prawa autorskie, ostatnia data aktualizacji strony, planowana data wydania
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- ŁUKASZ -->
-
-    <section class="row" id="sign-up">
-      <form>
-        <h3>Zapis na premierę.</h3>
-        <div class="form-group">
-          </br<>
-          </br>
-          <label for="premier-email">
-            <h5>Gdy zapiszesz się na wydarzenie, zostanie wysłany tylko jeden e-mail z zaproszeniem.</h5>
-          </label>
-          <input type="email" class="form-control" id="premier-email" aria-describedby="emailHelp"
-            placeholder="Adress email">
-          <small class="form-text text-muted">Nigdy nie udostępnimy Twojego adresu e-mail nikomu
-            innemu.</small>
+    <section id="sign-up" class="bg-warning">
+      <div class="container">
+        <div class="row py-5">
+          <div class="col">
+            <form>
+              <h2 class="strong">Zapis na premierę.</h2>
+              <div class="form-group">
+                </br<>
+                </br>
+                <label for="premier-email">
+                  <h4 class="strong">Gdy zapiszesz się na wydarzenie, zostanie wysłany tylko jeden e-mail z
+                    zaproszeniem.</h4>
+                </label>
+                <input type="email" class="form-control" id="premier-email" aria-describedby="emailHelp"
+                  placeholder="Adress email">
+                <small class="form-text text-muted">Nigdy nie udostępnimy Twojego adresu e-mail nikomu
+                  innemu.</small>
+              </div>
+              <button type="submit" class="btn btn-primary">Zapisz się na premierę!</button>
+            </form>
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary">Zapisz się na premierę!</button>
-      </form>
+      </div>
     </section>
 
     <!-- BARTEK -->
@@ -211,7 +247,7 @@
       </div>
     </section>
   </article>
-
+  </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
