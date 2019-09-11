@@ -67,15 +67,26 @@ body {
     font-weight: 700;
 }
 
-
 /* TEAM */
 
-/*.card {
+.team {
+  background: #17a2b8;
+}
+
+.contact-list-card {
     align-items: center;
     justify-content: center;
     margin: 30px 0;
     padding: 30px 0;
-} */
+    border: solid 3px #17a2b8;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+}
 
 .card-img-top {
     width: 50%;
