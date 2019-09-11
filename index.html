@@ -17,38 +17,36 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Hero <span class="sr-only"></span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Spis funkcji produktu</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Dodatkowe informacje o produkcie</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Zapis na premierę</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Informacje o zespole</a>
-        </li>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Hero <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Spis funkcji produktu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Dodatkowe informacje o produkcie</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Zapis na premierę</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Informacje o zespole</a>
+          </li>
 
-        </li>
-      </ul>
-    </div>
-  </nav>
-  </nav>
-
-  <article>
-
+          </li>
+        </ul>
+      </div>
+    </nav>
+    </nav>
     <section class="hero_section masthead d-flex" id="hero">
       <div class="hero_item container text-center my-auto ">
         <h1 class="mb-1 text-white strong">DrinkApp</h1>
@@ -60,7 +58,6 @@
         <a class="hero_button btn btn-info btn-xl" href="#sign-up">Zapis na premierę.</a>
       </div>
     </section>
-
     <section class="basic_function_section bg-info text-white text-center" id="basic-function">
       <div class="basic_function_item container">
         <div class="basic_function_heading">
@@ -113,69 +110,167 @@
         </div>
       </div>
     </section>
-
-    <section id="more-functions" class="">
+  </header>
+  <main>
+    <section id="more-functions" class="bg-light">
       <div class="container">
-        <div class="row py-5">
-          <div class="col-6">
-1 kolumna more functions
+        <article>
+          <div class="row py-5">
+            <div class="col-6">
+              <div id="accordionLeft">
+                <div class="card my-2 bg-success">
+                  <div class="card-header" id="headingOneLeft">
+                    <h5 class="mb-0">
+                      <button class="btn btn-lg strong btn-block bg-light btn-social" data-toggle="collapse"
+                        data-target="#collapseOneLeft" aria-expanded="true" aria-controls="collapseOneLeft">
+                        <i class="fas fa-cocktail"></i> DrinkMaker
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseOneLeft" class="collapse show text-white" aria-labelledby="headingOneLeft"
+                    data-parent="#accordionLeft">
+                    <div class="card-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                      wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                      eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                      assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                      nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                      farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                      labore sustainable VHS.
+                    </div>
+                  </div>
+                </div>
+                <div class="card my-2 bg-success">
+                  <div class="card-header" id="headingTwoLeft">
+                    <h5 class="mb-0">
+                      <button class="btn btn-lg strong text-secondary btn-block bg-light btn-social"
+                        data-toggle="collapse" data-target="#collapseTwoLeft" aria-expanded="false"
+                        aria-controls="collapseTwoLeft">
+                        <i class="fas fa-clipboard-list"></i> DrinkList
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseTwoLeft" class="collapse text-white" aria-labelledby="headingTwoLeft"
+                    data-parent="#accordionLeft">
+                    <div class="card-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                      wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                      eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                      assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                      nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                      farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                      labore sustainable VHS.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div id="accordionRight">
+                <div class="card my-2 bg-success">
+                  <div class="card-header" id="headingOneRight">
+                    <h5 class="mb-0">
+                      <button class="btn btn-lg strong text-danger btn-block bg-light btn-social" data-toggle="collapse"
+                        data-target="#collapseOneRight" aria-expanded="true" aria-controls="collapseOneRight">
+                        <i class="fas fa-microscope"></i> Alcomat
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseOneRight" class="collapse show text-white" aria-labelledby="headingOneRight"
+                    data-parent="#accordionRight">
+                    <div class="card-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                      wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                      eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                      assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                      nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                      farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                      labore sustainable VHS.
+                    </div>
+                  </div>
+                </div>
+                <div class="card my-2 bg-success">
+                  <div class="card-header" id="headingTwoRight">
+                    <h5 class="mb-0">
+                      <button class="btn btn-lg strong text-success btn-block bg-light btn-social"
+                        data-toggle="collapse" data-target="#collapseTwoRight" aria-expanded="false"
+                        aria-controls="collapseTwoRight">
+                        <i class="fas fa-map-marked-alt"></i> AlcoFinder
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseTwoRight" class="collapse text-white" aria-labelledby="headingTwoRight"
+                    data-parent="#accordionRight">
+                    <div class="card-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                      wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                      eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                      assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                      nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                      farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                      labore sustainable VHS.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="col-6">
-2 kolumna more functions
+        </article>
+        <article>
+          <div class="row py-5">
+            <div class="col-12 pb-2">
+              <h2 class="strong text-center">Odwiedź nas w naszych mediach społecznościowych.</h2>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <a class="btn btn-block btn-social btn-twitter my-1" href="http://twitter.com/" target="_blank">
+                <span class="fab fa-twitter"></span> Twitter!
+              </a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <a class="btn btn-block btn-social btn-facebook my-1" href="http://facebook.com/" target="_blank">
+                <span class="fab fa-facebook"></span> Facebook
+              </a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <a class="btn btn-block btn-social btn-google my-1" href="http://googleplus.com/" target="_blank">
+                <span class="fab fa-google"></span> Google +
+              </a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <a class="btn btn-block btn-social btn-instagram my-1" href="http://instagram.com/" target="_blank">
+                <span class="fab fa-instagram"></span> Instagram
+              </a>
+            </div>
           </div>
-        </div>
-        <div class="row py-5">
-          <div class="col-12">
-            <h2 class="strong">Sprawdź nas w naszych mediach społecznościowych.</h2>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <a class="btn btn-block btn-social btn-twitter" href="http://twitter.com/" target="_blank">
-              <span class="fab fa-twitter"></span> Twittnij o nas!
-            </a>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <a class="btn btn-block btn-social btn-facebook" href="http://facebook.com/" target="_blank">
-              <span class="fab fa-facebook"></span> Facebook
-            </a>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <a class="btn btn-block btn-social btn-google" href="http://googleplus.com/" target="_blank">
-              <span class="fab fa-google"></span> Google +
-            </a>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <a class="btn btn-block btn-social btn-instagram" href="http://instagram.com/" target="_blank">
-              <span class="fab fa-instagram"></span> Instagram
-            </a>
-          </div>
-        </div>
-        <div class="row py-5">
-          <div class="col-12">
-            warunki korzystania z niego, prawa autorskie, ostatnia data aktualizacji strony, planowana data wydania
-          </div>
-        </div>
+        </article>
+        <footer>
+          <div class="row py-5">
+              <div class="col-12 text-center">
+                  <p>Utworzone przez: <u><a href="https://#">JustFive</a>.</u> Informacje kontaktowe: <a href="mailto:someone@example.com">someone@example.com</a>.</p><p>Ostatnia aktualizacja: <time datetime="2019-09-11">2019-09-11. </time><a href="https://#">&copy Wszelkie Prawa Zastrzeżone.</a></p>
+                </div>
+        </footer>
       </div>
     </section>
 
-    <section id="sign-up" class="bg-warning">
+    <section id="sign-up" class="bg-light mb-3">
       <div class="container">
-        <div class="row py-5">
+        <div class="row bg-success text-white text-center p-4">
           <div class="col">
             <form>
-              <h2 class="strong">Zapis na premierę.</h2>
+              <h2>Chcesz zapisać się na <strong>premierę?</strong></h2>
               <div class="form-group">
                 </br<>
                 </br>
                 <label for="premier-email">
-                  <h4 class="strong">Gdy zapiszesz się na wydarzenie, zostanie wysłany tylko jeden e-mail z
+                  <h4>Gdy zapiszesz się na wydarzenie, zostanie wysłany tylko jeden e-mail z
                     zaproszeniem.</h4>
                 </label>
                 <input type="email" class="form-control" id="premier-email" aria-describedby="emailHelp"
                   placeholder="Adress email">
-                <small class="form-text text-muted">Nigdy nie udostępnimy Twojego adresu e-mail nikomu
-                  innemu.</small>
+                <h6 class="form-text text-light"><strong>Uwaga!</strong> Nigdy nie udostępnimy Twojego adresu e-mail nikomu
+                  innemu.</h6>
               </div>
-              <button type="submit" class="btn btn-primary">Zapisz się na premierę!</button>
+              <button type="submit" class="btn btn-info">Zapisz się na premierę!</button>
             </form>
           </div>
         </div>
@@ -246,7 +341,7 @@
         </div>
       </div>
     </section>
-  </article>
+  </main>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
