@@ -130,3 +130,7 @@ body {
     font-size: larger;
     opacity: 0.95;
 }
+
+.back-to-top {
+    background: #17a2b8;
+}
