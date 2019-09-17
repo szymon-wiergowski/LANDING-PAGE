@@ -113,7 +113,7 @@ body {
     color: black;
 }
 
-.navbar-light .navbar-nav .nav-link {
+/* .navbar-light .navbar-nav .nav-link {
     color: #212529;
 }
 
@@ -135,6 +135,15 @@ nav.small a {
     padding: 0px 0px 20px 0px;
     font-size: 14px;
     font-weight: 100;
+} */
+.navbar {
+    height: 100px;
+    transition: all 0.5s;
+    border-radius: 20px;
+}
+.smallNav {
+    height: 60px;
+    opacity: 0.95;
 }
 
 .back-to-top {
