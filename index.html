@@ -19,39 +19,37 @@
 
 <body>
     <header>
-        <div id='nav'>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#"></a>
+        <nav>
+            <div id="mainNav" class="navbar navbar-light bg-white fixed-top navbar-expand-lg">
+                <span class="navbar-brand bg-success text-white rounded p-2"><i class="fas fa-cocktail"></i>
+                    <em>DrinkApp™</em></span>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#hero" style="padding:15px;">Hero <span
+                            <a class="nav-link" href="#hero">Home <span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#basic-function">Spis funkcji produktu <span
                                     class="sr-only"></span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#basic-function" style="padding:15px;">Spis funkcji produktu</a>
+                            <a class="nav-link" href="#more-functions">Dodatkowe informacje o
+                                produkcie <span class="sr-only"></span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#more-functions" style="padding:15px;">Dodatkowe informacje o
-                                produkcie</a>
+                            <a class="nav-link" href="#sign-up">Zapis na premierę <span class="sr-only"></span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#sign-up" style="padding:15px;">Zapis na premierę</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#team" style="padding:15px;">Informacje o zespole</a>
-                        </li>
-
-                        </li>
+                            <a class="nav-link" href="#team">Informacje o zespole <span class="sr-only"></span></a>
                     </ul>
                 </div>
-            </nav>
-            </nav>
-        </div>
+            </div>
+        </nav>
         <section class="hero_section masthead d-flex" id="hero">
             <div class="hero_item container text-center my-auto ">
                 <h1 class="mb-1 text-white strong">DrinkApp</h1>
@@ -365,7 +363,7 @@
             </div>
         </section>
 
-        <section id="back-to-top" class="back-to-top">
+        <section id="back-to-top" class="back-to-top fixed-bottom">
             <a href="#hero"><img src=images/back.png height="50px" alt="do góry" title="powrót do góry strony"></a>
         </section>
     </main>
