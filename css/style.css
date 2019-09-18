@@ -15,7 +15,7 @@ body {
     height: auto;
     padding-top: 8rem;
     padding-bottom: 8rem;
-    background-image: url("../images/hero-background.jpg");
+    background-image: url("/images/hero-background.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
