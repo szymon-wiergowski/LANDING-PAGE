@@ -1,5 +1,5 @@
-$(document).ready(function () {
-    $('a[href^="#"]').click(function () {
+$(document).ready(function() {
+    $('a[href^="#"]').click(function() {
         var hash = $(this).attr('href');
         $('html, body').animate({
             scrollTop: $(hash).offset().top
@@ -7,7 +7,7 @@ $(document).ready(function () {
         return false;
     });
 });
-$(window).scroll(function () {
+$(window).scroll(function() {
     var top = $(window).scrollTop();
     var find_class_small = $.contains('mainNav', '.smallNav');
 
