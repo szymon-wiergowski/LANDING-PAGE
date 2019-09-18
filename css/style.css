@@ -113,6 +113,7 @@ body {
     color: black;
 }
 
+
 /* .navbar-light .navbar-nav .nav-link {
     color: #212529;
 }
@@ -136,16 +137,29 @@ nav.small a {
     font-size: 14px;
     font-weight: 100;
 } */
+
 .navbar {
     height: 100px;
-    transition: all 0.5s;
+    transition: all 1s;
     border-radius: 20px;
 }
+
+.navbar-collapse {
+    background-color: white;
+    border-radius: 5%;
+}
+
 .smallNav {
     height: 60px;
     opacity: 0.95;
 }
 
-.back-to-top {
-    background: #17a2b8;
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    font-size: 18px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 20px;
+    margin-left: 10px;
 }
