@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('a[href^="#"]').click(function() {
-        var hash = $(this).attr('href');
+        const hash = $(this).attr('href');
         $('html, body').animate({
             scrollTop: $(hash).offset().top
         }, 1500);
@@ -8,8 +8,8 @@ $(document).ready(function() {
     });
 });
 $(window).scroll(function() {
-    var top = $(window).scrollTop();
-    var find_class_small = $.contains('mainNav', '.smallNav');
+    const top = $(window).scrollTop();
+    const find_class_small = $.contains('mainNav', '.smallNav');
 
     if (top > 50 && find_class_small == false) {
         $('#mainNav').addClass('smallNav');
