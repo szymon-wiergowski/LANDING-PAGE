@@ -151,15 +151,17 @@ nav.small a {
 
 .smallNav {
     height: 60px;
-    opacity: 0.95;
+    opacity: 0.90;
 }
 
 #back-to-top {
     position: fixed;
     bottom: 20px;
-    font-size: 18px;
-    background-color: white;
-    padding: 15px;
-    border-radius: 20px;
+    font-size: 14px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
     margin-left: 10px;
+    display: none;
+    opacity: 0.90;
 }
