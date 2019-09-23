@@ -33,6 +33,6 @@ function scrollFunction() {
 }
 
 function topFunction() {
-    document.body.scrollTop = 0;
+    $('html, body').animate({scrollTop: 0}, 1500);
     document.documentElement.scrollTop = 0;
 }
