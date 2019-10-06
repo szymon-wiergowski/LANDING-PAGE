@@ -60,8 +60,37 @@
             </div>
         </section>
     </header>
-    <main>
-        <section class="basic_function_section bg-info text-white text-center" id="basic-function">
+    <main class="bg-light">
+        <section class="container">
+            <div id="slider" class="carousel slide bg-dark" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#slider" data-slide-to="0" class="active bg-danger"></li>
+                    <li data-target="#slider" data-slide-to="1" class="bg-danger"></li>
+                    <li data-target="#slider" data-slide-to="2" class="bg-danger"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="img-fluid d-block mx-auto w-60" src="images/First-slide.jpg" alt="Margarita">
+                        <div class="carousel-caption d-none d-md-block ">
+                            <h2 class="strong text-danger">Margarita</h2>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="img-fluid d-block mx-auto w-60" src="./images/Second-slide.jpg" alt="Whiskey Sour">
+                        <div class="carousel-caption d-none d-md-block ">
+                            <h2 class="strong">Whiskey Sour</h2>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="img-fluid d-block mx-auto w-60" src="./images/Third-slide.jpg" alt="Daiquiri">
+                        <div class="carousel-caption d-none d-md-block ">
+                            <h2 class="strong text-danger">Daiquiri</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container basic_function_section bg-success text-white text-center" id="basic-function">
             <div class="basic_function_item container">
                 <div class="basic_function_heading">
                     <h2 class="mb-5 text-warning strong">Drink service</h2>
@@ -92,7 +121,7 @@
                             <i class="fas fa-microscope text-danger"></i>
                         </span>
                         <h4 class="strong">
-                            <strong class="text-warning">Sprawdź ile masz promili</strong>
+                            <strong class="text-warning">Sprawdź swoje promile</strong>
                         </h4>
                         <p class="text-faded mb-0">Sprawdź jak szybko się upijasz, jak szybko upijają się inni, kiedy
                             znów będziecie trzeźwi.</p>
@@ -107,35 +136,6 @@
                         <p class="text-faded mb-0">Znajdź szybko najbliższy sklep aby uzupełnić lodówkę, nie pozówl by
                             imperza się skończyła.
                         </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section>
-            <div id="slider" class="carousel slide bg-dark" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#slider" data-slide-to="0" class="active bg-danger"></li>
-                    <li data-target="#slider" data-slide-to="1" class="bg-danger"></li>
-                    <li data-target="#slider" data-slide-to="2" class="bg-danger"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="img-fluid d-block mx-auto w-60" src="images/First-slide.jpg" alt="Margarita">
-                        <div class="carousel-caption d-none d-md-block ">
-                            <h2 class="strong text-danger">Margarita</h2>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="img-fluid d-block mx-auto w-60" src="./images/Second-slide.jpg" alt="Whiskey Sour">
-                        <div class="carousel-caption d-none d-md-block ">
-                            <h2 class="strong">Whiskey Sour</h2>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="img-fluid d-block mx-auto w-60" src="./images/Third-slide.jpg" alt="Daiquiri">
-                        <div class="carousel-caption d-none d-md-block ">
-                            <h2 class="strong text-danger">Daiquiri</h2>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -256,51 +256,9 @@
                         </div>
                     </div>
                 </article>
-                <article>
-                    <div class="row">
-                        <div class="col-12 py-5">
-                            <h2 class="strong text-center">Odwiedź nas w naszych mediach społecznościowych.</h2>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a class="btn btn-block btn-social btn-twitter my-1" href="http://twitter.com/"
-                                target="_blank">
-                                <span class="fab fa-twitter"></span> Twitter!
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a class="btn btn-block btn-social btn-facebook my-1" href="http://facebook.com/"
-                                target="_blank">
-                                <span class="fab fa-facebook"></span> Facebook
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a class="btn btn-block btn-social btn-google my-1" href="http://googleplus.com/"
-                                target="_blank">
-                                <span class="fab fa-google"></span> Google +
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <a class="btn btn-block btn-social btn-instagram my-1" href="http://instagram.com/"
-                                target="_blank">
-                                <span class="fab fa-instagram"></span> Instagram
-                            </a>
-                        </div>
-                    </div>
-                </article>
-                <footer>
-                    <div class="row pt-5">
-                        <div class="col-12 text-center">
-                            <p>Utworzone przez: <u><a href="https://#">JustFive</a>.</u> Informacje kontaktowe: <a
-                                    href="mailto:someone@example.com">someone@example.com</a>. Planowana data premiery:
-                                <time datetime="2020-02">Luty 2020 r.</p>
-                            <p>Ostatnia aktualizacja: <time datetime="2019-09-11">2019-09-11. </time><a
-                                    href="https://#">&copy
-                                    Wszelkie Prawa Zastrzeżone.</a></p>
-                        </div>
-                </footer>
             </div>
         </section>
-        <section id="sign-up" class="bg-light mb-3">
+        <section id="sign-up" class="bg-light">
             <div class="container pt-5">
                 <div class="row bg-success text-white text-center p-4">
                     <div class="col">
@@ -325,29 +283,30 @@
                 </div>
             </div>
         </section>
-        <section id="team" class="bg-light">
+        <section id="team" class="bg-light pb-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 py-2">
+                    <div class="col-12 py-3">
                         <h2 class="strong text-center">Poznaj nasz zespół.</h2>
                     </div>
 
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="flip-card my-2 mx-auto">
                             <div class="flip-card-inner">
-                                <div class="flip-card-front">
+                                <div class="flip-card-front pt-3 bg-success">
                                     <img class="card-img-top m-3 img-fluid rounded-circle"
                                         src="images/Bartosz-Walasek.jpg" alt="Bartosz Walasek">
-                                    <h4 class="card-title text-center pt-3">Bartosz Walasek</h4>
+                                    <h4 class="card-title text-center pt-3 text-white strong">Bartosz Walasek</h4>
+                                    <h6 class="text-white">Junior Front-End Developer</h6>
 
                                 </div>
                                 <div class="flip-card-back bg-success">
-                                    <h4 class="card-title text-center pt-3">Kontakt:</h4>
+                                    <h4 class="card-title text-center text-white strong">Kontakt:</h4>
                                     <ul class="contact-list">
-                                        <li><i class="fab fa-github"></i><a class="contact-link" href="#"
+                                        <li><i class="fab fa-github"></i><a class="contact-link text-white" href="#"
                                                 target="blank">GitHub</a></li>
-                                        <li><i class="fab fa-linkedin-in"></i><a class="contact-link" href="#"
-                                                target="blank">Linkedin</a>
+                                        <li><i class="fab fa-linkedin-in"></i><a class="contact-link text-white"
+                                                href="#" target="blank">Linkedin</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -358,18 +317,19 @@
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="flip-card my-2 mx-auto">
                             <div class="flip-card-inner">
-                                <div class="flip-card-front">
+                                <div class="flip-card-front pt-3 bg-success">
                                     <img class="card-img-top m-3 img-fluid rounded-circle"
                                         src="images/Lukasz-Smolnicki.jpeg" alt="Łukasz Smolnicki">
-                                    <h4 class="card-title text-center pt-3">Łukasz Smolnicki</h4>
+                                    <h4 class="card-title text-center pt-3 text-white strong">Łukasz Smolnicki</h4>
+                                    <h6 class="text-white">Junior Front-End Developer</h6>
                                 </div>
                                 <div class="flip-card-back bg-success">
-                                    <h4 class="card-title text-center pt-3">Kontakt:</h4>
+                                    <h4 class="card-title text-center text-white strong">Kontakt:</h4>
                                     <ul class="contact-list">
-                                        <li><i class="fab fa-github"></i><a class="contact-link" href="#"
+                                        <li><i class="fab fa-github"></i><a class="contact-link text-white" href="#"
                                                 target="blank">GitHub</a></li>
-                                        <li><i class="fab fa-linkedin-in"></i><a class="contact-link" href="#"
-                                                target="blank">Linkedin</a>
+                                        <li><i class="fab fa-linkedin-in"></i><a class="contact-link text-white"
+                                                href="#" target="blank">Linkedin</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -380,18 +340,19 @@
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="flip-card my-2 mx-auto">
                             <div class="flip-card-inner">
-                                <div class="flip-card-front">
+                                <div class="flip-card-front pt-3 bg-success">
                                     <img class="card-img-top m-3 img-fluid rounded-circle"
                                         src="images/Natalia-Nowak.jpg" alt="Natalia Nowak">
-                                    <h4 class="card-title text-center pt-3">Natalia Nowak</h4>
+                                    <h4 class="card-title text-center pt-3 text-white strong">Natalia Nowak</h4>
+                                    <h6 class="text-white">Junior Front-End Developer</h6>
                                 </div>
                                 <div class="flip-card-back bg-success">
-                                    <h4 class="card-title text-center pt-3">Kontakt:</h4>
+                                    <h4 class="card-title text-center text-white strong">Kontakt:</h4>
                                     <ul class="contact-list">
-                                        <li><i class="fab fa-github"></i><a class="contact-link" href="#"
+                                        <li><i class="fab fa-github"></i><a class="contact-link text-white" href="#"
                                                 target="blank">GitHub</a></li>
-                                        <li><i class="fab fa-linkedin-in"></i><a class="contact-link" href="#"
-                                                target="blank">Linkedin</a>
+                                        <li><i class="fab fa-linkedin-in"></i><a class="contact-link text-white"
+                                                href="#" target="blank">Linkedin</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -402,18 +363,20 @@
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="flip-card my-2 mx-auto">
                             <div class="flip-card-inner">
-                                <div class="flip-card-front">
+                                <div class="flip-card-front pt-3 bg-success">
                                     <img class="card-img-top m-3 img-fluid rounded-circle"
                                         src="images/Szymon-Wiergowski.jpeg" alt="Szymon Wiergowski">
-                                    <h4 class="card-title text-center pt-3">Szymon Wiergowski</h4>
-                                </div>
+                                    <h4 class="card-title text-center pt-3 text-white strong">Szymon Wiergowski</h4>
+                                    <h6 class="text-white">Junior Front-End Developer</h6>
+                                </div class="text-white">
                                 <div class="flip-card-back bg-success">
-                                    <h4 class="card-title text-center pt-3">Kontakt:</h4>
+                                    <h4 class="card-title text-center text-white strong">Kontakt:</h4>
                                     <ul class="contact-list">
                                         <li class="contact-list-item"><i class="fab fa-github"></i><a
-                                                class="contact-link" href="#" target="blank">GitHub</a></li>
+                                                class="contact-link text-white" href="#" target="blank">GitHub</a></li>
                                         <li class="contact-list-item"><i class="fab fa-linkedin-in"></i><a
-                                                class="contact-link" href="#" target="blank">Linkedin</a></li>
+                                                class="contact-link text-white" href="#" target="blank">Linkedin</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -422,85 +385,45 @@
 
                 </div>
             </div>
-            <!-- <div class="container py-2 px-2">
-                <div class="row">
-                    <div class="contact-list-card flip-card col-xl-3 col-md-6">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <img class="card-img-top img-fluid rounded-circle" src="images/Natalia-Nowak.jpg"
-                                    alt="Natalia Nowak">
-                                <h4 class="card-title text-center pt-3">Natalia Nowak</h4>
-                            </div>
-                            <div class="contact flip-card-back">
-                                <h4 class="card-title text-center pt-3">Kontakt:</h4>
-                                <ul class="contact-list">
-                                    <li><i class="fab fa-github"></i><a class="contact-link" href="#"
-                                            target="blank">GitHub</a></li>
-                                    <li><i class="fab fa-linkedin-in"></i><a class="contact-link" href="#"
-                                            target="blank">Linkedin</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contact-list-card flip-card col-xl-3 col-md-6">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <img class="card-img-top img-fluid rounded-circle" src="images/Lukasz-Smolnicki.jpeg"
-                                    alt="Natalia Nowak">
-                                <h4 class="card-title text-center pt-3">Łukasz Smolnicki</h4>
-                            </div>
-                            <div class="contact flip-card-back">
-                                <h4 class="card-title text-center pt-3">Kontakt:</h4>
-                                <ul class="contact-list">
-                                    <li><i class="fab fa-github"></i><a class="contact-link" href="#"
-                                            target="blank">GitHub</a></li>
-                                    <li><i class="fab fa-linkedin-in"></i><a class="contact-link" href="#"
-                                            target="blank">Linkedin</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contact-list-card flip-card col-xl-3 col-md-6">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <img class="card-img-top img-fluid rounded-circle" src="images/Bartosz-Walasek.jpg"
-                                    alt="Natalia Nowak">
-                                <h4 class="card-title text-center pt-3">Bartosz Walasek</h4>
-                            </div>
-                            <div class="contact flip-card-back">
-                                <h4 class="card-title text-center pt-3">Kontakt:</h4>
-                                <ul class="contact-list">
-                                    <li><i class="fab fa-github"></i><a class="contact-link" href="#"
-                                            target="blank">GitHub</a></li>
-                                    <li><i class="fab fa-linkedin-in"></i><a class="contact-link" href="#"
-                                            target="blank">Linkedin</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contact-list-card col-xl-3 col-md-6">
-                        <img class="card-img-top img-fluid rounded-circle" src="images/Szymon-Wiergowski.jpeg"
-                            alt="Szymon Wiergowski">
-                        <div class="card-block">
-                            <h4 class="card-title text-center pt-3">Szymon Wiergowski</h4>
-                            <div class="contact">
-                                <ul class="contact-list">
-                                    <li class="contact-list-item"><i class="fab fa-github"></i><a class="contact-link"
-                                            href="#" target="blank">GitHub</a></li>
-                                    <li class="contact-list-item"><i class="fab fa-linkedin-in"></i><a
-                                            class="contact-link" href="#" target="blank">Linkedin</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
         </section>
     </main>
-    </div>
+    <footer class="bg-light">
+        <div class="container">
+            <div class="row bg">
+                <div class="col-12 py-3">
+                    <h2 class="strong text-center">Odwiedź nas w naszych mediach społecznościowych.</h2>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <a class="btn btn-block btn-social btn-twitter my-1" href="http://twitter.com/" target="_blank">
+                        <span class="fab fa-twitter"></span> Twitter!
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <a class="btn btn-block btn-social btn-facebook my-1" href="http://facebook.com/" target="_blank">
+                        <span class="fab fa-facebook"></span> Facebook
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <a class="btn btn-block btn-social btn-google my-1" href="http://googleplus.com/" target="_blank">
+                        <span class="fab fa-google"></span> Google +
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <a class="btn btn-block btn-social btn-instagram my-1" href="http://instagram.com/" target="_blank">
+                        <span class="fab fa-instagram"></span> Instagram
+                    </a>
+                </div>
+            </div>
+            <div class="row pt-5">
+                <div class="col-12 text-center">
+                    <p>Utworzone przez: <u><a href="https://#">JustFive</a>.</u> Informacje kontaktowe: <a
+                            href="mailto:someone@example.com">someone@example.com</a>. Planowana data premiery:
+                        <time datetime="2020-02">Luty 2020 r.</p>
+                    <p>Ostatnia aktualizacja: <time datetime="2019-09-11">2019-09-11. </time><a href="https://#">&copy
+                            Wszelkie Prawa Zastrzeżone.</a></p>
+                </div>
+            </div>
+    </footer>
     <div>
         <button class="bg-success text-white" onClick="topFunction()" id="back-to-top" title="Go to top"><i
                 class="fas fa-arrow-up"></i> Powrót do góry<span class="sr-only"></span></button>
