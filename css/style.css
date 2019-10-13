@@ -6,25 +6,24 @@ body {
     padding: 1.25rem 2.5rem;
     margin: 1.5rem;
 }
-
-.hero_section {
-    min-height: 30rem;
-    position: relative;
-    display: table;
-    width: 100%;
-    height: auto;
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-    background-image: url(../images/hero-background.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.empty_item{
+    height: 80px;
 }
 
+.hero {
+    position: relative;
+}
 .hero_item {
+    position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 1rem;
     padding: 1rem;
+    z-index: 1;
+    width: 35rem;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
 }
 
 @media (min-width: 992px) {
