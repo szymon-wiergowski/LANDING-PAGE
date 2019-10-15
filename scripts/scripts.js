@@ -35,4 +35,22 @@ function scrollFunction() {
 function topFunction() {
     $('html, body').animate({scrollTop: 0}, 1500);
     document.documentElement.scrollTop = 0;
-}
+};
+
+const team = document.getElementById("team").getBoundingClientRect().top + window.scrollY;
+
+
+window.addEventListener('scroll', function(e) {
+    const currentScrollPos = window.scrollY;
+    if (currentScrollPos + window.innerHeight /2 > team) {
+        const flipElement = document.querySelectorAll(".flip-card-inner")
+        flipElement.forEach(function(currentElement){
+            currentElement.classList.add("flip-card-auto");
+            setTimeout(
+                () => currentElement.classList.add("flip-card-auto-return"),
+                3000
+            );
+            
+        })
+    }
+});

@@ -202,3 +202,12 @@ body {
     flex-direction: column;
     justify-content: center;
 }
+
+.flip-card-auto  {
+    transform: rotateY(360deg);
+    transition: transform 3s;
+}
+
+.flip-card-auto-return  {
+    transition: transform 1s;
+}
