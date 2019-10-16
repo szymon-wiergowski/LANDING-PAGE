@@ -5,36 +5,51 @@ body {
 .hero_button {
     padding: 1.25rem 2.5rem;
     margin: 1.5rem;
+    border: none;
 }
 
-.hero_section {
-    min-height: 30rem;
+.empty_item{
+    height: 80px;
+}
+
+.hero {
     position: relative;
-    display: table;
-    width: 100%;
-    height: auto;
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-    background-image: url(../images/hero-background.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
-.hero_item {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 1rem;
-    padding: 1rem;
-}
+.hero_item:after {
+    content:"";
+    display:block;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background:rgba(78, 73, 73, 0.3);
+    }
 
-@media (min-width: 992px) {
-    .hero_section {
-        height: 100vh;
+.hero_item-text{
+    position:absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
+}
+.hero_item h1 {
+    font-size: 5.5rem;
     }
-    .hero_section h1 {
-        font-size: 5.5rem;
-        margin: 2rem;
-    }
+
+@media (max-width: 992px) {
+.carousel-indicators{
+    display: none;
+}
+.hero_item h1  {
+    font-size: 3rem;
+    margin-top: 2.5rem;
+}
+.hero_item h3  {
+    display: none;
+}
 }
 
 .basic_function_icon {
