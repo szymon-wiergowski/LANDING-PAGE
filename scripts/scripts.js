@@ -54,3 +54,28 @@ window.addEventListener('scroll', function(e) {
         })
     }
 });
+
+const coockieNoBtn = document.querySelector('.button-coockie__close');
+const coockieYesBtn = document.querySelector('.button-coockie__accept');
+
+const cookiesModal = () => {
+    if (!localStorage.cookie) {
+        $(document).ready(function () {
+            $("#cookiesModal").modal("show");
+        });
+    }
+
+    coockieYesBtn.addEventListener("click", () => {
+        localStorage.setItem("cookie", "cookie");
+        $(document).ready(function () {
+            $("#cookiesModal").modal("hide");
+        });
+    })
+
+    coockieNoBtn.addEventListener("click", () => {
+        alert('Żeby przejść dalej musisz zaakceptować pliki cookie!');
+    })
+
+};
+
+cookiesModal();
