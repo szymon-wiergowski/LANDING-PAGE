@@ -1,8 +1,11 @@
-let xPosition = 1;
-let yPosition = 1;
+let xPosition, yPosition, yMin = 1,
+    yMax, xMin = 1,
+    xMax;
 
 function mapGenerator(mapWidth, mapHeight) {
     let table = document.getElementById('map');
+    yMax = mapWidth;
+    xMax = mapHeight;
     for (i = 0; i < mapHeight; i++) {
         let row = document.createElement('tr');
         for (let j = 0; j < mapWidth; j++) {
@@ -22,7 +25,13 @@ function mapGenerator(mapWidth, mapHeight) {
     elem.parentNode.removeChild(elem);
 }
 
-function playerPosition(xPosition, yPosition) {
+function playerPosition(x, y) {
+    // trap = document.querySelector(`.x${x}.y${y}`);
+    // if () {
+    // console.log(x, y);
+    xPosition = x;
+    yPosition = y;
+    
     movePlayer = document.querySelector(`.x${xPosition}.y${yPosition}`);
     movePlayer.classList.add('player');
     document.onkeydown = moveDirection;
@@ -31,13 +40,21 @@ function playerPosition(xPosition, yPosition) {
 function moveDirection(move) {
     movePlayer.classList.remove('player');
     if (move.keyCode == 39) {
-        xPosition = xPosition + 1;
+        if (xPosition < xMax) {
+            xPosition++;
+        }
     } else if (move.keyCode == 37) {
-        xPosition = xPosition - 1;
+        if (xPosition > xMin) {
+            xPosition--;
+        }
     } else if (move.keyCode == 40) {
-        yPosition = yPosition + 1;
+        if (yMax > yPosition) {
+            yPosition++;
+        }
     } else if (move.keyCode == 38) {
-        yPosition = yPosition - 1;
+        if (yPosition > yMin) {
+            yPosition--;
+        }
     }
     playerPosition(xPosition, yPosition);
 }
@@ -59,12 +76,14 @@ function moveDirection(move) {
 //         setupOfCar += 'car--down';
 //         break;
 // }
-{/* <script>
-function anim(e) {
-    alert(e.keyCode);
+{
+    /* <script>
+    function anim(e) {
+        alert(e.keyCode);
+    }
+    if(e.keyCode==39){
+        
+    }
+    document.onkeydown = anim;    
+    </script> */
 }
-if(e.keyCode==39){
-    
-}
-document.onkeydown = anim;    
-</script> */}
