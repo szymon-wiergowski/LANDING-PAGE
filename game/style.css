@@ -19,3 +19,7 @@ td {
 .player {
     background: url('images/player.png') center/cover no-repeat;
 }
+
+.bar {
+    background-color: black;
+}
