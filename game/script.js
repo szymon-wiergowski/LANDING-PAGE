@@ -31,30 +31,36 @@ function playerPosition(x, y) {
     // console.log(x, y);
     xPosition = x;
     yPosition = y;
-    
+
     movePlayer = document.querySelector(`.x${xPosition}.y${yPosition}`);
     movePlayer.classList.add('player');
     document.onkeydown = moveDirection;
 }
 
-function moveDirection(move) {
+const moveDirection = (move) => {
     movePlayer.classList.remove('player');
-    if (move.keyCode == 39) {
-        if (xPosition < xMax) {
-            xPosition++;
-        }
-    } else if (move.keyCode == 37) {
-        if (xPosition > xMin) {
-            xPosition--;
-        }
-    } else if (move.keyCode == 40) {
-        if (yMax > yPosition) {
-            yPosition++;
-        }
-    } else if (move.keyCode == 38) {
-        if (yPosition > yMin) {
-            yPosition--;
-        }
+    switch (move.keyCode) {
+        case 39:
+            if (xPosition < xMax) {
+                xPosition++;
+            }
+            break;
+        case 37:
+            if (xPosition > xMin) {
+                xPosition--;
+            }
+            break;
+        case 40:
+            if (yMax > yPosition) {
+                yPosition++;
+            }
+            break;
+        case 38:
+            if (yPosition > yMin) {
+                yPosition--;
+            }
+            break;
+
     }
     playerPosition(xPosition, yPosition);
 }
