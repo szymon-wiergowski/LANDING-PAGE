@@ -80,25 +80,16 @@ const cookiesModal = () => {
 
 cookiesModal();
 
-(function($) {
-    $(document).ready(function() {
 
-        // hide .navbar first
-
-
-        // fade in .navbar
-        $(function() {
-            $(window).scroll(function() {
-                // set distance user needs to scroll before we fadeIn navbar
-                if ($(this).scrollTop() > 100) {
-                    $('.navbar').fadeOut();
-                } else {
-                    $('.navbar').fadeIn();
-                }
-            });
-
-
-        });
-
-    });
-}(jQuery));
+(function() {
+    var navMenuItems = document.querySelectorAll('#navbarNav a');
+    var navbar = document.querySelector("#navbarNav");
+    navMenuItems.forEach(item => {
+        item.addEventListener("click", () => {
+            navbar.classList.remove("show");
+        })
+    })
+    document.addEventListener("scroll", () => {
+        navbar.classList.remove("show");
+    })
+})();
