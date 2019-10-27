@@ -13,6 +13,18 @@
     <button id="btn" onclick="mapGenerator(10,10)">Wygeneruj mapę.</button>
     <button id="startGame">Rozpocznij grę</button>
     <table id="map"></table>
-</body>
-<script src="script.js"></script>
+
+    </br>
+    <div id="timer">
+
+        <body onload="startGameTimer(4, 59);">
+    </div>
+    <button onclick="startGameTimer(min,sec)" class="start">Start</button>
+
+    <button onclick="stopGameTimer()" class="stop">Pause</button>
+
+    </div>
+    </body>
+    <script src="script.js"></script>
+
 </html>
