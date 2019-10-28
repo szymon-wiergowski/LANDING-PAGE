@@ -33,7 +33,7 @@ function scrollFunction() {
 }
 
 function topFunction() {
-    $('html, body').animate({scrollTop: 0}, 1500);
+    $('html, body').animate({ scrollTop: 0 }, 1500);
     document.documentElement.scrollTop = 0;
 };
 
@@ -42,15 +42,15 @@ const team = document.getElementById("team").getBoundingClientRect().top + windo
 
 window.addEventListener('scroll', function(e) {
     const currentScrollPos = window.scrollY;
-    if (currentScrollPos + window.innerHeight /2 > team) {
+    if (currentScrollPos + window.innerHeight / 2 > team) {
         const flipElement = document.querySelectorAll(".flip-card-inner")
-        flipElement.forEach(function(currentElement){
+        flipElement.forEach(function(currentElement) {
             currentElement.classList.add("flip-card-auto");
             setTimeout(
                 () => currentElement.classList.add("flip-card-auto-return"),
                 3000
             );
-            
+
         })
     }
 });
@@ -60,14 +60,14 @@ const coockieYesBtn = document.querySelector('.button-coockie__accept');
 
 const cookiesModal = () => {
     if (!localStorage.cookie) {
-        $(document).ready(function () {
+        $(document).ready(function() {
             $("#cookiesModal").modal("show");
         });
     }
 
     coockieYesBtn.addEventListener("click", () => {
         localStorage.setItem("cookie", "cookie");
-        $(document).ready(function () {
+        $(document).ready(function() {
             $("#cookiesModal").modal("hide");
         });
     })
@@ -79,3 +79,17 @@ const cookiesModal = () => {
 };
 
 cookiesModal();
+
+
+(function() {
+    var navMenuItems = document.querySelectorAll('#navbarNav a');
+    var navbar = document.querySelector("#navbarNav");
+    navMenuItems.forEach(item => {
+        item.addEventListener("click", () => {
+            navbar.classList.remove("show");
+        })
+    })
+    document.addEventListener("scroll", () => {
+        navbar.classList.remove("show");
+    })
+})();
