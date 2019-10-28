@@ -81,39 +81,32 @@ const cookiesModal = () => {
 cookiesModal();
 
 document.addEventListener('scroll', showSectionInNav)
-console.log(team);
 
-function showSectionInNav() {
+const showSectionInNav = () => {
     const currentPosition = window.scrollY;
     const basicFunctionPosition = document.querySelector('#basic-function').offsetTop;
     const moreFunctionsPosition = document.querySelector('#more-functions').offsetTop;
     const signUpPosition = document.querySelector('#sign-up').offsetTop;
     const teamPosition = document.querySelector('#team').offsetTop;
-    let x; // zmienna przechowująca link do określonego miejsca w nawigacji spelniajaca jakiś if
+    let dataSectionInNav; // zmienna przechowująca link do określonego miejsca w nawigacji spelniajaca jakiś warunek
     if (currentPosition > basicFunctionPosition && currentPosition < moreFunctionsPosition) {
-        x = document.querySelector('[data-section-basic-func]');
-        x.classList.add("mystyle");
-
-    } else if (currentPosition > basicFunctionPosition && currentPosition < moreFunctionsPosition) {
-        x = document.querySelector('[data-section-more-func]');
-        x.classList.add("mystyle");
+        dataSectionInNav = document.querySelector('.data-section-basic-func');
+        dataSectionInNav.classList.add("dupa");
 
     } else if (currentPosition > moreFunctionsPosition && currentPosition < signUpPosition) {
-        x = document.querySelector('[data-section-sign-up]');
-        x.classList.add("mystyle");
+        dataSectionInNav = document.querySelector('.data-section-more-func');
+        dataSectionInNav.classList.add("dupa1");
 
     } else if (currentPosition > signUpPosition && currentPosition < teamPosition) {
-        x = document.querySelector('[data-section-team]');
-        x.classList.add("mystyle");
+        dataSectionInNav = document.querySelector('.data-section-sign-up');
+        dataSectionInNav.classList.add("dupa2");
 
+    } else if (currentPosition > teamPosition) {
+        dataSectionInNav = document.querySelector('.data-section-team');
+        dataSectionInNav.classList.add("dupa3");
 
-        console.log(basicFunctionPosition);
-        console.log(moreFunctionsPosition);
-        console.log(signUpPosition);
-        console.log(teamPosition);
-        console.log(currentPosition);
-
-
-
+        console.log(dataSectionInNav);
 
     }
+}
+showSectionInNav()
