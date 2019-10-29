@@ -1,5 +1,5 @@
-$(document).ready(function() {
-    $('a[href^="#"]').click(function() {
+$(document).ready(function () {
+    $('a[href^="#"]').click(function () {
         var hash = $(this).attr('href');
         $('html, body').animate({
             scrollTop: $(hash).offset().top
@@ -7,7 +7,7 @@ $(document).ready(function() {
         return false;
     });
 });
-$(window).scroll(function() {
+$(window).scroll(function () {
     var top = $(window).scrollTop();
     var find_class_small = $.contains('mainNav', '.smallNav');
 
@@ -20,7 +20,7 @@ $(window).scroll(function() {
 });
 const mybutton = document.getElementById("back-to-top");
 
-window.onscroll = function() {
+window.onscroll = function () {
     scrollFunction()
 };
 
@@ -33,18 +33,20 @@ function scrollFunction() {
 }
 
 function topFunction() {
-    $('html, body').animate({ scrollTop: 0 }, 1500);
+    $('html, body').animate({
+        scrollTop: 0
+    }, 1500);
     document.documentElement.scrollTop = 0;
 };
 
 const team = document.getElementById("team").getBoundingClientRect().top + window.scrollY;
 
 
-window.addEventListener('scroll', function(e) {
+window.addEventListener('scroll', function (e) {
     const currentScrollPos = window.scrollY;
     if (currentScrollPos + window.innerHeight / 2 > team) {
         const flipElement = document.querySelectorAll(".flip-card-inner")
-        flipElement.forEach(function(currentElement) {
+        flipElement.forEach(function (currentElement) {
             currentElement.classList.add("flip-card-auto");
             setTimeout(
                 () => currentElement.classList.add("flip-card-auto-return"),
@@ -58,30 +60,36 @@ window.addEventListener('scroll', function(e) {
 const coockieNoBtn = document.querySelector('.button-coockie__close');
 const coockieYesBtn = document.querySelector('.button-coockie__accept');
 
+const createCookie = (name, value, expires) => {
+    let cookie = `${name}=${value};`;
+    expires = new Date(new Date().getTime() + parseInt(expires) * 1000 * 60 * 60 * 24);
+    cookie += `expires=${expires.toGMTString()};`;
+    document.cookie = cookie;
+    console.log(cookie);
+}
+
 const cookiesModal = () => {
-    if (!localStorage.cookie) {
-        $(document).ready(function() {
+    if (document.cookie !==  "cookie=cookie") {
+        $(document).ready(function () {
             $("#cookiesModal").modal("show");
         });
     }
-
     coockieYesBtn.addEventListener("click", () => {
-        localStorage.setItem("cookie", "cookie");
-        $(document).ready(function() {
+        createCookie("cookie", "cookie", 30);
+        $(document).ready(function () {
             $("#cookiesModal").modal("hide");
         });
     })
-
     coockieNoBtn.addEventListener("click", () => {
-        alert('Żeby przejść dalej musisz zaakceptować pliki cookie!');
+        $(document).ready(function () {
+            $("#cookiesModal").modal("hide");
+        });
     })
-
 };
 
 cookiesModal();
 
-
-(function() {
+(function () {
     var navMenuItems = document.querySelectorAll('#navbarNav a');
     var navbar = document.querySelector("#navbarNav");
     navMenuItems.forEach(item => {
