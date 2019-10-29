@@ -1,29 +1,18 @@
-body {
-    /* background: url('images/grass.jpg'); */
-}
-
 table {
     margin-left: auto;
     margin-right: auto;
     border: 1px solid black;
     border-spacing: 0;
     border-collapse: collapse;
+    background: url(images/plansza.png) center/cover no-repeat;
 }
 
 td {
     width: 20px;
     height: 20px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .player {
-    background: url('images/player.png') center/cover no-repeat;
-}
-
-.bar {
-    background-color: black;
-}
-
-table {
-    background: url(images/plansza.png) center/cover no-repeat;
+    background: url(images/player.png) center/cover no-repeat;
 }
