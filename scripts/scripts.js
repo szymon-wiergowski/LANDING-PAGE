@@ -106,7 +106,6 @@ const showSectionInNav = () => {
         dataSectionInNav.classList.add("dupa3");
 
         console.log(dataSectionInNav);
-
     }
 }
-showSectionInNav()
+showSectionInNav();
