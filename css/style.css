@@ -69,10 +69,6 @@ body {
     padding-bottom: 2rem;
 }
 
-/* .basic_function_heading h2 {
-    font-size: 3rem;
-} */
-
 .basic_function_heading h3 {
     font-size: 1rem;
     text-transform: uppercase;
@@ -200,4 +196,23 @@ body {
 
 .flip-card-auto-return  {
     transition: transform 1s;
+}
+
+.sectionPositionInNav {
+    position:relative;
+    display:inline-block;
+    /* text-decoration: underline;
+    text-decoration-color: #5bc0de;
+    text-decoration-line: 3px;
+    border-radius: 5px; */
+}
+.sectionPositionInNav:after {
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:0;
+    margin:auto;
+    background:#5bc0de;
+    height:7px;
 }
