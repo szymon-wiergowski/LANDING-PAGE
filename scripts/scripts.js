@@ -1,3 +1,34 @@
+"use strict";
+
+window.addEventListener('scroll', showSectionInNav)
+
+const showSectionInNav = () => {
+    let currentPosition = window.scrollY;
+    const basicFunctionPosition = document.querySelector('#basic-function').offsetTop;
+    const moreFunctionsPosition = document.querySelector('#more-functions').offsetTop;
+    const signUpPosition = document.querySelector('#sign-up').offsetTop;
+    const teamPosition = document.querySelector('#team').offsetTop;
+    let dataSectionInNav; // zmienna przechowująca link do określonego miejsca w nawigacji spelniajaca jakiś warunek
+    if (currentPosition > basicFunctionPosition && currentPosition < moreFunctionsPosition) {
+        dataSectionInNav = document.querySelector('.data-section-basic-func');
+        dataSectionInNav.classList.add("bg-info text-white rounded p-2");
+
+    } else if (currentPosition > moreFunctionsPosition && currentPosition < signUpPosition) {
+        dataSectionInNav = document.querySelector('.data-section-more-func');
+        dataSectionInNav.classList.add("bg-info text-white rounded p-2");
+
+    } else if (currentPosition > signUpPosition && currentPosition < teamPosition) {
+        dataSectionInNav = document.querySelector('.data-section-sign-up');
+        dataSectionInNav.classList.add("bg-info text-white rounded p-2");
+
+    } else if (currentPosition > teamPosition) {
+        dataSectionInNav = document.querySelector('.data-section-team');
+        dataSectionInNav.classList.add("bg-info text-white rounded p-2");
+    }
+    console.log(currentPosition);
+}
+showSectionInNav();
+
 $(document).ready(function () {
     $('a[href^="#"]').click(function () {
         var hash = $(this).attr('href');
@@ -80,32 +111,3 @@ const cookiesModal = () => {
 
 cookiesModal();
 
-document.addEventListener('scroll', showSectionInNav)
-
-const showSectionInNav = () => {
-    const currentPosition = window.scrollY;
-    const basicFunctionPosition = document.querySelector('#basic-function').offsetTop;
-    const moreFunctionsPosition = document.querySelector('#more-functions').offsetTop;
-    const signUpPosition = document.querySelector('#sign-up').offsetTop;
-    const teamPosition = document.querySelector('#team').offsetTop;
-    let dataSectionInNav; // zmienna przechowująca link do określonego miejsca w nawigacji spelniajaca jakiś warunek
-    if (currentPosition > basicFunctionPosition && currentPosition < moreFunctionsPosition) {
-        dataSectionInNav = document.querySelector('.data-section-basic-func');
-        dataSectionInNav.classList.add("dupa");
-
-    } else if (currentPosition > moreFunctionsPosition && currentPosition < signUpPosition) {
-        dataSectionInNav = document.querySelector('.data-section-more-func');
-        dataSectionInNav.classList.add("dupa1");
-
-    } else if (currentPosition > signUpPosition && currentPosition < teamPosition) {
-        dataSectionInNav = document.querySelector('.data-section-sign-up');
-        dataSectionInNav.classList.add("dupa2");
-
-    } else if (currentPosition > teamPosition) {
-        dataSectionInNav = document.querySelector('.data-section-team');
-        dataSectionInNav.classList.add("dupa3");
-
-        console.log(dataSectionInNav);
-    }
-}
-showSectionInNav();
