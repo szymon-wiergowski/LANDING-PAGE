@@ -10,26 +10,10 @@
 </head>
 
 <body>
-
-    <button id="btn" onclick="mapGenerator(10,10)">Wygeneruj mapę.</button>
-    <button id="startGame">Rozpocznij grę</button>
-    <table id="map"></table>
-
-    </br>
-    <div id="timer">
-
-        <body onload="startGameTimer(4, 59);">
-    </div>
-    <div>
-        <button onclick="startGameTimer(min,sec)" class="start">Start</button>
-
-        <button onclick="stopGameTimer()" class="stop">Pause</button>
-
-    </div>
-
-    </div>
-
-    </body>
     <script src="script.js"></script>
+    <button id="btn" onclick="mapGenerator(10,10)">Wygeneruj mapę.</button>
+    <button onclick="playerPosition(1, 1);">Rozpocznij grę</button>
+    <table id="map"></table>
+</body>
 
 </html>
