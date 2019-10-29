@@ -34,8 +34,6 @@ function stopGameTimer() {
     }
 }
 
-
-
 let yMin = 1,
     yMax, xMin = 1,
     xMax, bars, player;
