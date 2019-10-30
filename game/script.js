@@ -42,6 +42,9 @@ class Player {
         document.addEventListener('keydown', (event) => {
             this.handleMove(event.keyCode);
         })
+        let elem = document.getElementById('startGame');
+        elem.parentNode.removeChild(elem);
+        document.getElementById('pouseGame').disabled = false;
     }
     handleMove(keyCode) {
         switch (keyCode) {
@@ -137,6 +140,7 @@ class Map {
         }
         let elem = document.getElementById('mapGenerator');
         elem.parentNode.removeChild(elem);
+        document.getElementById('startGame').disabled = false;
 
         bars = [new Bar(6, 6), new Bar(8, 8)]
     }
@@ -144,7 +148,11 @@ class Map {
 
 document.querySelector('#startGame').addEventListener('click', () => {
     player = new Player(2, 2);
+    startGameTimer(5,0);
 });
 document.querySelector('#mapGenerator').addEventListener('click', () => {
     map = new Map(10, 10);
+});
+document.querySelector('#pouseGame').addEventListener('click', () => {
+    stopGameTimer();
 });
