@@ -1,34 +1,35 @@
-let min = 0,
-    sec = 0,
-    bars, player, map;
+let bars, player, map, timer;
 
-function startGameTimer(m, s) {
-    min = m;
-    sec = s;
-    idTimer = setInterval(gameTimer, 1000);
-}
-
-function gameTimer() {
-    sec--;
-    if (min > 0 && sec == -1) {
-        min--;
-        sec = 59;
-    } else if (min == 0 && sec < 0) {
-        stopGameTimer();
+class Timer {
+    constructor(m, s) {
+        this.min = m;
+        this.sec = s;
+        this.pouse = true;
+        this.timerToggle = setInterval(this.gameTimer, 1000);
+        console.log(this.min)
     }
-    console.log(min, sec);
-    if (sec > 9) {
-        document.getElementById("timer").innerHTML = "0" + min + ":" + sec;
-    } else {
-        document.getElementById("timer").innerHTML = "0" + min + ":0" + sec;
+    gameTimer(m, s) {
+        this.sec--;
+        console.log(this.sec)
+        console.log(this.min)
+        if (this.min > 0 && this.sec == -1) {
+            this.min--;
+            this.sec = 59;
+        } else if (this.min == 0 && this.sec < 0) {
+            clearInterval(this.timerToggle);
+        }
+        if (sec > 9) {
+            document.getElementById("timer").innerHTML = "0" + this.min + ":" + this.sec;
+        } else {
+            document.getElementById("timer").innerHTML = "0" + this.min + ":0" + this.sec;
+        }
     }
-}
-
-function stopGameTimer() {
-    clearInterval(idTimer);
-    if (min <= 0 && sec <= 00) {
-        alert("Koniec czasu!");
-        sec = 0;
+    stopGameTimer() {
+        clearInterval(this.timerToggle);
+        if (this.min <= 0 && this.sec <= 0) {
+            alert("Koniec czasu!");
+            this.sec = 0;
+        }
     }
 }
 
@@ -77,8 +78,6 @@ class Player {
         this.element.classList.remove('player');
         this.element = document.querySelector(`.x${x}.y${y}`);
         this.element.classList.add('player');
-
-        console.log(this)
     }
     checkColsion(x, y) {
         const colision = bars.find((bar) => {
@@ -146,13 +145,21 @@ class Map {
     }
 }
 
-document.querySelector('#startGame').addEventListener('click', () => {
-    player = new Player(2, 2);
-    startGameTimer(5,0);
-});
-document.querySelector('#mapGenerator').addEventListener('click', () => {
-    map = new Map(10, 10);
-});
-document.querySelector('#pouseGame').addEventListener('click', () => {
-    stopGameTimer();
-});
+function gameMenu() {
+    document.querySelector('#startGame').addEventListener('click', () => {
+        player = new Player(2, 2);
+        timer = new Timer(5,0);
+    });
+    document.querySelector('#mapGenerator').addEventListener('click', () => {
+        map = new Map(10, 10);
+    });
+    document.querySelector('#pouseGame').addEventListener('click', () => {
+        if (pouse = false) {
+            clearInterval(timer.timerToggle);
+        } else {
+            setInterval(timer.timerToggle, 1000);
+        }
+    });
+}
+
+gameMenu();
