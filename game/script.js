@@ -46,23 +46,22 @@ class Player {
     handleMove(keyCode) {
         switch (keyCode) {
             case 39:
-                if (this.positionX < xMax) {
+                if (this.positionX < map.xMax) {
                     this.move(this.positionX + 1, this.positionY);
                 }
-
                 break;
             case 37:
-                if (this.positionX > xMin) {
+                if (this.positionX > map.xMin) {
                     this.move(this.positionX - 1, this.positionY);
                 }
                 break;
             case 40:
-                if (this.positionY < yMax) {
+                if (this.positionY < map.yMax) {
                     this.move(this.positionX, this.positionY + 1);
                 }
                 break;
             case 38:
-                if (this.positionY > yMin) {
+                if (this.positionY > map.yMin) {
                     this.move(this.positionX, this.positionY - 1);
                 }
                 break;
