@@ -201,11 +201,7 @@ body {
 .sectionPositionInNav {
     position:relative;
     display:inline-block;
-    /* text-decoration: underline;
-    text-decoration-color: #5bc0de;
-    text-decoration-line: 3px;
-    border-radius: 5px; */
-}
+    }
 .sectionPositionInNav:after {
     content:"";
     position:absolute;
@@ -213,6 +209,6 @@ body {
     bottom:0;
     right:0;
     margin:auto;
-    background:#5bc0de;
-    height:7px;
+    background:#5cb85c;
+    height:5px;
 }
