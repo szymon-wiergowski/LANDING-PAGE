@@ -1,35 +1,43 @@
-let bars, player, map, timer;
+let bars, player, bar, mapObjects, timer;
 
-class Timer {
-    constructor(m, s) {
-        this.min = m;
-        this.sec = s;
-        this.pouse = true;
-        this.timerToggle = setInterval(this.gameTimer, 1000);
-        console.log(this.min)
-    }
-    gameTimer(m, s) {
-        this.sec--;
-        console.log(this.sec)
-        console.log(this.min)
-        if (this.min > 0 && this.sec == -1) {
-            this.min--;
-            this.sec = 59;
-        } else if (this.min == 0 && this.sec < 0) {
-            clearInterval(this.timerToggle);
-        }
-        if (sec > 9) {
-            document.getElementById("timer").innerHTML = "0" + this.min + ":" + this.sec;
-        } else {
-            document.getElementById("timer").innerHTML = "0" + this.min + ":0" + this.sec;
-        }
-    }
-    stopGameTimer() {
-        clearInterval(this.timerToggle);
-        if (this.min <= 0 && this.sec <= 0) {
-            alert("Koniec czasu!");
-            this.sec = 0;
-        }
+// class Timer {
+//     constructor(m, s) {
+//         this.min = m;
+//         this.sec = s;
+//         this.pouse = true;
+//         this.timerToggle = setInterval(gameTimer(), 1000);
+//         console.log(this.min)
+//     }
+//     gameTimer() {
+//         this.sec--;
+//         console.log(this.sec)
+//         console.log(this.min)
+//         if (this.min > 0 && this.sec == -1) {
+//             this.min--;
+//             this.sec = 59;
+//         } else if (this.min == 0 && this.sec < 0) {
+//             clearInterval(this.timerToggle);
+//         }
+//         if (this.sec > 9) {
+//             document.getElementById("timer").innerHTML = "0" + this.min + ":" + this.sec;
+//         } else {
+//             document.getElementById("timer").innerHTML = "0" + this.min + ":0" + this.sec;
+//         }
+//     }
+// }
+// stopGameTimer() {
+//     clearInterval(this.timerToggle);
+//     if (this.min <= 0 && this.sec <= 0) {
+//         alert("Koniec czasu!");
+//         this.sec = 0;
+//     }
+// }
+// }
+
+class Obstacle {
+    constructor(x, y) {
+        this.positionX = x;
+        this.positionY = y;
     }
 }
 
@@ -106,7 +114,6 @@ class Bar {
         if (true === this.visited) {
             return;
         }
-
         player.addBeer(1);
         this.visited = true;
     }
@@ -121,6 +128,13 @@ class Map {
         this.mapGenerator(x, y);
     }
     mapGenerator(x, y) {
+        mapObjects = [
+            ['x', 'x', 'x', 'x', 'x'],
+            ['x', 'u', 'x', 'u', 'u'],
+            ['x', 'u', 'b', 'u', 'u'],
+            ['x', 'u', 'u', 'u', 'u'],
+            ['x', 'x', 'x', 'b', 'x'],
+        ]
         let table = document.getElementById('map');
         for (let i = 0; i < y; i++) {
             let row = document.createElement('tr');
@@ -128,6 +142,7 @@ class Map {
                 let col = document.createElement('td');
                 row.appendChild(col);
                 col.classList.add('x' + (j + 1));
+                col.classList.add(mapObjects[i][j]);
             }
             table.appendChild(row);
         }
@@ -140,18 +155,16 @@ class Map {
         let elem = document.getElementById('mapGenerator');
         elem.parentNode.removeChild(elem);
         document.getElementById('startGame').disabled = false;
-
-        bars = [new Bar(6, 6), new Bar(8, 8)]
     }
 }
 
 function gameMenu() {
     document.querySelector('#startGame').addEventListener('click', () => {
         player = new Player(2, 2);
-        timer = new Timer(5,0);
+        // timer = new Timer(5,0);
     });
     document.querySelector('#mapGenerator').addEventListener('click', () => {
-        map = new Map(10, 10);
+        map = new Map(5, 5);
     });
     document.querySelector('#pouseGame').addEventListener('click', () => {
         if (pouse = false) {
