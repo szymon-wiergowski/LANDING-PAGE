@@ -98,16 +98,3 @@ cookiesModal();
         navbar.classList.remove("show");
     })
 })();
-
-(function() {
-    var navMenuItems = document.querySelectorAll('#navbarNav a');
-    var navbar = document.querySelector("#navbarNav");
-    navMenuItems.forEach(item => {
-        item.addEventListener("click", () => {
-            navbar.classList.remove("show");
-        })
-    })
-    document.addEventListener("scroll", () => {
-        navbar.classList.remove("show");
-    })
-})();
