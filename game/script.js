@@ -1,7 +1,6 @@
 let min = 0,
-    sec = 0;
-
-
+    sec = 0,
+    bars, player, map;
 
 function startGameTimer(m, s) {
     min = m;
@@ -30,15 +29,8 @@ function stopGameTimer() {
     if (min <= 0 && sec <= 00) {
         alert("Koniec czasu!");
         sec = 0;
-
     }
 }
-
-
-
-let yMin = 1,
-    yMax, xMin = 1,
-    xMax, bars, player;
 
 class Player {
     constructor(x, y) {
@@ -50,27 +42,29 @@ class Player {
         document.addEventListener('keydown', (event) => {
             this.handleMove(event.keyCode);
         })
+        let elem = document.getElementById('startGame');
+        elem.parentNode.removeChild(elem);
+        document.getElementById('pouseGame').disabled = false;
     }
     handleMove(keyCode) {
         switch (keyCode) {
             case 39:
-                if (this.positionX < xMax) {
+                if (this.positionX < map.xMax) {
                     this.move(this.positionX + 1, this.positionY);
                 }
-
                 break;
             case 37:
-                if (this.positionX > xMin) {
+                if (this.positionX > map.xMin) {
                     this.move(this.positionX - 1, this.positionY);
                 }
                 break;
             case 40:
-                if (this.positionY < yMax) {
+                if (this.positionY < map.yMax) {
                     this.move(this.positionX, this.positionY + 1);
                 }
                 break;
             case 38:
-                if (this.positionY > yMin) {
+                if (this.positionY > map.yMin) {
                     this.move(this.positionX, this.positionY - 1);
                 }
                 break;
@@ -119,33 +113,46 @@ class Bar {
     }
 }
 
-function mapGenerator(mapWidth, mapHeight) {
-    let table = document.getElementById('map');
-    yMax = mapWidth;
-    xMax = mapHeight;
-    for (i = 0; i < mapHeight; i++) {
-        let row = document.createElement('tr');
-        for (let j = 0; j < mapWidth; j++) {
-            let col = document.createElement('td');
-            row.appendChild(col);
-            col.classList.add('x' + (j + 1));
-        }
-        table.appendChild(row);
+class Map {
+    constructor(x, y) {
+        this.xMin = 1;
+        this.yMin = 1;
+        this.xMax = x;
+        this.yMax = y;
+        this.mapGenerator(x, y);
     }
-    for (i = 0; i < mapHeight; i++) {
-        let yHigh = table.rows[i]
-        for (j = 0; j < mapWidth; j++) {
-            yHigh.cells[j].classList.add('y' + (i + 1));
+    mapGenerator(x, y) {
+        let table = document.getElementById('map');
+        for (let i = 0; i < y; i++) {
+            let row = document.createElement('tr');
+            for (let j = 0; j < x; j++) {
+                let col = document.createElement('td');
+                row.appendChild(col);
+                col.classList.add('x' + (j + 1));
+            }
+            table.appendChild(row);
         }
-    }
-    let elem = document.getElementById('btn');
-    elem.parentNode.removeChild(elem);
+        for (let i = 0; i < y; i++) {
+            let yHigh = table.rows[i]
+            for (let j = 0; j < x; j++) {
+                yHigh.cells[j].classList.add('y' + (i + 1));
+            }
+        }
+        let elem = document.getElementById('mapGenerator');
+        elem.parentNode.removeChild(elem);
+        document.getElementById('startGame').disabled = false;
 
-    bars = [new Bar(6, 6), new Bar(8, 8)]
+        bars = [new Bar(6, 6), new Bar(8, 8)]
+    }
 }
-
 
 document.querySelector('#startGame').addEventListener('click', () => {
     player = new Player(2, 2);
-
+    startGameTimer(5,0);
+});
+document.querySelector('#mapGenerator').addEventListener('click', () => {
+    map = new Map(10, 10);
+});
+document.querySelector('#pouseGame').addEventListener('click', () => {
+    stopGameTimer();
 });
