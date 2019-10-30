@@ -1,4 +1,44 @@
-let yMin = 1, yMax, xMin = 1, xMax, bars, player;
+let min = 0,
+    sec = 0;
+
+
+
+function startGameTimer(m, s) {
+    min = m;
+    sec = s;
+    idTimer = setInterval(gameTimer, 1000);
+}
+
+function gameTimer() {
+    sec--;
+    if (min > 0 && sec == -1) {
+        min--;
+        sec = 59;
+    } else if (min == 0 && sec < 0) {
+        stopGameTimer();
+    }
+    console.log(min, sec);
+    if (sec > 9) {
+        document.getElementById("timer").innerHTML = "0" + min + ":" + sec;
+    } else {
+        document.getElementById("timer").innerHTML = "0" + min + ":0" + sec;
+    }
+}
+
+function stopGameTimer() {
+    clearInterval(idTimer);
+    if (min <= 0 && sec <= 00) {
+        alert("Koniec czasu!");
+        sec = 0;
+
+    }
+}
+
+
+
+let yMin = 1,
+    yMax, xMin = 1,
+    xMax, bars, player;
 
 class Player {
     constructor(x, y) {
@@ -52,7 +92,7 @@ class Player {
                 return bar
             }
         })
-        if(typeof colision !== 'undefined') {
+        if (typeof colision !== 'undefined') {
             colision.interact(player)
         }
     }
