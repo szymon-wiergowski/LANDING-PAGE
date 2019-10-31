@@ -1,43 +1,44 @@
-let bars, player, bar, mapObjects, timer;
+let pause = true,
+    mapObjects = [],
+    player, bar, mapArray,
+    timer, obstacle;
 
-// class Timer {
-//     constructor(m, s) {
-//         this.min = m;
-//         this.sec = s;
-//         this.pouse = true;
-//         this.timerToggle = setInterval(gameTimer(), 1000);
-//         console.log(this.min)
-//     }
-//     gameTimer() {
-//         this.sec--;
-//         console.log(this.sec)
-//         console.log(this.min)
-//         if (this.min > 0 && this.sec == -1) {
-//             this.min--;
-//             this.sec = 59;
-//         } else if (this.min == 0 && this.sec < 0) {
-//             clearInterval(this.timerToggle);
-//         }
-//         if (this.sec > 9) {
-//             document.getElementById("timer").innerHTML = "0" + this.min + ":" + this.sec;
-//         } else {
-//             document.getElementById("timer").innerHTML = "0" + this.min + ":0" + this.sec;
-//         }
-//     }
-// }
-// stopGameTimer() {
-//     clearInterval(this.timerToggle);
-//     if (this.min <= 0 && this.sec <= 0) {
-//         alert("Koniec czasu!");
-//         this.sec = 0;
-//     }
-// }
-// }
+class Timer {
+    constructor(m, s) {
+        this.min = m;
+        this.sec = s;
+        this.pause = true;
+        this.gameTimer();
+        this.idTimer
+    }
+    gameTimer() {
+        this.idTimer = setInterval(() => {
+            this.sec--;
+            if (this.min > 0 && this.sec < 0) {
+                this.min--;
+                this.sec = 59;
+            }
+            if (this.sec > 9) {
+                document.getElementById("timer").innerHTML = "0" + this.min + ":" + this.sec;
+            } else {
+                document.getElementById("timer").innerHTML = "0" + this.min + ":0" + this.sec;
+            }
+            if (this.min === 0 && this.sec === 0) {
+                clearInterval(this.idTimer);
+                let elem = document.getElementById('pauseGame');
+                elem.parentNode.removeChild(elem);
+                document.getElementById("timer").innerHTML = "PRZEGRAŁEŚ! NASTAŁ DZIEŃ A TY WCIĄŻ NA NOGACH xD";
+                document.getElementById("timer").style.height = '100%';
+                document.getElementById("timer").style.width = '100%';
+            }
 
-class Obstacle {
-    constructor(x, y) {
-        this.positionX = x;
-        this.positionY = y;
+        }, 1000);
+    }
+    stopGameTimer() {
+        clearInterval(this.idTimer);
+    }
+    startGameTimer() {
+        this.gameTimer();
     }
 }
 
@@ -53,7 +54,7 @@ class Player {
         })
         let elem = document.getElementById('startGame');
         elem.parentNode.removeChild(elem);
-        document.getElementById('pouseGame').disabled = false;
+        document.getElementById('pauseGame').disabled = false;
     }
     handleMove(keyCode) {
         switch (keyCode) {
@@ -61,6 +62,7 @@ class Player {
                 if (this.positionX < map.xMax) {
                     this.move(this.positionX + 1, this.positionY);
                 }
+
                 break;
             case 37:
                 if (this.positionX > map.xMin) {
@@ -80,19 +82,26 @@ class Player {
         }
     }
     move(x, y) {
-        this.checkColsion(x, y);
-        this.positionX = x;
-        this.positionY = y;
-        this.element.classList.remove('player');
-        this.element = document.querySelector(`.x${x}.y${y}`);
-        this.element.classList.add('player');
+        if (pause === true) {
+            this.checkColsion(x, y);
+            this.positionX = x;
+            this.positionY = y;
+            this.element.classList.remove('player');
+            this.element = document.querySelector(`.x${x}.y${y}`);
+            this.element.classList.add('player');
+            console.log(this.beersNumber);
+        }
     }
     checkColsion(x, y) {
-        const colision = bars.find((bar) => {
-            if (bar.positionX === x && bar.positionY === y) {
-                return bar
+        const colision = mapObjects.find((mapObj) => {
+            if (mapObj.positionX === x && mapObj.positionY === y) {
+                console.log(mapObj)
+                return mapObj
             }
         })
+        if (this.colision !== obstacle) {
+            return false;
+        }
         if (typeof colision !== 'undefined') {
             colision.interact(player)
         }
@@ -106,7 +115,7 @@ class Bar {
     constructor(x, y) {
         this.positionX = x;
         this.positionY = y;
-        this.visted = false;
+        this.visited = false;
         this.element = document.querySelector(`.x${x}.y${y}`);
         this.element.classList.add('bar');
     }
@@ -114,8 +123,21 @@ class Bar {
         if (true === this.visited) {
             return;
         }
+
         player.addBeer(1);
         this.visited = true;
+    }
+}
+
+class Obstacle {
+    constructor(x, y) {
+        this.positionX = x;
+        this.positionY = y;
+        this.element = document.querySelector(`.x${x}.y${y}`);
+        this.element.classList.add('obstacle');
+    }
+    interact(player) {
+        console.log('nie ma wejścia')
     }
 }
 
@@ -128,12 +150,17 @@ class Map {
         this.mapGenerator(x, y);
     }
     mapGenerator(x, y) {
-        mapObjects = [
-            ['x', 'x', 'x', 'x', 'x'],
-            ['x', 'u', 'x', 'u', 'u'],
-            ['x', 'u', 'b', 'u', 'u'],
-            ['x', 'u', 'u', 'u', 'u'],
-            ['x', 'x', 'x', 'b', 'x'],
+        mapArray = [
+            ['O', '_', '_', 'O', 'O', 'O', 'O', '_', '_', 'O'],
+            ['B', '_', '_', '_', '_', '_', '_', '_', '_', 'B'],
+            ['O', '_', '_', '_', '_', '_', '_', '_', '_', 'O'],
+            ['O', '_', '_', 'O', 'O', '_', 'O', 'O', '_', 'O'],
+            ['O', '_', '_', 'O', 'B', '_', 'O', 'O', '_', 'O'],
+            ['O', '_', '_', 'O', 'O', '_', 'O', 'O', '_', 'O'],
+            ['O', '_', '_', '_', '_', '_', '_', '_', '_', '_'],
+            ['O', '_', '_', '_', '_', '_', '_', '_', '_', '_'],
+            ['B', '_', '_', 'O', 'O', 'O', 'O', '_', '_', 'O'],
+            ['O', '_', '_', 'O', 'O', 'O', 'B', '_', '_', 'B'],
         ]
         let table = document.getElementById('map');
         for (let i = 0; i < y; i++) {
@@ -142,7 +169,6 @@ class Map {
                 let col = document.createElement('td');
                 row.appendChild(col);
                 col.classList.add('x' + (j + 1));
-                col.classList.add(mapObjects[i][j]);
             }
             table.appendChild(row);
         }
@@ -150,6 +176,13 @@ class Map {
             let yHigh = table.rows[i]
             for (let j = 0; j < x; j++) {
                 yHigh.cells[j].classList.add('y' + (i + 1));
+                if (mapArray[i][j] === 'B') {
+                    mapObjects.push(new Bar(j + 1, i + 1));
+                } else if (mapArray[i][j] === '_') {
+
+                } else if (mapArray[i][j] === 'O') {
+                    mapObjects.push(new Obstacle(j + 1, i + 1));
+                }
             }
         }
         let elem = document.getElementById('mapGenerator');
@@ -161,16 +194,18 @@ class Map {
 function gameMenu() {
     document.querySelector('#startGame').addEventListener('click', () => {
         player = new Player(2, 2);
-        // timer = new Timer(5,0);
+        timer = new Timer(0, 10);
     });
     document.querySelector('#mapGenerator').addEventListener('click', () => {
-        map = new Map(5, 5);
+        map = new Map(10, 10);
     });
-    document.querySelector('#pouseGame').addEventListener('click', () => {
-        if (pouse = false) {
-            clearInterval(timer.timerToggle);
-        } else {
-            setInterval(timer.timerToggle, 1000);
+    document.querySelector('#pauseGame').addEventListener('click', () => {
+        if (pause === true) {
+            timer.stopGameTimer();
+            pause = false;
+        } else if (pause === false) {
+            timer.startGameTimer()
+            pause = true;
         }
     });
 }

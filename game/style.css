@@ -18,6 +18,10 @@ td {
 }
 
 .bar {
+    background-color: red;
+}
+
+.obstacle {
     background-color: black;
 }
 
