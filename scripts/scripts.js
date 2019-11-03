@@ -124,11 +124,6 @@ const cookiesModal = () => {
             $("#cookiesModal").modal("hide");
         });
     })
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 0d7b0b1bcf54fac99ff3846392fdc0f445796d1d
     coockieNoBtn.addEventListener("click", () => {
         $(document).ready(function () {
             $("#cookiesModal").modal("hide");
@@ -138,8 +133,6 @@ const cookiesModal = () => {
 
 cookiesModal();
 
-<<<<<<< HEAD
-=======
 (function () {
     var navMenuItems = document.querySelectorAll('#navbarNav a');
     var navbar = document.querySelector("#navbarNav");
@@ -152,4 +145,3 @@ cookiesModal();
         navbar.classList.remove("show");
     })
 })();
->>>>>>> 0d7b0b1bcf54fac99ff3846392fdc0f445796d1d
