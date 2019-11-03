@@ -28,14 +28,20 @@ document.addEventListener("scroll", function () {
         addClass = document.querySelector(".data-section-more-func");
         addClass.classList.add("highlightNav");
     } else if (currentPosition > signUpPosition && currentPosition < teamPosition) {
-        delateClass = document.querySelectorAll(".data-section-basic-func, .data-section-more-func");
+        delateClass = document.querySelectorAll(".data-section-basic-func, .data-section-more-func, .data-section-team");
         delateClass.forEach((item) => {
             item.classList.remove("highlightNav");
         });
-        addClass = document.querySelectorAll(".data-section-sign-up, .data-section-team");
-        addClass.forEach((item) => {
-            item.className += " highlightNav";
+        addClass = document.querySelector(".data-section-sign-up");
+        addClass.classList.add("highlightNav");
+
+    } else if (currentPosition > teamPosition) {
+        delateClass = document.querySelectorAll(".data-section-basic-func, .data-section-more-func, .data-section-sign-up");
+        delateClass.forEach((item) => {
+            item.classList.remove("highlightNav");
         });
+        addClass = document.querySelector(".data-section-team");
+        addClass.classList.add("highlightNav");
     }
 });
 

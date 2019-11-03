@@ -201,7 +201,8 @@ body {
 .highlightNav {
     position:relative;
     display:inline-block;
-    }
+}
+
 .highlightNav:after {
     content:"";
     position:absolute;
