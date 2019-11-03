@@ -198,11 +198,11 @@ body {
     transition: transform 1s;
 }
 
-.sectionPositionInNav {
+.highlightNav {
     position:relative;
     display:inline-block;
     }
-.sectionPositionInNav:after {
+.highlightNav:after {
     content:"";
     position:absolute;
     left:0;

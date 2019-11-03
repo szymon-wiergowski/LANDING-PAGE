@@ -1,34 +1,41 @@
-"use strict";
-
 document.addEventListener("scroll", function () {
     let currentPosition = window.scrollY;
     let basicFunctionPosition = document.querySelector("#basic-function").offsetTop;
     let moreFunctionsPosition = document.querySelector("#more-functions").offsetTop;
     let signUpPosition = document.querySelector("#sign-up").offsetTop;
     let teamPosition = document.querySelector("#team").offsetTop;
-    let addClassInA = document.querySelectorAll(".greenline");
-    addClassInA.classList.add("sectionPositionInNav");
-    let delateFromDiffrentA;
-    
-    if (currentPosition > basicFunctionPosition && currentPosition < moreFunctionsPosition) {
-        
-        console.log("chwytakgreenline", addClassInA);
-        addClassInA.classList.add("sectionPositionInNav");
-        delateFromDiffrentA = document.querySelectorAll(".data-section-more-func .data-section-sign-up .data-section-team");
-        console.log("chwytakdelateFromDiffrentA", delateFromDiffrentA);
-        delateFromDiffrentA.classList.remove("sectionPositionInNav");
+    let addClass = "";
+    let delateClass = "";
+
+    if (currentPosition < basicFunctionPosition) {
+        delateClass = document.querySelectorAll(".data-section-basic-func, .data-section-more-func, .data-section-sign-up, .data-section-team");
+        delateClass.forEach((item) => {
+            item.classList.remove("highlightNav");
+        });
+    } else if (currentPosition > basicFunctionPosition && currentPosition < moreFunctionsPosition) {
+        delateClass = document.querySelectorAll(".data-section-more-func, .data-section-sign-up, .data-section-team");
+        delateClass.forEach((item) => {
+            item.classList.remove("highlightNav");
+        });
+        addClass = document.querySelector(".data-section-basic-func");
+        addClass.classList.add("highlightNav");
 
     } else if (currentPosition > moreFunctionsPosition && currentPosition < signUpPosition) {
-        
-        addClassInA.classList.add("sectionPositionInNav");
-        delateFromDiffrentA = document.querySelectorAll(".data-section-basic-func, .data-section-sign-up, .data-section-team");
-        delateFromDiffrentA.classList.remove("sectionPositionInNav");
-
+        delateClass = document.querySelectorAll(".data-section-basic-func, .data-section-sign-up, .data-section-team");
+        delateClass.forEach((item) => {
+            item.classList.remove("highlightNav");
+        });
+        addClass = document.querySelector(".data-section-more-func");
+        addClass.classList.add("highlightNav");
     } else if (currentPosition > signUpPosition && currentPosition < teamPosition) {
-        
-        addClassInA.classList.add("sectionPositionInNav");
-        let delateFromDiffrentA = document.querySelectorAll(".data-section-basic-func, .data-section-basic-func");
-        delateFromDiffrentA.classList.remove("sectionPositionInNav");
+        delateClass = document.querySelectorAll(".data-section-basic-func, .data-section-more-func");
+        delateClass.forEach((item) => {
+            item.classList.remove("highlightNav");
+        });
+        addClass = document.querySelectorAll(".data-section-sign-up, .data-section-team");
+        addClass.forEach((item) => {
+            item.className += " highlightNav";
+        });
     }
 });
 
@@ -105,7 +112,7 @@ const cookiesModal = () => {
             $("#cookiesModal").modal("hide");
         });
     })
-    
+
 
     coockieNoBtn.addEventListener("click", () => {
         alert('Żeby przejść dalej musisz zaakceptować pliki cookie!');
