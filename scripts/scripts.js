@@ -3,25 +3,6 @@
 document.addEventListener("scroll", function () {
     let currentPosition = window.scrollY;
     let basicFunctionPosition = document.querySelector("#basic-function").offsetTop;
-    let basicFunctionPosition1 = document.querySelector("#basic-function").offsetHeight;
-    console.log("1", basicFunctionPosition);
-    console.log("2", basicFunctionPosition1);
-
-    let moreFunctionsPosition = document.querySelector("#more-functions").offsetHeight;
-    let signUpPosition = document.querySelector("#sign-up").offsetTop;
-    let teamPosition = document.querySelector('#team').offsetTop;
-    let delateDataSectionInNav = document.querySelectorAll(".sectionPositionInNav");
-
-    if (currentPosition > moreFunctionsPosition) {
-        //  || currentPosition === moreFunctionsPosition || currentPosition === signUpPosition || currentPosition === teamPosition)
-
-        delateDataSectionInNav.classList.remove("sectionPositionInNav");
-    }
-});
-
-document.addEventListener("scroll", function () {
-    let currentPosition = window.scrollY;
-    let basicFunctionPosition = document.querySelector("#basic-function").offsetTop;
     let moreFunctionsPosition = document.querySelector("#more-functions").offsetTop;
     let signUpPosition = document.querySelector("#sign-up").offsetTop;
     let teamPosition = document.querySelector('#team').offsetTop;
@@ -31,16 +12,23 @@ document.addEventListener("scroll", function () {
     if (currentPosition > basicFunctionPosition && currentPosition < moreFunctionsPosition) {
         dataSectionInNav = document.querySelector(".data-section-basic-func");
         dataSectionInNav.classList.add("sectionPositionInNav");
+        delateFromDiffrentA = document.querySelector(".data-section-more-func, .data-section-sign-up, .data-section-team");
+        console.log("chwytak", delateFromDiffrentA);
+        // delateFromDiffrentA.classList.remove("sectionPositionInNav");
 
     } else if (currentPosition > moreFunctionsPosition && currentPosition < signUpPosition) {
         dataSectionInNav = document.querySelector(".data-section-more-func");
         dataSectionInNav.classList.add("sectionPositionInNav");
+        delateFromDiffrentA = document.querySelectorAll(".data-section-basic-func, .data-section-sign-up, .data-section-team");
+        // delateFromDiffrentA.classList.remove("sectionPositionInNav");
 
     } else if (currentPosition > signUpPosition && currentPosition < teamPosition) {
         dataSectionInNav = document.querySelector(".data-section-sign-up");
         dataSectionInNav.classList.add("sectionPositionInNav");
         dataSectionInNavTeam = document.querySelector(".data-section-team");
         dataSectionInNavTeam.classList.add("sectionPositionInNav");
+        delateFromDiffrentA = document.querySelectorAll(".data-section-basic-func, .data-section-basic-func");
+        // delateFromDiffrentA.classList.remove("sectionPositionInNav");
     }
 });
 
