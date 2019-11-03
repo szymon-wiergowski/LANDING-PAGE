@@ -101,30 +101,55 @@ window.addEventListener('scroll', function (e) {
         })
     }
 });
-
 const coockieNoBtn = document.querySelector('.button-coockie__close');
 const coockieYesBtn = document.querySelector('.button-coockie__accept');
 
+const createCookie = (name, value, expires) => {
+    let cookie = `${name}=${value};`;
+    expires = new Date(new Date().getTime() + parseInt(expires) * 1000 * 60 * 60 * 24);
+    cookie += `expires=${expires.toGMTString()};`;
+    document.cookie = cookie;
+    console.log(cookie);
+}
+
 const cookiesModal = () => {
-    if (!localStorage.cookie) {
+    if (document.cookie !==  "cookie=cookie") {
         $(document).ready(function () {
             $("#cookiesModal").modal("show");
         });
     }
-
     coockieYesBtn.addEventListener("click", () => {
-        localStorage.setItem("cookie", "cookie");
+        createCookie("cookie", "cookie", 30);
         $(document).ready(function () {
             $("#cookiesModal").modal("hide");
         });
     })
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 0d7b0b1bcf54fac99ff3846392fdc0f445796d1d
     coockieNoBtn.addEventListener("click", () => {
-        alert('Żeby przejść dalej musisz zaakceptować pliki cookie!');
+        $(document).ready(function () {
+            $("#cookiesModal").modal("hide");
+        });
     })
-
 };
 
 cookiesModal();
 
+<<<<<<< HEAD
+=======
+(function () {
+    var navMenuItems = document.querySelectorAll('#navbarNav a');
+    var navbar = document.querySelector("#navbarNav");
+    navMenuItems.forEach(item => {
+        item.addEventListener("click", () => {
+            navbar.classList.remove("show");
+        })
+    })
+    document.addEventListener("scroll", () => {
+        navbar.classList.remove("show");
+    })
+})();
+>>>>>>> 0d7b0b1bcf54fac99ff3846392fdc0f445796d1d

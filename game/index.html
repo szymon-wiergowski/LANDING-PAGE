@@ -10,9 +10,16 @@
 </head>
 
 <body>
-    <button id="btn" onclick="mapGenerator(10,10)">Wygeneruj mapę.</button>
-    <button id="startGame">Rozpocznij grę</button>
+    <form>
+        <button type="button" id="mapGenerator">Wygeneruj mapę.</button>
+        <button disabled type="button" id="startGame">Rozpocznij grę</button>
+        <button disabled type="button" id="pouseGame">Pause</button>
+    </form>
+    <div id="timer">
+        05:00
+    </div>
     <table id="map"></table>
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
+
 </html>
