@@ -6,23 +6,26 @@ document.addEventListener("scroll", function () {
     let moreFunctionsPosition = document.querySelector("#more-functions").offsetTop;
     let signUpPosition = document.querySelector("#sign-up").offsetTop;
     let teamPosition = document.querySelector("#team").offsetTop;
+    let addClassInA = document.querySelectorAll(".greenline");
+    addClassInA.classList.add("sectionPositionInNav");
+    let delateFromDiffrentA;
     
     if (currentPosition > basicFunctionPosition && currentPosition < moreFunctionsPosition) {
-        let addClassInA = document.querySelectorAll(".greenline");
+        
         console.log("chwytakgreenline", addClassInA);
         addClassInA.classList.add("sectionPositionInNav");
-        let delateFromDiffrentA = document.querySelectorAll(".data-section-more-func .data-section-sign-up .data-section-team");
-        console.log("chwytak", delateFromDiffrentA);
+        delateFromDiffrentA = document.querySelectorAll(".data-section-more-func .data-section-sign-up .data-section-team");
+        console.log("chwytakdelateFromDiffrentA", delateFromDiffrentA);
         delateFromDiffrentA.classList.remove("sectionPositionInNav");
 
     } else if (currentPosition > moreFunctionsPosition && currentPosition < signUpPosition) {
-        let addClassInA = document.querySelectorAll(".greenline");
+        
         addClassInA.classList.add("sectionPositionInNav");
-        let delateFromDiffrentA = document.querySelectorAll(".data-section-basic-func, .data-section-sign-up, .data-section-team");
+        delateFromDiffrentA = document.querySelectorAll(".data-section-basic-func, .data-section-sign-up, .data-section-team");
         delateFromDiffrentA.classList.remove("sectionPositionInNav");
 
     } else if (currentPosition > signUpPosition && currentPosition < teamPosition) {
-        let addClassInA = document.querySelectorAll(".greenline");
+        
         addClassInA.classList.add("sectionPositionInNav");
         let delateFromDiffrentA = document.querySelectorAll(".data-section-basic-func, .data-section-basic-func");
         delateFromDiffrentA.classList.remove("sectionPositionInNav");
