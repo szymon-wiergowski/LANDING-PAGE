@@ -1,15 +1,62 @@
-$(document).ready(function() {
-    $('a[href^="#"]').click(function() {
-        var hash = $(this).attr('href');
+document.addEventListener("scroll", function () {
+    let currentPosition = window.scrollY;
+    let basicFunctionPosition = document.querySelector("#basic-function").offsetTop;
+    let moreFunctionsPosition = document.querySelector("#more-functions").offsetTop;
+    let signUpPosition = document.querySelector("#sign-up").offsetTop;
+    let teamPosition = document.querySelector("#team").offsetTop;
+    let addClass = "";
+    let delateClass = "";
+
+    if (currentPosition < basicFunctionPosition) {
+        delateClass = document.querySelectorAll(".data-section-basic-func, .data-section-more-func, .data-section-sign-up, .data-section-team");
+        delateClass.forEach((item) => {
+            item.classList.remove("highlightNav");
+        });
+    } else if (currentPosition > basicFunctionPosition && currentPosition < moreFunctionsPosition) {
+        delateClass = document.querySelectorAll(".data-section-more-func, .data-section-sign-up, .data-section-team");
+        delateClass.forEach((item) => {
+            item.classList.remove("highlightNav");
+        });
+        addClass = document.querySelector(".data-section-basic-func");
+        addClass.classList.add("highlightNav");
+
+    } else if (currentPosition > moreFunctionsPosition && currentPosition < signUpPosition) {
+        delateClass = document.querySelectorAll(".data-section-basic-func, .data-section-sign-up, .data-section-team");
+        delateClass.forEach((item) => {
+            item.classList.remove("highlightNav");
+        });
+        addClass = document.querySelector(".data-section-more-func");
+        addClass.classList.add("highlightNav");
+    } else if (currentPosition > signUpPosition && currentPosition < teamPosition) {
+        delateClass = document.querySelectorAll(".data-section-basic-func, .data-section-more-func, .data-section-team");
+        delateClass.forEach((item) => {
+            item.classList.remove("highlightNav");
+        });
+        addClass = document.querySelector(".data-section-sign-up");
+        addClass.classList.add("highlightNav");
+
+    } else if (currentPosition > teamPosition) {
+        delateClass = document.querySelectorAll(".data-section-basic-func, .data-section-more-func, .data-section-sign-up");
+        delateClass.forEach((item) => {
+            item.classList.remove("highlightNav");
+        });
+        addClass = document.querySelector(".data-section-team");
+        addClass.classList.add("highlightNav");
+    }
+});
+
+$(document).ready(function () {
+    $('a[href^="#"]').click(function () {
+        let hash = $(this).attr('href');
         $('html, body').animate({
             scrollTop: $(hash).offset().top
         }, 1500);
         return false;
     });
 });
-$(window).scroll(function() {
-    var top = $(window).scrollTop();
-    var find_class_small = $.contains('mainNav', '.smallNav');
+$(window).scroll(function () {
+    let top = $(window).scrollTop();
+    let find_class_small = $.contains('mainNav', '.smallNav');
 
     if (top > 50 && find_class_small == false) {
         $('#mainNav').addClass('smallNav');
@@ -20,7 +67,7 @@ $(window).scroll(function() {
 });
 const mybutton = document.getElementById("back-to-top");
 
-window.onscroll = function() {
+window.onscroll = function () {
     scrollFunction()
 };
 
@@ -33,24 +80,24 @@ function scrollFunction() {
 }
 
 function topFunction() {
-    $('html, body').animate({scrollTop: 0}, 1500);
+    $('html, body').animate({ scrollTop: 0 }, 1500);
     document.documentElement.scrollTop = 0;
 };
 
 const team = document.getElementById("team").getBoundingClientRect().top + window.scrollY;
 
 
-window.addEventListener('scroll', function(e) {
+window.addEventListener('scroll', function (e) {
     const currentScrollPos = window.scrollY;
-    if (currentScrollPos + window.innerHeight /2 > team) {
+    if (currentScrollPos + window.innerHeight / 2 > team) {
         const flipElement = document.querySelectorAll(".flip-card-inner")
-        flipElement.forEach(function(currentElement){
+        flipElement.forEach(function (currentElement) {
             currentElement.classList.add("flip-card-auto");
             setTimeout(
                 () => currentElement.classList.add("flip-card-auto-return"),
                 3000
             );
-            
+
         })
     }
 });
