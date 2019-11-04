@@ -69,10 +69,6 @@ body {
     padding-bottom: 7.5rem;
 }
 
-.basic_function_heading h2 {
-    font-size: 3rem;
-}
-
 .basic_function_heading h3 {
     font-size: 1rem;
     text-transform: uppercase;
@@ -200,4 +196,20 @@ body {
 
 .flip-card-auto-return  {
     transition: transform 1s;
+}
+
+.highlightNav {
+    position:relative;
+    display:inline-block;
+}
+
+.highlightNav:after {
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:0;
+    margin:auto;
+    background:#5cb85c;
+    height:5px;
 }
