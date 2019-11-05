@@ -7,6 +7,7 @@ class Timer {
     constructor(m, s) {
         this.min = m;
         this.sec = s;
+        this.score = 0;
         this.pause = true;
         this.gameTimer();
         this.idTimer
@@ -14,6 +15,7 @@ class Timer {
     gameTimer() {
         this.idTimer = setInterval(() => {
             this.sec--;
+            this.score++;
             if (this.min > 0 && this.sec < 0) {
                 this.min--;
                 this.sec = 59;
@@ -22,6 +24,14 @@ class Timer {
                 document.getElementById("timer").innerHTML = "0" + this.min + ":" + this.sec;
             } else {
                 document.getElementById("timer").innerHTML = "0" + this.min + ":0" + this.sec;
+            }
+            if (player.beersNumber === 6) {
+                clearInterval(this.idTimer);
+                let elem = document.getElementById('pauseGame');
+                elem.parentNode.removeChild(elem);
+                document.getElementById("timer").innerHTML = "HANGOVER! Udało się w " + this.score + " sekund.";
+                document.getElementById("timer").style.height = '100%';
+                document.getElementById("timer").style.width = '100%';
             }
             if (this.min === 0 && this.sec === 0) {
                 clearInterval(this.idTimer);
@@ -64,8 +74,12 @@ class Player {
                     this.move(this.positionX - 1, this.positionY);
                 } else if (this.positionX > map.xMin && this.beersNumber === 2) {
                     this.move(this.positionX - 1, this.positionY);
-                } else if (this.positionX < map.xMax && this.beersNumber >= 3) {
-                    this.move(this.positionX + 1, this.positionY);
+                } else if (this.positionX > map.xMin && this.beersNumber === 3) {
+                    this.move(this.positionX - 1, this.positionY);
+                } else if (this.positionY < map.yMax && this.beersNumber === 4) {
+                    this.move(this.positionX, this.positionY + 1);
+                } else if (this.positionY > map.yMin && this.beersNumber === 5) {
+                    this.move(this.positionX, this.positionY - 1);
                 }
                 break;
             case 37:
@@ -75,30 +89,42 @@ class Player {
                     this.move(this.positionX + 1, this.positionY);
                 } else if (this.positionX < map.xMax && this.beersNumber === 2) {
                     this.move(this.positionX + 1, this.positionY);
-                } else if (this.positionX > map.xMin && this.beersNumber >= 3) {
-                    this.move(this.positionX - 1, this.positionY);
+                } else if (this.positionY > map.yMin && this.beersNumber === 3) {
+                    this.move(this.positionX, this.positionY - 1);
+                } else if (this.positionX < map.xMax && this.beersNumber === 4) {
+                    this.move(this.positionX + 1, this.positionY);
+                } else if (this.positionY < map.yMax && this.beersNumber === 5) {
+                    this.move(this.positionX, this.positionY + 1);
                 }
                 break;
             case 40:
                 if (this.positionY < map.yMax && this.beersNumber === 0) {
                     this.move(this.positionX, this.positionY + 1);
-                } else if (this.positionY > map.yMin && this.beersNumber === 1) {
-                    this.move(this.positionX, this.positionY - 1);
+                } else if (this.positionY < map.yMax && this.beersNumber === 1) {
+                    this.move(this.positionX, this.positionY + 1);
                 } else if (this.positionY > map.yMin && this.beersNumber === 2) {
                     this.move(this.positionX, this.positionY - 1);
-                } else if (this.positionY < map.yMax && this.beersNumber >= 3) {
-                    this.move(this.positionX, this.positionY + 1);
+                } else if (this.positionX < map.xMax && this.beersNumber === 3) {
+                    this.move(this.positionX + 1, this.positionY);
+                } else if (this.positionY > map.yMin && this.beersNumber === 4) {
+                    this.move(this.positionX, this.positionY - 1);
+                } else if (this.positionX > map.xMin && this.beersNumber === 5) {
+                    this.move(this.positionX - 1, this.positionY);
                 }
                 break;
             case 38:
                 if (this.positionY > map.yMin && this.beersNumber === 0) {
                     this.move(this.positionX, this.positionY - 1);
-                } else if (this.positionY < map.yMax && this.beersNumber === 1) {
-                    this.move(this.positionX, this.positionY + 1);
+                } else if (this.positionY > map.yMin && this.beersNumber === 1) {
+                    this.move(this.positionX, this.positionY - 1);
                 } else if (this.positionY < map.yMax && this.beersNumber === 2) {
                     this.move(this.positionX, this.positionY + 1);
-                } else if (this.positionY > map.yMin && this.beersNumber >= 3) {
-                    this.move(this.positionX, this.positionY - 1);
+                } else if (this.positionY < map.yMax && this.beersNumber === 3) {
+                    this.move(this.positionX, this.positionY + 1);
+                } else if (this.positionX > map.xMin && this.beersNumber === 4) {
+                    this.move(this.positionX - 1, this.positionY);
+                } else if (this.positionX < map.xMax && this.beersNumber === 5) {
+                    this.move(this.positionX + 1, this.positionY);
                 }
                 break;
         }
@@ -128,7 +154,7 @@ class Player {
     }
     addBeer(numBeers) {
         this.beersNumber = this.beersNumber + numBeers;
-        document.getElementById('alcoholeProressBar').value = `${this.beersNumber}`;
+        document.getElementById('alcoholeProgressBar').value = `${this.beersNumber}`;
     }
 }
 
@@ -215,8 +241,9 @@ class Map {
 function gameMenu() {
     document.querySelector('#startGame').addEventListener('click', () => {
         player = new Player(2, 2);
-        timer = new Timer(2, 30);
+        timer = new Timer(1, 30);
         document.getElementById("timer").style.display = 'block';
+        document.getElementById("beers").style.display = 'block';
     });
     document.querySelector('#mapGenerator').addEventListener('click', () => {
         map = new Map(10, 10);
