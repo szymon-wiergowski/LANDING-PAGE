@@ -108,6 +108,7 @@ class Player {
     }
     addBeer(numBeers) {
         this.beersNumber = this.beersNumber + numBeers;
+        document.getElementById('alcoholeProressBar').value=`${this.beersNumber}`;
     }
 }
 
@@ -194,7 +195,8 @@ class Map {
 function gameMenu() {
     document.querySelector('#startGame').addEventListener('click', () => {
         player = new Player(2, 2);
-        timer = new Timer(0, 10);
+        timer = new Timer(2, 30);
+        document.getElementById("timer").style.display = 'block';
     });
     document.querySelector('#mapGenerator').addEventListener('click', () => {
         map = new Map(10, 10);

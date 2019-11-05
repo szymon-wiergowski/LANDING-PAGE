@@ -10,15 +10,25 @@
 </head>
 
 <body>
-    <form>
-        <button type="button" id="mapGenerator">Wygeneruj mapę.</button>
-        <button disabled type="button" id="startGame">Rozpocznij grę</button>
-        <button disabled type="button" id="pauseGame">Pause</button>
-    </form>
-    <div id="timer">
-        05:00
+    <div>
+        <div>
+            <form>
+                <button type="button" id="mapGenerator">Wygeneruj mapę.</button>
+                <button disabled type="button" id="startGame">Rozpocznij grę</button>
+                <button disabled type="button" id="pauseGame">Pause</button>
+            </form>
+            <div id="timer">
+
+            </div>
+            <div id="beers">Blood in Alcohole:
+                    <progress id="alcoholeProressBar" value="0" max="10"></progress>
+            </div>
+
+        </div>
+        <div>
+            <table id="map"></table>
+        </div>
     </div>
-    <table id="map"></table>
     <script src="script.js"></script>
 </body>
 
