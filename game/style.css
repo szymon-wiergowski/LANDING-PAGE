@@ -15,7 +15,8 @@ td {
 }
 
 .player {
-    background: url('images/player.png') center/cover no-repeat;
+    background: url('images/player.png') center no-repeat;
+    background-size: 50%;
 }
 
 /* .bar {
