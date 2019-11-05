@@ -29,6 +29,11 @@ button:active {
     top:1px;
 }
 
+button:disabled {
+    background:linear-gradient(to bottom, #331b46 5%, #5a3777 100%);
+	background-color:#ab70da;
+}
+
 table {
     margin: 20px auto;
     border: 5px solid rgb(156, 156, 156);
