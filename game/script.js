@@ -89,13 +89,11 @@ class Player {
             this.element.classList.remove('player');
             this.element = document.querySelector(`.x${x}.y${y}`);
             this.element.classList.add('player');
-            console.log(this.beersNumber);
         }
     }
     checkColsion(x, y) {
         const colision = mapObjects.find((mapObj) => {
             if (mapObj.positionX === x && mapObj.positionY === y) {
-                console.log(mapObj)
                 return mapObj
             }
         })
@@ -138,7 +136,7 @@ class Obstacle {
         this.element.classList.add('obstacle');
     }
     interact(player) {
-        console.log('nie ma wejścia')
+        this.move(this.positionX, this.positionY);
     }
 }
 

@@ -2,28 +2,29 @@
 
 table {
     margin: 20px auto;
-    border: 1px solid black;
+    border: 5px solid rgb(156, 156, 156);
     border-spacing: 0;
     border-collapse: collapse;
+    background: url('images/map.png') center/cover no-repeat;
 }
 
 td {
-    width: 40px;
-    height: 40px;
-    border: 1px solid red;
+    width: 60px;
+    height: 60px;
+    /* border: 1px solid red; */
 }
 
 .player {
     background: url('images/player.png') center/cover no-repeat;
 }
 
-.bar {
+/* .bar {
     background-color: red;
 }
 
 .obstacle {
     background-color: black;
-}
+} */
 
 /* STYLE MENU */
 
