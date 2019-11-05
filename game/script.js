@@ -59,24 +59,55 @@ class Player {
     handleMove(keyCode) {
         switch (keyCode) {
             case 39:
-                if (this.positionX < map.xMax) {
-                    this.move(this.positionX + 1, this.positionY);
-                }
+                    if (this.positionX < map.xMax && this.beersNumber === 0) {
+                        this.move(this.positionX + 1, this.positionY);
+                    } else if (this.positionX > map.xMin && this.beersNumber === 1) {
+                        this.move(this.positionX - 1, this.positionY);
+                    } else if (this.positionX > map.xMin && this.beersNumber === 2) {
+                        this.move(this.positionX - 1, this.positionY);
+                    } else if (this.positionX < map.xMax && this.beersNumber === 3) {
+                        this.move(this.positionX + 1, this.positionY);
+                    } else {
 
+                    }
                 break;
             case 37:
-                if (this.positionX > map.xMin) {
-                    this.move(this.positionX - 1, this.positionY);
-                }
+                    if (this.positionX > map.xMin && this.beersNumber === 0) {
+                        this.move(this.positionX - 1, this.positionY);
+                    } else if (this.positionX < map.xMax && this.beersNumber === 1) {
+                        this.move(this.positionX + 1, this.positionY);
+                    } else if (this.positionX < map.xMax && this.beersNumber === 2) {
+                        this.move(this.positionX + 1, this.positionY);
+                    } else if (this.positionX > map.xMin && this.beersNumber === 3) {
+                        this.move(this.positionX - 1, this.positionY);
+                    } else {
+
+                    }
                 break;
             case 40:
-                if (this.positionY < map.yMax) {
+                if (this.positionY < map.yMax && this.beersNumber === 0) {
                     this.move(this.positionX, this.positionY + 1);
+                } else if (this.positionY > map.yMin && this.beersNumber === 1) {
+                    this.move(this.positionX, this.positionY - 1);
+                } else if (this.positionY > map.yMin && this.beersNumber === 2) {
+                    this.move(this.positionX, this.positionY - 1);
+                } else if (this.positionY < map.yMax && this.beersNumber === 3) {
+                    this.move(this.positionX, this.positionY + 1);
+                } else {
+
                 }
                 break;
             case 38:
-                if (this.positionY > map.yMin) {
+                if (this.positionY > map.yMin && this.beersNumber === 0) {
                     this.move(this.positionX, this.positionY - 1);
+                } else if (this.positionY < map.yMax && this.beersNumber === 1) {
+                    this.move(this.positionX, this.positionY + 1);
+                } else if (this.positionY < map.yMax && this.beersNumber === 2) {
+                    this.move(this.positionX, this.positionY + 1);
+                } else if (this.positionY > map.yMin && this.beersNumber === 3) {
+                    this.move(this.positionX, this.positionY - 1);
+                } else {
+
                 }
                 break;
         }
@@ -106,7 +137,7 @@ class Player {
     }
     addBeer(numBeers) {
         this.beersNumber = this.beersNumber + numBeers;
-        document.getElementById('alcoholeProressBar').value=`${this.beersNumber}`;
+        document.getElementById('alcoholeProressBar').value = `${this.beersNumber}`;
     }
 }
 
