@@ -58,30 +58,30 @@ class Player {
     handleMove(keyCode) {
         switch (keyCode) {
             case 39:
-                    if (this.positionX < map.xMax && this.beersNumber === 0) {
-                        this.move(this.positionX + 1, this.positionY);
-                    } else if (this.positionX > map.xMin && this.beersNumber === 1) {
-                        this.move(this.positionX - 1, this.positionY);
-                    } else if (this.positionX > map.xMin && this.beersNumber === 2) {
-                        this.move(this.positionX - 1, this.positionY);
-                    } else if (this.positionX < map.xMax && this.beersNumber === 3) {
-                        this.move(this.positionX + 1, this.positionY);
-                    } else {
+                if (this.positionX < map.xMax && this.beersNumber === 0) {
+                    this.move(this.positionX + 1, this.positionY);
+                } else if (this.positionX > map.xMin && this.beersNumber === 1) {
+                    this.move(this.positionX - 1, this.positionY);
+                } else if (this.positionX > map.xMin && this.beersNumber === 2) {
+                    this.move(this.positionX - 1, this.positionY);
+                } else if (this.positionX < map.xMax && this.beersNumber === 3) {
+                    this.move(this.positionX + 1, this.positionY);
+                } else {
 
-                    }
+                }
                 break;
             case 37:
-                    if (this.positionX > map.xMin && this.beersNumber === 0) {
-                        this.move(this.positionX - 1, this.positionY);
-                    } else if (this.positionX < map.xMax && this.beersNumber === 1) {
-                        this.move(this.positionX + 1, this.positionY);
-                    } else if (this.positionX < map.xMax && this.beersNumber === 2) {
-                        this.move(this.positionX + 1, this.positionY);
-                    } else if (this.positionX > map.xMin && this.beersNumber === 3) {
-                        this.move(this.positionX - 1, this.positionY);
-                    } else {
+                if (this.positionX > map.xMin && this.beersNumber === 0) {
+                    this.move(this.positionX - 1, this.positionY);
+                } else if (this.positionX < map.xMax && this.beersNumber === 1) {
+                    this.move(this.positionX + 1, this.positionY);
+                } else if (this.positionX < map.xMax && this.beersNumber === 2) {
+                    this.move(this.positionX + 1, this.positionY);
+                } else if (this.positionX > map.xMin && this.beersNumber === 3) {
+                    this.move(this.positionX - 1, this.positionY);
+                } else {
 
-                    }
+                }
                 break;
             case 40:
                 if (this.positionY < map.yMax && this.beersNumber === 0) {
