@@ -49,7 +49,7 @@ class Player {
         this.beersNumber = 0;
         this.element = document.querySelector(`.x${x}.y${y}`);
         this.element.classList.add('player');
-        document.addEventListener('keydown', (event) => {
+        document.addEventListener('keyup', (event) => {
             this.handleMove(event.keyCode);
         })
         let elem = document.getElementById('startGame');
