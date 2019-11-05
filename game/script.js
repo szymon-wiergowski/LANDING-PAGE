@@ -41,7 +41,6 @@ class Timer {
         this.gameTimer();
     }
 }
-
 class Player {
     constructor(x, y) {
         this.positionX = x;
