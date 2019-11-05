@@ -94,4 +94,5 @@ form button {
     height: 50px;
     font-size: 40px;
     font-family: OCR A Std, monospace;
+    display: none;
 }
