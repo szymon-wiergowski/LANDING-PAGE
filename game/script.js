@@ -64,10 +64,8 @@ class Player {
                     this.move(this.positionX - 1, this.positionY);
                 } else if (this.positionX > map.xMin && this.beersNumber === 2) {
                     this.move(this.positionX - 1, this.positionY);
-                } else if (this.positionX < map.xMax && this.beersNumber === 3) {
+                } else if (this.positionX < map.xMax && this.beersNumber >= 3) {
                     this.move(this.positionX + 1, this.positionY);
-                } else {
-
                 }
                 break;
             case 37:
@@ -77,10 +75,8 @@ class Player {
                     this.move(this.positionX + 1, this.positionY);
                 } else if (this.positionX < map.xMax && this.beersNumber === 2) {
                     this.move(this.positionX + 1, this.positionY);
-                } else if (this.positionX > map.xMin && this.beersNumber === 3) {
+                } else if (this.positionX > map.xMin && this.beersNumber >= 3) {
                     this.move(this.positionX - 1, this.positionY);
-                } else {
-
                 }
                 break;
             case 40:
@@ -90,10 +86,8 @@ class Player {
                     this.move(this.positionX, this.positionY - 1);
                 } else if (this.positionY > map.yMin && this.beersNumber === 2) {
                     this.move(this.positionX, this.positionY - 1);
-                } else if (this.positionY < map.yMax && this.beersNumber === 3) {
+                } else if (this.positionY < map.yMax && this.beersNumber >= 3) {
                     this.move(this.positionX, this.positionY + 1);
-                } else {
-
                 }
                 break;
             case 38:
@@ -103,10 +97,8 @@ class Player {
                     this.move(this.positionX, this.positionY + 1);
                 } else if (this.positionY < map.yMax && this.beersNumber === 2) {
                     this.move(this.positionX, this.positionY + 1);
-                } else if (this.positionY > map.yMin && this.beersNumber === 3) {
+                } else if (this.positionY > map.yMin && this.beersNumber >= 3) {
                     this.move(this.positionX, this.positionY - 1);
-                } else {
-
                 }
                 break;
         }
