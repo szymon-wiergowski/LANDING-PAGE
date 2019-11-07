@@ -35,7 +35,6 @@ class Timer {
                 document.getElementById("timer").style.width = '100%';
                 document.getElementById("map").remove();
                 document.getElementById("beers").remove();
-                document.getElementById("kebabs").remove();
             }
             if (this.min === 0 && this.sec === 0) {
                 clearInterval(this.idTimer);
@@ -47,6 +46,7 @@ class Timer {
                 document.getElementById("timer").style.width = '100%';
                 document.getElementById("map").remove();
                 document.getElementById("beers").remove();
+
             }
 
         }, 1000);
@@ -328,6 +328,8 @@ class Map {
             document.getElementById('startGame').disabled = false;
         }
     }
+}
+
 
 function gameMenu() {
     document.querySelector('#startGame').addEventListener('click', () => {
@@ -335,6 +337,7 @@ function gameMenu() {
         timer = new Timer(1, 20);
         document.getElementById("timer").style.display = 'block';
         document.getElementById("beers").style.display = 'block';
+        document.getElementById("kebab").style.display = 'block';
     });
     document.querySelector('#mapGenerator').addEventListener('click', () => {
         map = new Map(10, 10);
