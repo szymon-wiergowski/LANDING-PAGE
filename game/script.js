@@ -260,7 +260,6 @@ class Kebab {
         this.positionX = x;
         this.positionY = y;
         this.element = document.querySelector(`.x${x}.y${y}`);
-        this.element.classList.add('kebabs');
         this.element.innerHTML = "<img class='eat' src='images/kebabs.gif'>";
     }
     interact(player) {
@@ -287,14 +286,14 @@ class Map {
     }
     mapGenerator(x, y) {
         mapArray = [
-            ['O', '_', '_', 'O', 'O', 'O', 'O', 'K', '_', 'O'],
+            ['O', '_', '_', 'O', 'O', 'O', 'O', '_', '_', 'O'],
             ['B', '_', '_', 'O', '_', '_', '_', '_', '_', 'B'],
             ['O', '_', '_', '_', '_', '_', 'O', '_', '_', 'O'],
-            ['O', '_', 'K', 'O', 'O', '_', '_', 'O', '_', 'O'],
-            ['O', '_', 'O', 'O', 'B', '_', '_', 'O', '_', 'O'],
             ['O', '_', '_', 'O', 'O', '_', '_', 'O', '_', 'O'],
-            ['O', '_', '_', 'O', '_', '_', 'K', '_', '_', '_'],
-            ['O', 'O', '_', '_', '_', 'O', '_', '_', '_', '_'],
+            ['O', '_', 'O', 'O', 'B', '_', 'K', 'O', '_', 'O'],
+            ['O', '_', '_', 'O', 'O', '_', '_', 'O', '_', 'O'],
+            ['O', '_', '_', 'O', '_', '_', '_', '_', '_', '_'],
+            ['O', '_', '_', '_', '_', 'O', '_', '_', '_', '_'],
             ['B', '_', '_', 'O', 'O', 'O', 'O', 'O', '_', 'O'],
             ['O', '_', '_', 'O', 'O', 'O', 'B', '_', '_', 'B'],
         ]
@@ -337,7 +336,6 @@ function gameMenu() {
         timer = new Timer(1, 20);
         document.getElementById("timer").style.display = 'block';
         document.getElementById("beers").style.display = 'block';
-        document.getElementById("kebab").style.display = 'block';
     });
     document.querySelector('#mapGenerator').addEventListener('click', () => {
         map = new Map(10, 10);
