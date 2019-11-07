@@ -172,3 +172,14 @@ form button {
     font-family: OCR A Std, monospace;
     display: none;
 }
+
+#kebabs {
+    position: absolute;
+    margin-top: 20px;
+    margin-right: 20px;
+    width: 400px;
+    height: 50px;
+    font-size: 40px;
+    font-family: OCR A Std, monospace;
+    display: none;
+}

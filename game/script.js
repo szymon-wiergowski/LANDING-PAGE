@@ -1,7 +1,7 @@
 let pause = true,
     mapObjects = [],
     player, bar, mapArray,
-    timer, obstacle, playerImg;
+    timer, obstacle, kebab, playerImg;
 
 class Timer {
     constructor(m, s) {
@@ -35,6 +35,7 @@ class Timer {
                 document.getElementById("timer").style.width = '100%';
                 document.getElementById("map").remove();
                 document.getElementById("beers").remove();
+                document.getElementById("kebabs").remove();
             }
             if (this.min === 0 && this.sec === 0) {
                 clearInterval(this.idTimer);
@@ -254,6 +255,28 @@ class Obstacle {
     }
 }
 
+class Kebab {
+    constructor(x, y) {
+        this.positionX = x;
+        this.positionY = y;
+        this.element = document.querySelector(`.x${x}.y${y}`);
+        this.element.classList.add('kebabs');
+        this.element.innerHTML = "<img class='eat' src='images/kebabs.gif'>";
+    }
+    interact(player) {
+        if (true === this.visited) {
+            return;
+        }
+        this.eatSound();
+        player.addBeer(-1);
+        this.visited = true;
+    }
+    eatSound() {
+        const audio = document.getElementById("eatSound");
+        audio.play();
+    }
+}
+
 class Map {
     constructor(x, y) {
         this.xMin = 1;
@@ -264,13 +287,13 @@ class Map {
     }
     mapGenerator(x, y) {
         mapArray = [
-            ['O', '_', '_', 'O', 'O', 'O', 'O', '_', '_', 'O'],
+            ['O', '_', '_', 'O', 'O', 'O', 'O', 'K', '_', 'O'],
             ['B', '_', '_', 'O', '_', '_', '_', '_', '_', 'B'],
             ['O', '_', '_', '_', '_', '_', 'O', '_', '_', 'O'],
-            ['O', '_', '_', 'O', 'O', '_', '_', 'O', '_', 'O'],
+            ['O', '_', 'K', 'O', 'O', '_', '_', 'O', '_', 'O'],
             ['O', '_', 'O', 'O', 'B', '_', '_', 'O', '_', 'O'],
             ['O', '_', '_', 'O', 'O', '_', '_', 'O', '_', 'O'],
-            ['O', '_', '_', 'O', '_', '_', '_', '_', '_', '_'],
+            ['O', '_', '_', 'O', '_', '_', 'K', '_', '_', '_'],
             ['O', 'O', '_', '_', '_', 'O', '_', '_', '_', '_'],
             ['B', '_', '_', 'O', 'O', 'O', 'O', 'O', '_', 'O'],
             ['O', '_', '_', 'O', 'O', 'O', 'B', '_', '_', 'B'],
@@ -295,14 +318,16 @@ class Map {
 
                 } else if (mapArray[i][j] === 'O') {
                     mapObjects.push(new Obstacle(j + 1, i + 1));
+
+                } else if (mapArray[i][j] === 'K') {
+                    mapObjects.push(new Kebab(j + 1, i + 1));
                 }
             }
+            let elem = document.getElementById('mapGenerator');
+            elem.parentNode.removeChild(elem);
+            document.getElementById('startGame').disabled = false;
         }
-        let elem = document.getElementById('mapGenerator');
-        elem.parentNode.removeChild(elem);
-        document.getElementById('startGame').disabled = false;
     }
-}
 
 function gameMenu() {
     document.querySelector('#startGame').addEventListener('click', () => {
