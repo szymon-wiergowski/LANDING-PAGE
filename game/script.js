@@ -1,7 +1,7 @@
 let pause = true,
     mapObjects = [],
     player, bar, mapArray,
-    timer, obstacle;
+    timer, obstacle, playerImg;
 
 class Timer {
     constructor(m, s) {
@@ -29,17 +29,23 @@ class Timer {
                 clearInterval(this.idTimer);
                 let elem = document.getElementById('pauseGame');
                 elem.parentNode.removeChild(elem);
-                document.getElementById("timer").innerHTML = "HANGOVER! Udało się w " + this.score + " sekund.";
+                pause = false;
+                document.getElementById("timer").innerHTML = "HANGOVER! Udało Ci się w " + this.score + " sekund.<br><img class='playerLose' src='images/win.jpg'>";
                 document.getElementById("timer").style.height = '100%';
                 document.getElementById("timer").style.width = '100%';
+                document.getElementById("map").remove();
+                document.getElementById("beers").remove();
             }
             if (this.min === 0 && this.sec === 0) {
                 clearInterval(this.idTimer);
                 let elem = document.getElementById('pauseGame');
                 elem.parentNode.removeChild(elem);
-                document.getElementById("timer").innerHTML = "PRZEGRAŁEŚ! NASTAŁ DZIEŃ A TY WCIĄŻ NA NOGACH xD";
+                pause = false;
+                document.getElementById("timer").innerHTML = "PRZEGRAŁEŚ! NASTAŁ DZIEŃ A TY WCIĄŻ NA NOGACH xD<br><img class='playerLose' src='images/player.gif'>";
                 document.getElementById("timer").style.height = '100%';
                 document.getElementById("timer").style.width = '100%';
+                document.getElementById("map").remove();
+                document.getElementById("beers").remove();
             }
 
         }, 1000);
@@ -57,7 +63,7 @@ class Player {
         this.positionY = y;
         this.beersNumber = 0;
         this.element = document.querySelector(`.x${x}.y${y}`);
-        this.element.classList.add('player');
+        this.element.innerHTML = "<img class='player' src='images/player.gif'>";
         document.addEventListener('keyup', (event) => {
             this.handleMove(event.keyCode);
         })
@@ -70,61 +76,109 @@ class Player {
             case 39:
                 if (this.positionX < map.xMax && this.beersNumber === 0) {
                     this.move(this.positionX + 1, this.positionY);
+                    document.querySelector("img.player").style.animationName = "fromLeft";
+                    document.querySelector("img.player").style.animationDuration = "0.4s";
                 } else if (this.positionX > map.xMin && this.beersNumber === 1) {
                     this.move(this.positionX - 1, this.positionY);
+                    document.querySelector("img.player").style.animationName = "fromRight";
+                    document.querySelector("img.player").style.animationDuration = "0.4s";
                 } else if (this.positionX > map.xMin && this.beersNumber === 2) {
                     this.move(this.positionX - 1, this.positionY);
+                    document.querySelector("img.player").style.animationName = "fromRight";
+                    document.querySelector("img.player").style.animationDuration = "0.4s";
                 } else if (this.positionX > map.xMin && this.beersNumber === 3) {
                     this.move(this.positionX - 1, this.positionY);
+                    document.querySelector("img.player").style.animationName = "fromRight";
+                    document.querySelector("img.player").style.animationDuration = "0.4s";
                 } else if (this.positionY < map.yMax && this.beersNumber === 4) {
                     this.move(this.positionX, this.positionY + 1);
+                    document.querySelector("img.player").style.animationName = "fromTop";
+                    document.querySelector("img.player").style.animationDuration = "0.4s";
                 } else if (this.positionY > map.yMin && this.beersNumber === 5) {
                     this.move(this.positionX, this.positionY - 1);
+                    document.querySelector("img.player").style.animationName = "fromBottom";
+                    document.querySelector("img.player").style.animationDuration = "0.4s";
                 }
                 break;
             case 37:
                 if (this.positionX > map.xMin && this.beersNumber === 0) {
                     this.move(this.positionX - 1, this.positionY);
+                    document.querySelector("img.player").style.animationName = "fromRight";
+                    document.querySelector("img.player").style.animationDuration = "0.4s";
                 } else if (this.positionX < map.xMax && this.beersNumber === 1) {
                     this.move(this.positionX + 1, this.positionY);
+                    document.querySelector("img.player").style.animationName = "fromLeft";
+                    document.querySelector("img.player").style.animationDuration = "0.4s";
                 } else if (this.positionX < map.xMax && this.beersNumber === 2) {
                     this.move(this.positionX + 1, this.positionY);
+                    document.querySelector("img.player").style.animationName = "fromLeft";
+                    document.querySelector("img.player").style.animationDuration = "0.4s";
                 } else if (this.positionY > map.yMin && this.beersNumber === 3) {
                     this.move(this.positionX, this.positionY - 1);
+                    document.querySelector("img.player").style.animationName = "fromBottom";
+                    document.querySelector("img.player").style.animationDuration = "0.4s";
                 } else if (this.positionX < map.xMax && this.beersNumber === 4) {
                     this.move(this.positionX + 1, this.positionY);
+                    document.querySelector("img.player").style.animationName = "fromLeft";
+                    document.querySelector("img.player").style.animationDuration = "0.4s";
                 } else if (this.positionY < map.yMax && this.beersNumber === 5) {
                     this.move(this.positionX, this.positionY + 1);
+                    document.querySelector("img.player").style.animationName = "fromTop";
+                    document.querySelector("img.player").style.animationDuration = "0.4s";
                 }
                 break;
             case 40:
                 if (this.positionY < map.yMax && this.beersNumber === 0) {
                     this.move(this.positionX, this.positionY + 1);
+                    document.querySelector("img.player").style.animationName = "fromTop";
+                    document.querySelector("img.player").style.animationDuration = "0.4s";
                 } else if (this.positionY < map.yMax && this.beersNumber === 1) {
                     this.move(this.positionX, this.positionY + 1);
+                    document.querySelector("img.player").style.animationName = "fromTop";
+                    document.querySelector("img.player").style.animationDuration = "0.4s";
                 } else if (this.positionY > map.yMin && this.beersNumber === 2) {
                     this.move(this.positionX, this.positionY - 1);
+                    document.querySelector("img.player").style.animationName = "fromBottom";
+                    document.querySelector("img.player").style.animationDuration = "0.4s";
                 } else if (this.positionX < map.xMax && this.beersNumber === 3) {
                     this.move(this.positionX + 1, this.positionY);
+                    document.querySelector("img.player").style.animationName = "fromLeft";
+                    document.querySelector("img.player").style.animationDuration = "0.4s";
                 } else if (this.positionY > map.yMin && this.beersNumber === 4) {
                     this.move(this.positionX, this.positionY - 1);
+                    document.querySelector("img.player").style.animationName = "fromBottom";
+                    document.querySelector("img.player").style.animationDuration = "0.4s";
                 } else if (this.positionX > map.xMin && this.beersNumber === 5) {
                     this.move(this.positionX - 1, this.positionY);
+                    document.querySelector("img.player").style.animationName = "fromRight";
+                    document.querySelector("img.player").style.animationDuration = "0.4s";
                 }
                 break;
             case 38:
                 if (this.positionY > map.yMin && this.beersNumber === 0) {
                     this.move(this.positionX, this.positionY - 1);
+                    document.querySelector("img.player").style.animationName = "fromBottom";
+                    document.querySelector("img.player").style.animationDuration = "0.4s";
                 } else if (this.positionY > map.yMin && this.beersNumber === 1) {
                     this.move(this.positionX, this.positionY - 1);
+                    document.querySelector("img.player").style.animationName = "fromBottom";
+                    document.querySelector("img.player").style.animationDuration = "0.4s";
                 } else if (this.positionY < map.yMax && this.beersNumber === 2) {
                     this.move(this.positionX, this.positionY + 1);
+                    document.querySelector("img.player").style.animationName = "fromTop";
+                    document.querySelector("img.player").style.animationDuration = "0.4s";
                 } else if (this.positionY < map.yMax && this.beersNumber === 3) {
                     this.move(this.positionX, this.positionY + 1);
+                    document.querySelector("img.player").style.animationName = "fromTop";
+                    document.querySelector("img.player").style.animationDuration = "0.4s";
                 } else if (this.positionX > map.xMin && this.beersNumber === 4) {
                     this.move(this.positionX - 1, this.positionY);
+                    document.querySelector("img.player").style.animationName = "fromRight";
+                    document.querySelector("img.player").style.animationDuration = "0.4s";
                 } else if (this.positionX < map.xMax && this.beersNumber === 5) {
                     this.move(this.positionX + 1, this.positionY);
+                    document.querySelector("img.player").style.animationName = "fromLeft";
+                    document.querySelector("img.player").style.animationDuration = "0.4s";
                 }
                 break;
         }
@@ -134,9 +188,12 @@ class Player {
             this.checkColsion(x, y);
             this.positionX = x;
             this.positionY = y;
-            this.element.classList.remove('player');
+            this.element.innerHTML = "";
             this.element = document.querySelector(`.x${x}.y${y}`);
-            this.element.classList.add('player');
+            this.element.innerHTML = "<img class='player' src='images/player.gif'>";
+            this.walkSound();
+
+
         }
     }
     checkColsion(x, y) {
@@ -156,6 +213,10 @@ class Player {
         this.beersNumber = this.beersNumber + numBeers;
         document.getElementById('alcoholeProgressBar').value = `${this.beersNumber}`;
     }
+    walkSound() {
+        const audio = document.getElementById("walkSound");
+        audio.play();
+    }
 }
 
 class Bar {
@@ -165,14 +226,19 @@ class Bar {
         this.visited = false;
         this.element = document.querySelector(`.x${x}.y${y}`);
         this.element.classList.add('bar');
+        this.element.innerHTML = "<img class='drink' src='images/coctail.gif'>";
     }
     interact(player) {
         if (true === this.visited) {
             return;
         }
-
+        this.drinkSound();
         player.addBeer(1);
         this.visited = true;
+    }
+    drinkSound() {
+        const audio = document.getElementById("drinkSound");
+        audio.play();
     }
 }
 
@@ -199,14 +265,14 @@ class Map {
     mapGenerator(x, y) {
         mapArray = [
             ['O', '_', '_', 'O', 'O', 'O', 'O', '_', '_', 'O'],
-            ['B', '_', '_', '_', '_', '_', '_', '_', '_', 'B'],
-            ['O', '_', '_', '_', '_', '_', '_', '_', '_', 'O'],
-            ['O', '_', '_', 'O', 'O', '_', 'O', 'O', '_', 'O'],
-            ['O', '_', '_', 'O', 'B', '_', 'O', 'O', '_', 'O'],
-            ['O', '_', '_', 'O', 'O', '_', 'O', 'O', '_', 'O'],
-            ['O', '_', '_', '_', '_', '_', '_', '_', '_', '_'],
-            ['O', '_', '_', '_', '_', '_', '_', '_', '_', '_'],
-            ['B', '_', '_', 'O', 'O', 'O', 'O', '_', '_', 'O'],
+            ['B', '_', '_', 'O', '_', '_', '_', '_', '_', 'B'],
+            ['O', '_', '_', '_', '_', '_', 'O', '_', '_', 'O'],
+            ['O', '_', '_', 'O', 'O', '_', '_', 'O', '_', 'O'],
+            ['O', '_', 'O', 'O', 'B', '_', '_', 'O', '_', 'O'],
+            ['O', '_', '_', 'O', 'O', '_', '_', 'O', '_', 'O'],
+            ['O', '_', '_', 'O', '_', '_', '_', '_', '_', '_'],
+            ['O', 'O', '_', '_', '_', 'O', '_', '_', '_', '_'],
+            ['B', '_', '_', 'O', 'O', 'O', 'O', 'O', '_', 'O'],
             ['O', '_', '_', 'O', 'O', 'O', 'B', '_', '_', 'B'],
         ]
         let table = document.getElementById('map');
@@ -240,8 +306,8 @@ class Map {
 
 function gameMenu() {
     document.querySelector('#startGame').addEventListener('click', () => {
-        player = new Player(2, 2);
-        timer = new Timer(1, 30);
+        player = new Player(5, 2);
+        timer = new Timer(1, 20);
         document.getElementById("timer").style.display = 'block';
         document.getElementById("beers").style.display = 'block';
     });
