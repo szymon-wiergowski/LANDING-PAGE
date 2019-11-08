@@ -126,9 +126,10 @@ td {
 .eat {
     margin-left: auto;
     margin-right: auto;
-    width: 70%;
-    height: 70%;
+    width: 60%;
+    height: 60%;
     position: relative;
+    animation: spin 90s;
 }
 
 /* .moving {
@@ -144,10 +145,6 @@ td {
 .obstacle {
     background-color: black;
 } */
-
-/* .kebabs {
-    background-color: red;
-}
 
 /* STYLE MENU */
 
