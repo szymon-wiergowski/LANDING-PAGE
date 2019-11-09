@@ -123,6 +123,15 @@ td {
     animation: spin 90s;
 }
 
+.eat {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    height: 60%;
+    position: relative;
+    animation: spin 90s;
+}
+
 /* .moving {
     position: relative;
     animation-name: example;

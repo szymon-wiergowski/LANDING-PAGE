@@ -1,7 +1,7 @@
 let pause = true,
     mapObjects = [],
     player, bar, mapArray,
-    timer, obstacle, playerImg;
+    timer, obstacle, playerImg, kebab;
 
 class Timer {
     constructor(m, s) {
@@ -192,8 +192,6 @@ class Player {
             this.element = document.querySelector(`.x${x}.y${y}`);
             this.element.innerHTML = "<img class='player' src='images/player.gif'>";
             this.walkSound();
-
-
         }
     }
     checkColsion(x, y) {
@@ -254,6 +252,28 @@ class Obstacle {
     }
 }
 
+class Kebab {
+    constructor(x, y) {
+        this.positionX = x;
+        this.positionY = y;
+        this.element = document.querySelector(`.x${x}.y${y}`);
+        this.element.classList.add('kebab');
+        this.element.innerHTML = "<img class='eat' src='images/kebab.gif'>";
+    }
+    interact(player) {
+        if (true === this.visited) {
+            return;
+        }
+        this.eatSound();
+        player.addBeer(-1);
+        this.visited = true;
+    }
+    eatSound() {
+        const audio = document.getElementById("eatSound");
+        audio.play();
+    }
+}
+
 class Map {
     constructor(x, y) {
         this.xMin = 1;
@@ -264,11 +284,11 @@ class Map {
     }
     mapGenerator(x, y) {
         mapArray = [
-            ['O', '_', '_', 'O', 'O', 'O', 'O', '_', '_', 'O'],
+            ['O', '_', '_', 'O', 'O', 'K', 'O', '_', '_', 'O'],
             ['B', '_', '_', 'O', '_', '_', '_', '_', '_', 'B'],
             ['O', '_', '_', '_', '_', '_', 'O', '_', '_', 'O'],
             ['O', '_', '_', 'O', 'O', '_', '_', 'O', '_', 'O'],
-            ['O', '_', 'O', 'O', 'B', '_', '_', 'O', '_', 'O'],
+            ['O', '_', 'O', 'O', 'B', '_', '_', 'O', '_', 'K'],
             ['O', '_', '_', 'O', 'O', '_', '_', 'O', '_', 'O'],
             ['O', '_', '_', 'O', '_', '_', '_', '_', '_', '_'],
             ['O', 'O', '_', '_', '_', 'O', '_', '_', '_', '_'],
@@ -295,6 +315,9 @@ class Map {
 
                 } else if (mapArray[i][j] === 'O') {
                     mapObjects.push(new Obstacle(j + 1, i + 1));
+
+                } else if (mapArray[i][j] === 'K') {
+                    mapObjects.push(new Kebab(j + 1, i + 1));
                 }
             }
         }
@@ -303,6 +326,7 @@ class Map {
         document.getElementById('startGame').disabled = false;
     }
 }
+
 
 function gameMenu() {
     document.querySelector('#startGame').addEventListener('click', () => {
