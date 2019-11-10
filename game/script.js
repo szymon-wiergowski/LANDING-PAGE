@@ -13,6 +13,7 @@ class Timer {
         this.idTimer
     }
     gameTimer() {
+        document.getElementById("timer").innerHTML = "0" + this.min + ":" + this.sec;
         this.idTimer = setInterval(() => {
             this.sec--;
             this.score++;
@@ -25,16 +26,17 @@ class Timer {
             } else {
                 document.getElementById("timer").innerHTML = "0" + this.min + ":0" + this.sec;
             }
-            if (player.beersNumber === 6) {
+            if (player.beersNumber === 4) {
                 clearInterval(this.idTimer);
                 let elem = document.getElementById('pauseGame');
                 elem.parentNode.removeChild(elem);
                 pause = false;
-                document.getElementById("timer").innerHTML = "HANGOVER! Udało Ci się w " + this.score + " sekund.<br><img class='playerLose' src='images/win.jpg'>";
+                document.getElementById("timer").innerHTML = "HANGOVER! Upiłeś się!<br><img class='playerLose' src='images/hangover.jpg'>";
                 document.getElementById("timer").style.height = '100%';
                 document.getElementById("timer").style.width = '100%';
                 document.getElementById("map").remove();
                 document.getElementById("beers").remove();
+                document.getElementById("restart").style.display = 'block';
             }
             if (this.min === 0 && this.sec === 0) {
                 clearInterval(this.idTimer);
@@ -46,6 +48,19 @@ class Timer {
                 document.getElementById("timer").style.width = '100%';
                 document.getElementById("map").remove();
                 document.getElementById("beers").remove();
+                document.getElementById("restart").style.display = 'block';
+            }
+            if (player.visitedBarsNumbers === 6) {
+                clearInterval(this.idTimer);
+                let elem = document.getElementById('pauseGame');
+                elem.parentNode.removeChild(elem);
+                pause = false;
+                document.getElementById("timer").innerHTML = "Gratulacje, udało Ci się odwiedzić wszyskie bary w " + this.score + " sekund.<br><img class='playerLose' src='images/win.jpg'>";
+                document.getElementById("timer").style.height = '100%';
+                document.getElementById("timer").style.width = '100%';
+                document.getElementById("map").remove();
+                document.getElementById("beers").remove();
+                document.getElementById("restart").style.display = 'block';
             }
 
         }, 1000);
@@ -61,6 +76,7 @@ class Player {
     constructor(x, y) {
         this.positionX = x;
         this.positionY = y;
+        this.visitedBarsNumbers = 0;
         this.beersNumber = 0;
         this.element = document.querySelector(`.x${x}.y${y}`);
         this.element.innerHTML = "<img class='player' src='images/player.gif'>";
@@ -78,23 +94,27 @@ class Player {
                     this.move(this.positionX + 1, this.positionY);
                     document.querySelector("img.player").style.animationName = "fromLeft";
                     document.querySelector("img.player").style.animationDuration = "0.4s";
-                } else if (this.positionX > map.xMin && this.beersNumber === 1) {
+                }
+                //  else if (this.positionX > map.xMin && this.beersNumber === 1) {
+                //     this.move(this.positionX - 1, this.positionY);
+                //     document.querySelector("img.player").style.animationName = "fromRight";
+                //     document.querySelector("img.player").style.animationDuration = "0.4s";
+                // }
+                else if (this.positionX > map.xMin && this.beersNumber === 1) {
                     this.move(this.positionX - 1, this.positionY);
                     document.querySelector("img.player").style.animationName = "fromRight";
                     document.querySelector("img.player").style.animationDuration = "0.4s";
-                } else if (this.positionX > map.xMin && this.beersNumber === 2) {
-                    this.move(this.positionX - 1, this.positionY);
-                    document.querySelector("img.player").style.animationName = "fromRight";
-                    document.querySelector("img.player").style.animationDuration = "0.4s";
-                } else if (this.positionX > map.xMin && this.beersNumber === 3) {
-                    this.move(this.positionX - 1, this.positionY);
-                    document.querySelector("img.player").style.animationName = "fromRight";
-                    document.querySelector("img.player").style.animationDuration = "0.4s";
-                } else if (this.positionY < map.yMax && this.beersNumber === 4) {
+                }
+                //  else if (this.positionX > map.xMin && this.beersNumber === 3) {
+                //     this.move(this.positionX - 1, this.positionY);
+                //     document.querySelector("img.player").style.animationName = "fromRight";
+                //     document.querySelector("img.player").style.animationDuration = "0.4s";
+                // }
+                else if (this.positionY < map.yMax && this.beersNumber === 2) {
                     this.move(this.positionX, this.positionY + 1);
                     document.querySelector("img.player").style.animationName = "fromTop";
                     document.querySelector("img.player").style.animationDuration = "0.4s";
-                } else if (this.positionY > map.yMin && this.beersNumber === 5) {
+                } else if (this.positionY > map.yMin && this.beersNumber === 3) {
                     this.move(this.positionX, this.positionY - 1);
                     document.querySelector("img.player").style.animationName = "fromBottom";
                     document.querySelector("img.player").style.animationDuration = "0.4s";
@@ -105,23 +125,27 @@ class Player {
                     this.move(this.positionX - 1, this.positionY);
                     document.querySelector("img.player").style.animationName = "fromRight";
                     document.querySelector("img.player").style.animationDuration = "0.4s";
-                } else if (this.positionX < map.xMax && this.beersNumber === 1) {
+                }
+                // else if (this.positionX < map.xMax && this.beersNumber === 1) {
+                //     this.move(this.positionX + 1, this.positionY);
+                //     document.querySelector("img.player").style.animationName = "fromLeft";
+                //     document.querySelector("img.player").style.animationDuration = "0.4s";
+                // } 
+                else if (this.positionX < map.xMax && this.beersNumber === 1) {
                     this.move(this.positionX + 1, this.positionY);
                     document.querySelector("img.player").style.animationName = "fromLeft";
                     document.querySelector("img.player").style.animationDuration = "0.4s";
-                } else if (this.positionX < map.xMax && this.beersNumber === 2) {
+                }
+                //  else if (this.positionY > map.yMin && this.beersNumber === 3) {
+                //     this.move(this.positionX, this.positionY - 1);
+                //     document.querySelector("img.player").style.animationName = "fromBottom";
+                //     document.querySelector("img.player").style.animationDuration = "0.4s";
+                // }
+                else if (this.positionX < map.xMax && this.beersNumber === 2) {
                     this.move(this.positionX + 1, this.positionY);
                     document.querySelector("img.player").style.animationName = "fromLeft";
                     document.querySelector("img.player").style.animationDuration = "0.4s";
-                } else if (this.positionY > map.yMin && this.beersNumber === 3) {
-                    this.move(this.positionX, this.positionY - 1);
-                    document.querySelector("img.player").style.animationName = "fromBottom";
-                    document.querySelector("img.player").style.animationDuration = "0.4s";
-                } else if (this.positionX < map.xMax && this.beersNumber === 4) {
-                    this.move(this.positionX + 1, this.positionY);
-                    document.querySelector("img.player").style.animationName = "fromLeft";
-                    document.querySelector("img.player").style.animationDuration = "0.4s";
-                } else if (this.positionY < map.yMax && this.beersNumber === 5) {
+                } else if (this.positionY < map.yMax && this.beersNumber === 3) {
                     this.move(this.positionX, this.positionY + 1);
                     document.querySelector("img.player").style.animationName = "fromTop";
                     document.querySelector("img.player").style.animationDuration = "0.4s";
@@ -132,23 +156,27 @@ class Player {
                     this.move(this.positionX, this.positionY + 1);
                     document.querySelector("img.player").style.animationName = "fromTop";
                     document.querySelector("img.player").style.animationDuration = "0.4s";
-                } else if (this.positionY < map.yMax && this.beersNumber === 1) {
-                    this.move(this.positionX, this.positionY + 1);
-                    document.querySelector("img.player").style.animationName = "fromTop";
-                    document.querySelector("img.player").style.animationDuration = "0.4s";
-                } else if (this.positionY > map.yMin && this.beersNumber === 2) {
+                }
+                //  else if (this.positionY < map.yMax && this.beersNumber === 1) {
+                //     this.move(this.positionX, this.positionY + 1);
+                //     document.querySelector("img.player").style.animationName = "fromTop";
+                //     document.querySelector("img.player").style.animationDuration = "0.4s";
+                // }
+                else if (this.positionY > map.yMin && this.beersNumber === 1) {
                     this.move(this.positionX, this.positionY - 1);
                     document.querySelector("img.player").style.animationName = "fromBottom";
                     document.querySelector("img.player").style.animationDuration = "0.4s";
-                } else if (this.positionX < map.xMax && this.beersNumber === 3) {
-                    this.move(this.positionX + 1, this.positionY);
-                    document.querySelector("img.player").style.animationName = "fromLeft";
-                    document.querySelector("img.player").style.animationDuration = "0.4s";
-                } else if (this.positionY > map.yMin && this.beersNumber === 4) {
+                }
+                //  else if (this.positionX < map.xMax && this.beersNumber === 3) {
+                //     this.move(this.positionX + 1, this.positionY);
+                //     document.querySelector("img.player").style.animationName = "fromLeft";
+                //     document.querySelector("img.player").style.animationDuration = "0.4s";
+                // } 
+                else if (this.positionY > map.yMin && this.beersNumber === 2) {
                     this.move(this.positionX, this.positionY - 1);
                     document.querySelector("img.player").style.animationName = "fromBottom";
                     document.querySelector("img.player").style.animationDuration = "0.4s";
-                } else if (this.positionX > map.xMin && this.beersNumber === 5) {
+                } else if (this.positionX > map.xMin && this.beersNumber === 3) {
                     this.move(this.positionX - 1, this.positionY);
                     document.querySelector("img.player").style.animationName = "fromRight";
                     document.querySelector("img.player").style.animationDuration = "0.4s";
@@ -159,23 +187,27 @@ class Player {
                     this.move(this.positionX, this.positionY - 1);
                     document.querySelector("img.player").style.animationName = "fromBottom";
                     document.querySelector("img.player").style.animationDuration = "0.4s";
-                } else if (this.positionY > map.yMin && this.beersNumber === 1) {
-                    this.move(this.positionX, this.positionY - 1);
-                    document.querySelector("img.player").style.animationName = "fromBottom";
-                    document.querySelector("img.player").style.animationDuration = "0.4s";
-                } else if (this.positionY < map.yMax && this.beersNumber === 2) {
+                }
+                //  else if (this.positionY > map.yMin && this.beersNumber === 1) {
+                //     this.move(this.positionX, this.positionY - 1);
+                //     document.querySelector("img.player").style.animationName = "fromBottom";
+                //     document.querySelector("img.player").style.animationDuration = "0.4s";
+                // }
+                else if (this.positionY < map.yMax && this.beersNumber === 1) {
                     this.move(this.positionX, this.positionY + 1);
                     document.querySelector("img.player").style.animationName = "fromTop";
                     document.querySelector("img.player").style.animationDuration = "0.4s";
-                } else if (this.positionY < map.yMax && this.beersNumber === 3) {
-                    this.move(this.positionX, this.positionY + 1);
-                    document.querySelector("img.player").style.animationName = "fromTop";
-                    document.querySelector("img.player").style.animationDuration = "0.4s";
-                } else if (this.positionX > map.xMin && this.beersNumber === 4) {
+                }
+                // else if (this.positionY < map.yMax && this.beersNumber === 3) {
+                //     this.move(this.positionX, this.positionY + 1);
+                //     document.querySelector("img.player").style.animationName = "fromTop";
+                //     document.querySelector("img.player").style.animationDuration = "0.4s";
+                // } 
+                else if (this.positionX > map.xMin && this.beersNumber === 2) {
                     this.move(this.positionX - 1, this.positionY);
                     document.querySelector("img.player").style.animationName = "fromRight";
                     document.querySelector("img.player").style.animationDuration = "0.4s";
-                } else if (this.positionX < map.xMax && this.beersNumber === 5) {
+                } else if (this.positionX < map.xMax && this.beersNumber === 3) {
                     this.move(this.positionX + 1, this.positionY);
                     document.querySelector("img.player").style.animationName = "fromLeft";
                     document.querySelector("img.player").style.animationDuration = "0.4s";
@@ -210,10 +242,18 @@ class Player {
     addBeer(numBeers) {
         this.beersNumber = this.beersNumber + numBeers;
         document.getElementById('alcoholeProgressBar').value = `${this.beersNumber}`;
+        if (this.beersNumber === 3) {
+            document.getElementById('beerText').innerHTML = '<p style="color:red;">Zjedz kebaba!</p>'
+        } else {
+            document.getElementById('beerText').innerHTML = ''
+        }
     }
     walkSound() {
         const audio = document.getElementById("walkSound");
         audio.play();
+    }
+    visitedBars() {
+        this.visitedBarsNumbers++;
     }
 }
 
@@ -232,6 +272,8 @@ class Bar {
         }
         this.drinkSound();
         player.addBeer(1);
+        player.visitedBars();
+        console.log(player.visitedBarsNumbers);
         this.visited = true;
     }
     drinkSound() {
@@ -265,7 +307,10 @@ class Kebab {
             return;
         }
         this.eatSound();
-        player.addBeer(-1);
+
+        if (player.beersNumber > 0) {
+            player.addBeer(-1)
+        };
         this.visited = true;
     }
     eatSound() {
@@ -331,7 +376,7 @@ class Map {
 function gameMenu() {
     document.querySelector('#startGame').addEventListener('click', () => {
         player = new Player(5, 2);
-        timer = new Timer(1, 20);
+        timer = new Timer(1, 50);
         document.getElementById("timer").style.display = 'block';
         document.getElementById("beers").style.display = 'block';
     });
@@ -346,6 +391,9 @@ function gameMenu() {
             timer.startGameTimer()
             pause = true;
         }
+    });
+    document.querySelector('#restart').addEventListener('click', () => {
+        window.location.reload(true);
     });
 }
 
