@@ -190,9 +190,7 @@ class Player {
                 }
                 //  else if (this.positionY > map.yMin && this.beersNumber === 1) {
                 //     this.move(this.positionX, this.positionY - 1);
-                //     document.querySelector("img.player").style.animationName = "fromBottom";
-                //     document.querySelector("img.player").style.animationDuration = "0.4s";
-                // }
+                //     document.querySelector("img.player").style.animationName = "fromBottom";O
                 else if (this.positionY < map.yMax && this.beersNumber === 1) {
                     this.move(this.positionX, this.positionY + 1);
                     document.querySelector("img.player").style.animationName = "fromTop";

@@ -1,18 +1,21 @@
 document.addEventListener("scroll", function () {
     let currentPosition = window.scrollY;
-    let basicFunctionPosition = document.querySelector("#basic-function").offsetTop;
-    let moreFunctionsPosition = document.querySelector("#more-functions").offsetTop;
-    let signUpPosition = document.querySelector("#sign-up").offsetTop;
-    let teamPosition = document.querySelector("#team").offsetTop;
+    const screenHigh = document.documentElement.clientHeight;
+    let middlePosition = currentPosition + (screenHigh / 3.3);
+
+    const basicFunctionPosition = document.querySelector("#basic-function").offsetTop;
+    const moreFunctionsPosition = document.querySelector("#more-functions").offsetTop;
+    const signUpPosition = document.querySelector("#sign-up").offsetTop;
+    const teamPosition = document.querySelector("#team").offsetTop;
     let addClass = "";
     let delateClass = "";
 
-    if (currentPosition < basicFunctionPosition) {
+    if (middlePosition < basicFunctionPosition) {
         delateClass = document.querySelectorAll(".data-section-basic-func, .data-section-more-func, .data-section-sign-up, .data-section-team");
         delateClass.forEach((item) => {
             item.classList.remove("highlightNav");
         });
-    } else if (currentPosition > basicFunctionPosition && currentPosition < moreFunctionsPosition) {
+    } else if (middlePosition > basicFunctionPosition && middlePosition < moreFunctionsPosition) {
         delateClass = document.querySelectorAll(".data-section-more-func, .data-section-sign-up, .data-section-team");
         delateClass.forEach((item) => {
             item.classList.remove("highlightNav");
@@ -20,14 +23,14 @@ document.addEventListener("scroll", function () {
         addClass = document.querySelector(".data-section-basic-func");
         addClass.classList.add("highlightNav");
 
-    } else if (currentPosition > moreFunctionsPosition && currentPosition < signUpPosition) {
+    } else if (middlePosition > moreFunctionsPosition && middlePosition < signUpPosition) {
         delateClass = document.querySelectorAll(".data-section-basic-func, .data-section-sign-up, .data-section-team");
         delateClass.forEach((item) => {
             item.classList.remove("highlightNav");
         });
         addClass = document.querySelector(".data-section-more-func");
         addClass.classList.add("highlightNav");
-    } else if (currentPosition > signUpPosition && currentPosition < teamPosition) {
+    } else if (middlePosition > signUpPosition && middlePosition < teamPosition) {
         delateClass = document.querySelectorAll(".data-section-basic-func, .data-section-more-func, .data-section-team");
         delateClass.forEach((item) => {
             item.classList.remove("highlightNav");
@@ -35,7 +38,7 @@ document.addEventListener("scroll", function () {
         addClass = document.querySelector(".data-section-sign-up");
         addClass.classList.add("highlightNav");
 
-    } else if (currentPosition > teamPosition) {
+    } else if (middlePosition > teamPosition) {
         delateClass = document.querySelectorAll(".data-section-basic-func, .data-section-more-func, .data-section-sign-up");
         delateClass.forEach((item) => {
             item.classList.remove("highlightNav");
@@ -113,7 +116,7 @@ const createCookie = (name, value, expires) => {
 }
 
 const cookiesModal = () => {
-    if (document.cookie !==  "cookie=cookie") {
+    if (document.cookie !== "cookie=cookie") {
         $(document).ready(function () {
             $("#cookiesModal").modal("show");
         });
