@@ -1,9 +1,12 @@
 document.addEventListener("scroll", function () {
-    let currentPosition = window.scrollY;
-    let basicFunctionPosition = document.querySelector("#basic-function").offsetTop;
-    let moreFunctionsPosition = document.querySelector("#more-functions").offsetTop;
-    let signUpPosition = document.querySelector("#sign-up").offsetTop;
-    let teamPosition = document.querySelector("#team").offsetTop;
+    let topScreenPosition = window.scrollY;
+    const screenHigh = document.documentElement.clientHeight;
+    let currentPosition = topScreenPosition + (screenHigh / 3.3);
+
+    const basicFunctionPosition = document.querySelector("#basic-function").offsetTop;
+    const moreFunctionsPosition = document.querySelector("#more-functions").offsetTop;
+    const signUpPosition = document.querySelector("#sign-up").offsetTop;
+    const teamPosition = document.querySelector("#team").offsetTop;
     let addClass = "";
     let delateClass = "";
 
@@ -113,7 +116,7 @@ const createCookie = (name, value, expires) => {
 }
 
 const cookiesModal = () => {
-    if (document.cookie !==  "cookie=cookie") {
+    if (document.cookie !== "cookie=cookie") {
         $(document).ready(function () {
             $("#cookiesModal").modal("show");
         });
