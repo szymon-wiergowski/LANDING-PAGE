@@ -10,7 +10,6 @@ document.addEventListener("scroll", function () {
     const teamPosition = document.querySelector("#team").offsetTop;
     let addClass = "";
     let delateClass = "";
-
    
     if (currentPosition < basicFunctionPosition) {
         delateClass = document.querySelectorAll(".data-section-basic-func, .data-section-more-func, .data-section-sign-up, .data-section-team");
@@ -32,14 +31,14 @@ document.addEventListener("scroll", function () {
         });
         addClass = document.querySelector(".data-section-more-func");
         addClass.classList.add("highlightNav");
-    } else if (currentPosition > signUpPosition && bottomOfTheDocument != (Math.ceil(topScreenPosition) + screenHigh) - 1 ) {
+    } else if (currentPosition > signUpPosition && currentPosition < teamPosition && bottomOfTheDocument != (Math.ceil(topScreenPosition) + screenHigh) - 1 ) {
         delateClass = document.querySelectorAll(".data-section-basic-func, .data-section-more-func, .data-section-team");
         delateClass.forEach((item) => {
             item.classList.remove("highlightNav");
         });
         addClass = document.querySelector(".data-section-sign-up");
         addClass.classList.add("highlightNav");
-    } else if (bottomOfTheDocument == (Math.ceil(topScreenPosition) + screenHigh) - 1 ) {
+    } else if (currentPosition > teamPosition || bottomOfTheDocument == (Math.ceil(topScreenPosition) + screenHigh) - 1 ) {
         delateClass = document.querySelectorAll(".data-section-basic-func, .data-section-more-func, .data-section-sign-up");
         delateClass.forEach((item) => {
             item.classList.remove("highlightNav");
