@@ -1,0 +1,212 @@
+/* STYLE GRY */
+
+body {
+    background-color: lightgoldenrodyellow;
+    overflow: hidden;
+}
+
+button {
+    box-shadow: inset 0px 1px 0px 0px #efdcfb;
+    background: linear-gradient(to bottom, #dfbdfa 5%, #bc80ea 100%);
+    background-color: #dfbdfa;
+    border-radius: 6px;
+    border: 1px solid #c584f3;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #9752cc;
+}
+
+button:hover {
+    background: linear-gradient(to bottom, #bc80ea 5%, #dfbdfa 100%);
+    background-color: #bc80ea;
+}
+
+button:active {
+    position: relative;
+    top: 1px;
+}
+
+button:disabled {
+    background: linear-gradient(to bottom, #331b46 5%, #5a3777 100%);
+    background-color: #ab70da;
+}
+
+table {
+    margin: 20px auto;
+    border: 5px solid rgb(156, 156, 156);
+    border-spacing: 0;
+    border-collapse: collapse;
+    background: url('images/map.png') center/cover no-repeat;
+}
+
+td {
+    width: 7vh;
+    height: 7vh;
+    /* border: 1px solid red; */
+}
+
+@keyframes fromLeft {
+    from {
+        left: -7vh;
+    }
+
+    to {
+        left: 0px;
+    }
+}
+
+@keyframes fromRight {
+    from {
+        right: -7vh;
+    }
+
+    to {
+        right: 0px;
+    }
+}
+
+@keyframes fromTop {
+    from {
+        top: -7vh;
+    }
+
+    to {
+        top: 0px;
+    }
+}
+
+@keyframes fromBottom {
+    from {
+        bottom: -7vh;
+    }
+
+    to {
+        bottom: 0px;
+    }
+}
+
+@keyframes spin { 
+    from { 
+        transform: rotate(0deg); 
+    } to { 
+        transform: rotate(3600deg); 
+    }
+}
+
+.player {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    height: 70%;
+    position: relative;
+}
+.playerLose {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50vh;
+    height: 50vh;
+    position: relative;
+}
+
+.drink {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    height: 70%;
+    position: relative;
+    animation: spin 90s;
+}
+
+.eat {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    height: 60%;
+    position: relative;
+    animation: spin 90s;
+}
+
+/* .moving {
+    position: relative;
+    animation-name: example;
+    animation-duration: 1s;
+} */
+
+/* .bar {
+    background-color: red;
+}
+
+.obstacle {
+    background-color: black;
+} */
+
+/* STYLE MENU */
+
+#timer {
+    margin: 20px auto;
+    border: 1px solid black;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    font-size: 40px;
+    font-family: OCR A Std, monospace;
+    display: none;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+form button {
+    width: 200px;
+    margin: 3px auto;
+}
+
+#restart{
+    display: none;
+}
+
+#beers {
+    position: absolute;
+    margin-top: 20px;
+    margin-right: 20px;
+    width: 400px;
+    height: 50px;
+    font-size: 40px;
+    font-family: OCR A Std, monospace;
+    display: none;
+}
+
+
+/*instrukcja do gry*/
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+
+.button{
+    padding: 10px 40px;
+    font-size: 20px;
+}
+#drop-content{
+    position:absolute;
+    max-width: 350px;
+}
+#drop-content {
+display:block;
+font-size:20px;
+background-color: cornsilk;
+color:black;
+text-decoration: none;
+padding:10px 36px;
+margin-top:2px;
+}
