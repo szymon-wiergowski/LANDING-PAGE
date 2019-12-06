@@ -5,36 +5,51 @@ body {
 .hero_button {
     padding: 1.25rem 2.5rem;
     margin: 1.5rem;
+    border: none;
 }
 
-.hero_section {
-    min-height: 30rem;
+.empty_item{
+    height: 80px;
+}
+
+.hero {
     position: relative;
-    display: table;
-    width: 100%;
-    height: auto;
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-    background-image: url(../images/hero-background.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
-.hero_item {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 1rem;
-    padding: 1rem;
-}
+.hero_item:after {
+    content:"";
+    display:block;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background:rgba(78, 73, 73, 0.3);
+    }
 
-@media (min-width: 992px) {
-    .hero_section {
-        height: 100vh;
+.hero_item-text{
+    position:absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
+}
+.hero_item h1 {
+    font-size: 5.5rem;
     }
-    .hero_section h1 {
-        font-size: 5.5rem;
-        margin: 2rem;
-    }
+
+@media (max-width: 992px) {
+.carousel-indicators{
+    display: none;
+}
+.hero_item h1  {
+    font-size: 3rem;
+    margin-top: 2.5rem;
+}
+.hero_item h3  {
+    display: none;
+}
 }
 
 .basic_function_icon {
@@ -50,12 +65,8 @@ body {
 }
 
 .basic_function_section {
-    padding-top: 7.5rem;
-    padding-bottom: 7.5rem;
-}
-
-.basic_function_heading h2 {
-    font-size: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .basic_function_heading h3 {
@@ -67,32 +78,28 @@ body {
     font-weight: 700;
 }
 
-.team {
-    background: #17a2b8;
-}
-
 .contact-list-card {
     align-items: center;
     justify-content: center;
     margin: 30px 0;
-    padding: 30px 0;
+    padding: 0;
     border: solid 3px #17a2b8;
-    position: relative;
     display: flex;
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #fff;
     background-clip: border-box;
 }
 
 .card-img-top {
     width: 50%;
     object-fit: cover;
+    border: solid 2px white;
 }
 
 .contact {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -112,32 +119,6 @@ body {
 .contact-link:hover {
     color: black;
 }
-
-
-/* .navbar-light .navbar-nav .nav-link {
-    color: #212529;
-}
-
-.navbar-expand-lg {
-    -ms-flex-flow: row nowrap;
-    flex-flow: row nowrap;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-    position: fixed;
-    width: 100%;
-    z-index: 1;
-    border-radius: 20px;
-    margin-top: 5px;
-    font-size: larger;
-    opacity: 0.95;
-}
-
-nav.small a {
-    padding: 0px 0px 20px 0px;
-    font-size: 14px;
-    font-weight: 100;
-} */
-
 .navbar {
     height: 100px;
     transition: all 1s;
@@ -151,15 +132,84 @@ nav.small a {
 
 .smallNav {
     height: 60px;
-    opacity: 0.95;
+    opacity: 0.90;
 }
 
 #back-to-top {
     position: fixed;
     bottom: 20px;
-    font-size: 18px;
-    background-color: white;
-    padding: 15px;
-    border-radius: 20px;
+    font-size: 14px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
     margin-left: 10px;
+    display: none;
+    opacity: 0.90;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 220px;
+    height: 250px;
+    perspective: 1000px;
+}
+  
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+    background-color: #bbb;
+    color: black;
+}
+
+.flip-card-back {
+    background-color: #2980b9;
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.flip-card-auto  {
+    transform: rotateY(360deg);
+    transition: transform 3s;
+}
+
+.flip-card-auto-return  {
+    transition: transform 1s;
+}
+
+.highlightNav {
+    position:relative;
+    display:inline-block;
+}
+
+.highlightNav:after {
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:0;
+    margin:auto;
+    background:#5cb85c;
+    height:5px;
 }
