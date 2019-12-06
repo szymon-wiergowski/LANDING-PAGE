@@ -400,7 +400,6 @@ function gameMenu() {
 gameMenu();
 
 //instrukcja do gry
-
 function showFunc(){
     const click= document.getElementById("drop-content");
     if(click.style.display ==="none"){
