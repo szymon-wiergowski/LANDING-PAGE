@@ -202,11 +202,31 @@ form button {
 }
 #drop-content {
 display:block;
-font-size:20px;
 background-color: cornsilk;
-color:black;
 text-decoration: none;
 padding:10px 36px;
 margin-top:2px;
+z-index: 1;
+border-radius: 20px;
+border: 1px solid grey;
 }
 
+
+.rules{
+    font-size:22px;
+    color:blue;
+    font-weight: 800;
+
+}
+.game_rules{
+    font-size:20px;
+    color:blue;
+    font-weight: 700;
+    border: 1px solid grey;
+    border-radius: 5px;
+    
+}
+.images{
+    max-height: 60px;
+    max-width: 60px;
+}
