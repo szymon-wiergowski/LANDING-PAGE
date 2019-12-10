@@ -410,3 +410,38 @@ click.style.display="none";
 }
 }
 
+
+
+var currentDiv = document.getElementById("div1");
+function show(divID) {
+
+    var div = document.getElementById(divID);
+
+    currentDiv.style.display = "none";
+    div.style.display = "block";
+
+    currentDiv = div;
+}
+
+
+function show(){
+    const click=document.getElementById("button");
+    document.getElementById("div1").innerHTML ="Odwiedź wszystkie bary z drinkami zanim skończy się czas. Pamiętaj, na wykonanie zadania masz tylko 2 minuty.";
+}
+
+function show2(){
+    const click=document.getElementById("button2");
+    document.getElementById("div2").innerText = "Aby przejść grę, musisz zdobyć wszystkie sześć drinków.Drinki oznaczone są w taki sposób:";
+}
+
+function show3(){
+    const click=document.getElementById("button3");
+    document.getElementById("div3").innerText = "Podczas picia należy pamiętać o jedzeniu. Jedz kebaby, aby dłużej utrzymać się na nogach."
+
+}
+
+function show4(){
+    const click=document.getElementById("button4");
+    document.getElementById("div4").innerText = "Im więcej wypijesz, tym trudniej będzie się poruszać po mieście. Wzrost poziomu upojenia zmienia sterowanie graczem, aby to odwrócić pamiętaj o zdobywaniu pożywienia.";
+
+}
