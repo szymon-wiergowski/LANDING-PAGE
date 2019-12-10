@@ -1,3 +1,6 @@
+$(document).ready(function() {
+    $('a[href^="#"]').click(function() {
+        const hash = $(this).attr('href');
 document.addEventListener("scroll", function () {
     let topScreenPosition = window.scrollY;
     const screenHigh = document.documentElement.clientHeight;
@@ -51,13 +54,19 @@ document.addEventListener("scroll", function () {
 $(document).ready(function () {
     $('a[href^="#"]').click(function () {
         let hash = $(this).attr('href');
-        $('html, body').animate({
+
+      $('html, body').animate({
             scrollTop: $(hash).offset().top
         }, 1500);
         return false;
     });
 });
-$(window).scroll(function () {
+      
+$(window).scroll(function() {
+    const top = $(window).scrollTop();
+    const find_class_small = $.contains('mainNav', '.smallNav');
+
+  $(window).scroll(function () {
     let top = $(window).scrollTop();
     let find_class_small = $.contains('mainNav', '.smallNav');
 

@@ -185,3 +185,41 @@ form button {
     font-family: OCR A Std, monospace;
     display: none;
 }
+
+/*instrukcja do gry*/
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+
+.button{
+    padding: 10px 40px;
+    font-size: 20px;
+}
+#drop-content{
+    position:absolute;
+    max-width: 350px;
+}
+#drop-content {
+display:block;
+background-color: cornsilk;
+text-decoration: none;
+padding:10px 36px;
+margin-top:2px;
+z-index: 1;
+border-radius: 20px;
+border: 1px solid grey;
+}
+
+#game_rules{
+    font-size:20px;
+    color:blue;
+    font-weight: 700;
+    border: 1px solid grey;
+    border-radius: 5px;
+    
+}
+.images{
+    max-height: 60px;
+    max-width: 60px;
+}
