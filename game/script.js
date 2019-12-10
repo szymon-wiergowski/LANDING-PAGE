@@ -411,19 +411,6 @@ click.style.display="none";
 }
 
 
-
-var currentDiv = document.getElementById("div1");
-function show(divID) {
-
-    var div = document.getElementById(divID);
-
-    currentDiv.style.display = "none";
-    div.style.display = "block";
-
-    currentDiv = div;
-}
-
-
 function show(){
     const click=document.getElementById("button");
     document.getElementById("div1").innerHTML ="Odwiedź wszystkie bary z drinkami zanim skończy się czas. Pamiętaj, na wykonanie zadania masz tylko 2 minuty.";
