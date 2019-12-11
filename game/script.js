@@ -4,9 +4,9 @@ let pause = true,
     timer, obstacle, playerImg, kebab;
 
 class Timer {
-    constructor(m, s) {
+    constructor(m, highScore) {
         this.min = m;
-        this.sec = s;
+        this.sec = highScore;
         this.score = 0;
         this.pause = true;
         this.gameTimer();
@@ -50,7 +50,7 @@ class Timer {
                 document.getElementById("beers").remove();
                 document.getElementById("restart").style.display = 'block';
             }
-            if (player.visitedBarsNumbers === 6) {
+            if (player.visitedBarsNumbers === 1) {
                 clearInterval(this.idTimer);
                 let elem = document.getElementById('pauseGame');
                 elem.parentNode.removeChild(elem);
@@ -61,6 +61,7 @@ class Timer {
                 document.getElementById("map").remove();
                 document.getElementById("beers").remove();
                 document.getElementById("restart").style.display = 'block';
+                HighScores()
             }
 
         }, 1000);
@@ -273,7 +274,6 @@ class Bar {
         this.drinkSound();
         player.addBeer(1);
         player.visitedBars();
-        console.log(player.visitedBarsNumbers);
         this.visited = true;
     }
     drinkSound() {
@@ -379,6 +379,8 @@ function gameMenu() {
         timer = new Timer(1, 50);
         document.getElementById("timer").style.display = 'block';
         document.getElementById("beers").style.display = 'block';
+        score_board = document.querySelector(".score_board");
+        score_board.style.display = "none";
     });
     document.querySelector('#mapGenerator').addEventListener('click', () => {
         map = new Map(10, 10);
@@ -399,34 +401,65 @@ function gameMenu() {
 
 gameMenu();
 
-function show_hide(){
-    const click= document.getElementById("drop-content");
-    if(click.style.display ==="none"){
-click.style.display="block";
-}
-else{
-click.style.display="none";
-}
-}
-
-function show(){
-    const click=document.getElementById("button");
-    document.getElementById("div1").innerHTML ="Odwiedź wszystkie bary z drinkami zanim skończy się czas. Pamiętaj, na wykonanie zadania masz tylko 2 minuty.";
+function show_hide() {
+    const click = document.getElementById("drop-content");
+    if (click.style.display === "none") {
+        click.style.display = "block";
+    }
+    else {
+        click.style.display = "none";
+    }
 }
 
-function show2(){
-    const click=document.getElementById("button2");
+function show() {
+    const click = document.getElementById("button");
+    document.getElementById("div1").innerHTML = "Odwiedź wszystkie bary z drinkami zanim skończy się czas. Pamiętaj, na wykonanie zadania masz tylko 2 minuty.";
+}
+
+function show2() {
+    const click = document.getElementById("button2");
     document.getElementById("div2").innerText = "Aby przejść grę, musisz zdobyć wszystkie sześć drinków.Drinki oznaczone są w taki sposób:";
 }
 
-function show3(){
-    const click=document.getElementById("button3");
+function show3() {
+    const click = document.getElementById("button3");
     document.getElementById("div3").innerText = "Podczas picia należy pamiętać o jedzeniu. Jedz kebaby, aby dłużej utrzymać się na nogach."
 
 }
 
-function show4(){
-    const click=document.getElementById("button4");
+function show4() {
+    const click = document.getElementById("button4");
     document.getElementById("div4").innerText = "Im więcej wypijesz, tym trudniej będzie się poruszać po mieście. Wzrost poziomu upojenia zmienia sterowanie graczem, aby to odwrócić pamiętaj o zdobywaniu pożywienia.";
 
+}
+
+function HighScores() {
+    high_scores = document.querySelector(".best_score");
+    high_scores.style.display = "block";
+    high_scores.innerHTML = '';
+
+    let bestScore = timer.score;
+    const higScoreList = document.createElement('li');
+    higScoreList.innerHTML = `Szymon Wiergowski, wynik: ${bestScore} s`;
+    high_scores.appendChild(higScoreList);
+
+
+    // if (typeof (Storage) !== "undefined") {
+    //     const scores = false;
+    //     if (localStorage["high-scores"]) {
+    //         high_scores.style.display = "block";
+    //         high_scores.innerHTML = '';
+    //         scores = JSON.parse(localStorage["high-scores"]);
+    //         scores = scores.sort(function (a, b) { return parseInt(b) - parseInt(a) });
+
+    //         for (let i = 0; i < 10; i++) {
+    //             let highScore = scores[i];
+    //             const fragment = document.createElement('li');
+    //             fragment.innerHTML = (typeof (highScore) != "undefined" ? highScore : "");
+    //             high_scores.appendChild(fragment);
+    //         }
+    //     }
+    // } else {
+    //     
+    // }
 }
