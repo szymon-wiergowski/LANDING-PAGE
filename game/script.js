@@ -63,7 +63,7 @@ class Timer {
                 document.getElementById("map").remove();
                 document.getElementById("beers").remove();
                 document.getElementById("restart").style.display = 'block';
-                player.setDataToLocalStrage();
+                // player.setDataToLocalStrage();
                 player.highScores()
 
             }
@@ -274,10 +274,11 @@ class Player {
         highScoreList.innerText = `${this.userScoreBoard} ukończył grę w ${this.bestScore} s`;
         high_scores.appendChild(highScoreList);
 
-        if (this.getDataFromLocalStorage()) {
+        if (this.bestScore) {
 
             if (this.scoreBoard.length < 10) {
                 this.scoreBoard.push(this.userScoreBoard);
+                console.log(this.userScoreBoard)
             }
 
             if (this.scoreBoard.length === 10) {
@@ -292,26 +293,26 @@ class Player {
             this.scoreBoard.push(this.userScoreBoard);
         }
     }
-    getDataFromLocalStorage() {
-        if (typeof (localStorage.getItem('best_score')) === "string") {
-            this.scoreBoard = JSON.parse(localStorage.getItem('best_score'))
-                .sort((a, b) => (a.this.bestScore < b.this.bestScore) ? 1 : -1);
-            return true;
-        }
-        return false;
-    }
-    setDataToLocalStrage() {
-        localStorage.setItem('best_score', JSON.stringify(this.scoreBoard));
-    }
-    getUserDataSesionStorage() {
-        userData = JSON.parse(sessionStorage.getItem('userData'));
-        if (userData === null) {
-            userData = {
-                name: "",
-                email: ""
-            };
-        }
-    }
+//     getDataFromLocalStorage() {
+//         if (typeof (localStorage.getItem('best_score')) === "string") {
+//             this.scoreBoard = JSON.parse(localStorage.getItem('best_score'))
+//                 .sort((a, b) => (a.this.bestScore < b.this.bestScore) ? 1 : -1);
+//             return true;
+//         }
+//         return false;
+//     }
+//     setDataToLocalStrage() {
+//         localStorage.setItem('best_score', JSON.stringify(this.scoreBoard));
+//     }
+//     getUserDataSesionStorage() {
+//         userData = JSON.parse(sessionStorage.getItem('userData'));
+//         if (userData === null) {
+//             userData = {
+//                 name: "",
+//                 email: ""
+//             };
+//         }
+//     }
 }
 
 class Bar {
@@ -433,7 +434,7 @@ function gameMenu() {
     document.querySelector('#startGame').addEventListener('click', () => {
         player = new Player(5, 2);
         player.createUserName();
-        player.getUserDataSesionStorage()
+        // player.getUserDataSesionStorage()
         timer = new Timer(1, 50);
         document.getElementById("timer").style.display = 'block';
         document.getElementById("beers").style.display = 'block';
