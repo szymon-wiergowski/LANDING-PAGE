@@ -227,12 +227,27 @@ form button {
 
 .score_board {
     position: relative;
+    text-align: center;
+    text-shadow: 0px 1px 0px #9752cc;
 }
 
 .score_board_box {
     position: absolute;
-    width: 300px;
+    width: 350px;
     height: 300px;
-    top: 0px;
-    right: 50px;
+    top: 10px;
+    right: 10px;
+    font: 600 20px Arial;
+    color: white;
+    border-radius: 6px;
+    background: linear-gradient(to bottom, #dfbdfa 5%, #bc80ea 100%);
+    background-color: #dfbdfa;
+    text-shadow: 0px 1px 0px #9752cc;
+    border: 1px solid #c584f3;
+}
+
+.best_score {
+    font: 600 15px Arial;
+    text-align: left;
+    text-shadow: 0px 1px 0px #9752cc;
 }

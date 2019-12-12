@@ -61,7 +61,7 @@ class Timer {
                 document.getElementById("map").remove();
                 document.getElementById("beers").remove();
                 document.getElementById("restart").style.display = 'block';
-                HighScores()
+                player.highScores()
             }
 
         }, 1000);
@@ -256,6 +256,23 @@ class Player {
     visitedBars() {
         this.visitedBarsNumbers++;
     }
+    createUserName() {
+        this.userScoreBoard = prompt("Podaj Twoje imię");
+    }
+    highScores() {
+        this.scoreBoard = [];
+        const high_scores = document.querySelector(".best_score");
+        this.bestScore = timer.score;
+        high_scores.style.display = "block";
+        high_scores.innerHTML = '';
+        const highScoreList = document.createElement('li');
+        highScoreList.innerText = `${this.userScoreBoard} ukończył grę w ${this.bestScore} s`;
+        high_scores.appendChild(highScoreList);
+    }
+
+
+
+
 }
 
 class Bar {
@@ -376,11 +393,10 @@ class Map {
 function gameMenu() {
     document.querySelector('#startGame').addEventListener('click', () => {
         player = new Player(5, 2);
+        player.createUserName();
         timer = new Timer(1, 50);
         document.getElementById("timer").style.display = 'block';
         document.getElementById("beers").style.display = 'block';
-        score_board = document.querySelector(".score_board");
-        score_board.style.display = "none";
     });
     document.querySelector('#mapGenerator').addEventListener('click', () => {
         map = new Map(10, 10);
@@ -433,33 +449,3 @@ function show4() {
 
 }
 
-function HighScores() {
-    high_scores = document.querySelector(".best_score");
-    high_scores.style.display = "block";
-    high_scores.innerHTML = '';
-
-    let bestScore = timer.score;
-    const higScoreList = document.createElement('li');
-    higScoreList.innerHTML = `Szymon Wiergowski, wynik: ${bestScore} s`;
-    high_scores.appendChild(higScoreList);
-
-
-    // if (typeof (Storage) !== "undefined") {
-    //     const scores = false;
-    //     if (localStorage["high-scores"]) {
-    //         high_scores.style.display = "block";
-    //         high_scores.innerHTML = '';
-    //         scores = JSON.parse(localStorage["high-scores"]);
-    //         scores = scores.sort(function (a, b) { return parseInt(b) - parseInt(a) });
-
-    //         for (let i = 0; i < 10; i++) {
-    //             let highScore = scores[i];
-    //             const fragment = document.createElement('li');
-    //             fragment.innerHTML = (typeof (highScore) != "undefined" ? highScore : "");
-    //             high_scores.appendChild(fragment);
-    //         }
-    //     }
-    // } else {
-    //     
-    // }
-}
