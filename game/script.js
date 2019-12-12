@@ -3,6 +3,8 @@ let pause = true,
     player, bar, mapArray,
     timer, obstacle, playerImg, kebab;
 
+let userData = {};
+
 class Timer {
     constructor(m, highScore) {
         this.min = m;
@@ -61,7 +63,9 @@ class Timer {
                 document.getElementById("map").remove();
                 document.getElementById("beers").remove();
                 document.getElementById("restart").style.display = 'block';
+                player.setDataToLocalStrage();
                 player.highScores()
+
             }
 
         }, 1000);
@@ -258,6 +262,7 @@ class Player {
     }
     createUserName() {
         this.userScoreBoard = prompt("Podaj Twoje imię");
+
     }
     highScores() {
         this.scoreBoard = [];
@@ -268,11 +273,45 @@ class Player {
         const highScoreList = document.createElement('li');
         highScoreList.innerText = `${this.userScoreBoard} ukończył grę w ${this.bestScore} s`;
         high_scores.appendChild(highScoreList);
+
+        if (this.getDataFromLocalStorage()) {
+
+            if (this.scoreBoard.length < 10) {
+                this.scoreBoard.push(this.userScoreBoard);
+            }
+
+            if (this.scoreBoard.length === 10) {
+                if (this.scoreBoard[9].score <= this.userScoreBoard.score) {
+                    this.scoreBoard.pop();
+                    this.scoreBoard.push(this.userScoreBoard);
+                }
+            }
+            this.scoreBoard.sort((a, b) => (a.score < b.score) ? 1 : -1);
+
+        } else {
+            this.scoreBoard.push(this.userScoreBoard);
+        }
     }
-
-
-
-
+    getDataFromLocalStorage() {
+        if (typeof (localStorage.getItem('best_score')) === "string") {
+            this.scoreBoard = JSON.parse(localStorage.getItem('best_score'))
+                .sort((a, b) => (a.this.bestScore < b.this.bestScore) ? 1 : -1);
+            return true;
+        }
+        return false;
+    }
+    setDataToLocalStrage() {
+        localStorage.setItem('best_score', JSON.stringify(this.scoreBoard));
+    }
+    getUserDataSesionStorage() {
+        userData = JSON.parse(sessionStorage.getItem('userData'));
+        if (userData === null) {
+            userData = {
+                name: "",
+                email: ""
+            };
+        }
+    }
 }
 
 class Bar {
@@ -394,6 +433,7 @@ function gameMenu() {
     document.querySelector('#startGame').addEventListener('click', () => {
         player = new Player(5, 2);
         player.createUserName();
+        player.getUserDataSesionStorage()
         timer = new Timer(1, 50);
         document.getElementById("timer").style.display = 'block';
         document.getElementById("beers").style.display = 'block';
