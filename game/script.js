@@ -1,6 +1,6 @@
 let pause = true,
     mapObjects = [],
-    player, bar, mapArray,
+    player, scoreBoard, bar, mapArray,
     timer, obstacle, playerImg, kebab;
 
 let userData = {};
@@ -64,8 +64,7 @@ class Timer {
                 document.getElementById("beers").remove();
                 document.getElementById("restart").style.display = 'block';
                 // player.setDataToLocalStrage();
-                player.highScores()
-
+                scoreBoard.createScoresBoard()
             }
 
         }, 1000);
@@ -260,60 +259,65 @@ class Player {
     visitedBars() {
         this.visitedBarsNumbers++;
     }
-    createUserName() {
-        this.userScoreBoard = prompt("Podaj Twoje imię");
+}
+
+class ScoreBoard {
+    addPlayerName() {
+        this.playerName = prompt("Podaj Twoje imię");
+        if (this.playerName.length > 10) {
+            this.playerName = prompt("Twoje imie może mieć długość tylko 10 znaków");
+        }
+    }
+    createScoresBoard() {
+        this.scoreBoard = [];
+        this.high_scores = document.querySelector(".best_score");
+        this.bestScore = timer.score;
+        this.high_scores.style.display = "block";
+        this.high_scores.innerHTML = '';
+        const highScoreList = document.createElement('li');
+        highScoreList.innerText = `${this.playerName} ukończył grę w ${this.bestScore} s`;
+        this.high_scores.appendChild(highScoreList);
 
     }
-    highScores() {
-        this.scoreBoard = [];
-        const high_scores = document.querySelector(".best_score");
-        this.bestScore = timer.score;
-        high_scores.style.display = "block";
-        high_scores.innerHTML = '';
-        const highScoreList = document.createElement('li');
-        highScoreList.innerText = `${this.userScoreBoard} ukończył grę w ${this.bestScore} s`;
-        high_scores.appendChild(highScoreList);
+    addScoreBoard() {
+        this.userScoreBoard = {
+            bestScore: timer.score,
+            name: this.playerName,
+        }
 
-        if (this.bestScore) {
+        if (this.addFromStorage()) {
 
             if (this.scoreBoard.length < 10) {
                 this.scoreBoard.push(this.userScoreBoard);
-                console.log(this.userScoreBoard)
             }
 
             if (this.scoreBoard.length === 10) {
-                if (this.scoreBoard[9].score <= this.userScoreBoard.score) {
+                if (this.scoreBoard[9].bestScore <= this.userScoreBoard.bestScore) {
                     this.scoreBoard.pop();
                     this.scoreBoard.push(this.userScoreBoard);
                 }
             }
-            this.scoreBoard.sort((a, b) => (a.score < b.score) ? 1 : -1);
+            this.scoreBoard.sort((a, b) => (a.bestScore < b.bestScore) ? 1 : -1);
 
         } else {
             this.scoreBoard.push(this.userScoreBoard);
         }
+
     }
-//     getDataFromLocalStorage() {
-//         if (typeof (localStorage.getItem('best_score')) === "string") {
-//             this.scoreBoard = JSON.parse(localStorage.getItem('best_score'))
-//                 .sort((a, b) => (a.this.bestScore < b.this.bestScore) ? 1 : -1);
-//             return true;
-//         }
-//         return false;
-//     }
-//     setDataToLocalStrage() {
-//         localStorage.setItem('best_score', JSON.stringify(this.scoreBoard));
-//     }
-//     getUserDataSesionStorage() {
-//         userData = JSON.parse(sessionStorage.getItem('userData'));
-//         if (userData === null) {
-//             userData = {
-//                 name: "",
-//                 email: ""
-//             };
-//         }
-//     }
+    addFromStorage() {
+        if (typeof (localStorage.getItem('scoreboard')) === "string") {
+            this.scoreBoard = JSON.parse(localStorage.getItem('scoreboard'))
+                .sort((a, b) => (a.score < b.score) ? 1 : -1);
+            return true;
+        }
+        return false;
+    }
+
+    putToStrage() {
+        localStorage.setItem('scoreboard', JSON.stringify(this.scoreBoard));
+    }
 }
+
 
 class Bar {
     constructor(x, y) {
@@ -433,8 +437,8 @@ class Map {
 function gameMenu() {
     document.querySelector('#startGame').addEventListener('click', () => {
         player = new Player(5, 2);
-        player.createUserName();
-        // player.getUserDataSesionStorage()
+        scoreBoard = new ScoreBoard;
+        scoreBoard.addPlayerName();
         timer = new Timer(1, 50);
         document.getElementById("timer").style.display = 'block';
         document.getElementById("beers").style.display = 'block';
