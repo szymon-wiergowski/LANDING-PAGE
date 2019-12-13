@@ -296,26 +296,27 @@ class ScoreBoard {
 
             if (this.scoreTable.length < 5) {
                 this.scoreTable.push(this.userScoreBoard);
-                console.log('scoreTable: ', this.scoreTable)
+                
             }
 
             if (this.scoreTable.length === 5) {
-                if (this.scoreTable[9].bestScore <= this.userScoreBoard.bestScore) {
+                if (this.scoreTable[4].bestScore >= this.userScoreBoard.bestScore) {
                     this.scoreTable.pop();
                     this.scoreTable.push(this.userScoreBoard);
                 }
             }
-            this.scoreTable.sort((a, b) => (a.bestScore < b.bestScore) ? 1 : -1);
+            this.scoreTable.sort((a, b) => (a.bestScore < b.bestScore) ? -1 : 1);
 
         } else {
             this.scoreTable.push(this.userScoreBoard);
         }
-
+        this.putToStorage()
     }
     addFromStorage() {
         if (typeof (localStorage.getItem('scoreboarddata')) === "string") {
             this.scoreTable = JSON.parse(localStorage.getItem('scoreboarddata'))
-                .sort((a, b) => (a.bestScore < b.bestScore) ? 1 : -1);
+                .sort((a, b) => (a.bestScore < b.bestScore) ? -1 : 1);
+                console.log('scoreTable: ', this.scoreTable)
             return true;
         }
         return false;
