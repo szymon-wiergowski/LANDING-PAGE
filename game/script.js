@@ -86,9 +86,9 @@ class ScoreBoard {
 }
 
 class Timer {
-    constructor(m, highScore) {
+    constructor(m, s) {
         this.min = m;
-        this.sec = highScore;
+        this.sec = s;
         this.score = 0;
         this.pause = true;
         this.gameTimer();
