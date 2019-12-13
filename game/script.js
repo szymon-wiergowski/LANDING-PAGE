@@ -262,30 +262,34 @@ class Player {
 
 class ScoreBoard {
     constructor() {
-        this.high_scores = document.querySelector(".best_score");
-        this.highScoreList = document.createElement('li');
         this.scoreTable = [];
+        console.log('scoreTable: ', this.scoreTable)
     }
     addPlayerName() {
         this.playerName = prompt("Podaj Twoje imię");
         if (this.playerName.length > 10) {
             this.playerName = prompt("Twoje imie może mieć długość tylko 10 znaków");
         }
-
     }
     createScoresBoard() {
         this.addScoreBoard()
         this.scoreTable = [];
         this.bestScore = timer.score;
+        this.high_scores = document.querySelector(".best_score");
         this.high_scores.style.display = "block";
         this.high_scores.innerHTML = '';
-        this.highScoreList.innerText = `${this.playerName} ukończył grę w ${this.bestScore} s`;
-        this.high_scores.appendChild(this.highScoreList);
+        this.storageData = JSON.parse(localStorage.getItem("scoreboarddata"));
+        console.log(this.storageData);
 
-
-
-
+        this.storageData.forEach(player => {
+            this.highScoreList = document.createElement('li');
+            this.high_scores = document.querySelector(".best_score");
+            this.highScoreList.innerText = `${player.name} wynik: ${player.bestScore} s.`
+            this.high_scores.appendChild(this.highScoreList);
+        });
+        return this.storageData;
     }
+
     addScoreBoard() {
         this.userScoreBoard = {
             bestScore: timer.score,
@@ -296,7 +300,7 @@ class ScoreBoard {
 
             if (this.scoreTable.length < 5) {
                 this.scoreTable.push(this.userScoreBoard);
-                
+
             }
 
             if (this.scoreTable.length === 5) {
@@ -305,7 +309,7 @@ class ScoreBoard {
                     this.scoreTable.push(this.userScoreBoard);
                 }
             }
-            this.scoreTable.sort((a, b) => (a.bestScore < b.bestScore) ? -1 : 1);
+            this.scoreTable.sort((first, second) => (first.bestScore < second.bestScore) ? -1 : 1);
 
         } else {
             this.scoreTable.push(this.userScoreBoard);
@@ -315,8 +319,8 @@ class ScoreBoard {
     addFromStorage() {
         if (typeof (localStorage.getItem('scoreboarddata')) === "string") {
             this.scoreTable = JSON.parse(localStorage.getItem('scoreboarddata'))
-                .sort((a, b) => (a.bestScore < b.bestScore) ? -1 : 1);
-                console.log('scoreTable: ', this.scoreTable)
+                .sort((first, second) => (first.bestScore < second.bestScore) ? -1 : 1);
+
             return true;
         }
         return false;
