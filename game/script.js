@@ -18,7 +18,7 @@ class ScoreBoard {
     addPlayerName() {
         this.playerName = prompt("Podaj Twoje imię");
         if (this.playerName.length > 10) {
-            this.playerName = prompt("Twoje imie może mieć długość tylko 10 znaków");
+            this.playerName = prompt("Twoje imię może mieć długość tylko 10 znaków");
         }
         this.highScoresBox = document.querySelector(".score_board_box");
         this.highScoresBox.style.display = "none";
@@ -78,6 +78,16 @@ class ScoreBoard {
     }
     putToStorage() {
         localStorage.setItem('scoreboarddata', JSON.stringify(this.scoreTable));
+    }
+    removeScoreBoard() {
+        this.highScoresBox = document.querySelector(".score_board_box");
+        this.highScoresBox.style.display = "none";
+    }
+    displayScoreBoard() {
+        this.highScoresBox = document.querySelector(".score_board_box");
+        this.highScoresBox.style.display = "block";
+        this.highScores = document.querySelector(".best_score");
+        this.highScores.style.display = "block";
     }
 }
 
@@ -472,7 +482,8 @@ function gameMenu() {
             timer.stopGameTimer();
             pause = false;
         } else if (pause === false) {
-            timer.startGameTimer()
+            timer.startGameTimer();
+            scoreBoard.removeScoreBoard();
             pause = true;
         }
     });
