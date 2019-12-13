@@ -83,15 +83,7 @@ class ScoreBoard {
         this.highScoresBox = document.querySelector(".score_board_box");
         this.highScoresBox.style.display = "none";
     }
-    displayScoreBoard() {
-        this.highScoresBox = document.querySelector(".score_board_box");
-        this.highScoresBox.style.display = "block";
-        this.highScores = document.querySelector(".best_score");
-        this.highScores.style.display = "block";
-    }
 }
-
-
 
 class Timer {
     constructor(m, highScore) {
@@ -140,7 +132,7 @@ class Timer {
                 document.getElementById("beers").remove();
                 document.getElementById("restart").style.display = 'block';
             }
-            if (player.visitedBarsNumbers === 1) {
+            if (player.visitedBarsNumbers === 6) {
                 clearInterval(this.idTimer);
                 let elem = document.getElementById('pauseGame');
                 elem.parentNode.removeChild(elem);
@@ -348,8 +340,6 @@ class Player {
     }
 }
 
-
-
 class Bar {
     constructor(x, y) {
         this.positionX = x;
@@ -463,7 +453,6 @@ class Map {
         document.getElementById('startGame').disabled = false;
     }
 }
-
 
 function gameMenu() {
     document.querySelector('#startGame').addEventListener('click', () => {
