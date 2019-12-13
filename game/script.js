@@ -5,6 +5,84 @@ let pause = true,
 
 let userData = {};
 
+function removeScoreBoard() {
+    this.highScoresBox = document.querySelector(".score_board_box");
+    this.highScoresBox.style.display = "none";
+}
+removeScoreBoard();
+
+class ScoreBoard {
+    constructor() {
+        this.scoreTable = [];
+    }
+    addPlayerName() {
+        this.playerName = prompt("Podaj Twoje imię");
+        if (this.playerName.length > 10) {
+            this.playerName = prompt("Twoje imie może mieć długość tylko 10 znaków");
+        }
+        this.highScoresBox = document.querySelector(".score_board_box");
+        this.highScoresBox.style.display = "none";
+    }
+    createScoresBoard() {
+        this.addScoreBoard()
+        this.scoreTable = [];
+        this.bestScore = timer.score;
+        this.highScores = document.querySelector(".best_score");
+        this.highScores.style.display = "block";
+        this.highScoresBox.style.display = "block";
+        this.storageData = JSON.parse(localStorage.getItem("scoreboarddata"));
+
+        this.storageData.forEach(player => {
+            this.highScoreList = document.createElement('li');
+            this.highScores = document.querySelector(".best_score");
+            this.highScoreList.innerText = `${player.name} wynik: ${player.bestScore} s.`
+            this.highScores.appendChild(this.highScoreList);
+        });
+        return this.storageData;
+    }
+
+    addScoreBoard() {
+        this.userScoreBoard = {
+            bestScore: timer.score,
+            name: this.playerName,
+        }
+
+        if (this.addFromStorage()) {
+
+            if (this.scoreTable.length < 5) {
+                this.scoreTable.push(this.userScoreBoard);
+
+            }
+
+            if (this.scoreTable.length === 5) {
+                if (this.scoreTable[4].bestScore >= this.userScoreBoard.bestScore) {
+                    this.scoreTable.pop();
+                    this.scoreTable.push(this.userScoreBoard);
+                }
+            }
+            this.scoreTable.sort((first, second) => (first.bestScore < second.bestScore) ? -1 : 1);
+
+        } else {
+            this.scoreTable.push(this.userScoreBoard);
+        }
+        this.putToStorage()
+    }
+    addFromStorage() {
+        if (typeof (localStorage.getItem('scoreboarddata')) === "string") {
+            this.scoreTable = JSON.parse(localStorage.getItem('scoreboarddata'))
+                .sort((first, second) => (first.bestScore < second.bestScore) ? -1 : 1);
+
+            return true;
+        }
+        return false;
+    }
+    putToStorage() {
+        localStorage.setItem('scoreboarddata', JSON.stringify(this.scoreTable));
+    }
+}
+
+
+
 class Timer {
     constructor(m, highScore) {
         this.min = m;
@@ -260,76 +338,6 @@ class Player {
     }
 }
 
-class ScoreBoard {
-    constructor() {
-        this.scoreTable = [];
-        console.log('scoreTable: ', this.scoreTable)
-    }
-    addPlayerName() {
-        this.playerName = prompt("Podaj Twoje imię");
-        if (this.playerName.length > 10) {
-            this.playerName = prompt("Twoje imie może mieć długość tylko 10 znaków");
-        }
-    }
-    createScoresBoard() {
-        this.addScoreBoard()
-        this.scoreTable = [];
-        this.bestScore = timer.score;
-        this.high_scores = document.querySelector(".best_score");
-        this.high_scores.style.display = "block";
-        this.high_scores.innerHTML = '';
-        this.storageData = JSON.parse(localStorage.getItem("scoreboarddata"));
-        console.log(this.storageData);
-
-        this.storageData.forEach(player => {
-            this.highScoreList = document.createElement('li');
-            this.high_scores = document.querySelector(".best_score");
-            this.highScoreList.innerText = `${player.name} wynik: ${player.bestScore} s.`
-            this.high_scores.appendChild(this.highScoreList);
-        });
-        return this.storageData;
-    }
-
-    addScoreBoard() {
-        this.userScoreBoard = {
-            bestScore: timer.score,
-            name: this.playerName,
-        }
-
-        if (this.addFromStorage()) {
-
-            if (this.scoreTable.length < 5) {
-                this.scoreTable.push(this.userScoreBoard);
-
-            }
-
-            if (this.scoreTable.length === 5) {
-                if (this.scoreTable[4].bestScore >= this.userScoreBoard.bestScore) {
-                    this.scoreTable.pop();
-                    this.scoreTable.push(this.userScoreBoard);
-                }
-            }
-            this.scoreTable.sort((first, second) => (first.bestScore < second.bestScore) ? -1 : 1);
-
-        } else {
-            this.scoreTable.push(this.userScoreBoard);
-        }
-        this.putToStorage()
-    }
-    addFromStorage() {
-        if (typeof (localStorage.getItem('scoreboarddata')) === "string") {
-            this.scoreTable = JSON.parse(localStorage.getItem('scoreboarddata'))
-                .sort((first, second) => (first.bestScore < second.bestScore) ? -1 : 1);
-
-            return true;
-        }
-        return false;
-    }
-
-    putToStorage() {
-        localStorage.setItem('scoreboarddata', JSON.stringify(this.scoreTable));
-    }
-}
 
 
 class Bar {
