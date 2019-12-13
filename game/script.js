@@ -63,8 +63,7 @@ class Timer {
                 document.getElementById("map").remove();
                 document.getElementById("beers").remove();
                 document.getElementById("restart").style.display = 'block';
-                // player.setDataToLocalStrage();
-                scoreBoard.createScoresBoard()
+                scoreBoard.createScoresBoard();
             }
 
         }, 1000);
@@ -262,21 +261,29 @@ class Player {
 }
 
 class ScoreBoard {
+    constructor() {
+        this.high_scores = document.querySelector(".best_score");
+        this.highScoreList = document.createElement('li');
+        this.scoreTable = [];
+    }
     addPlayerName() {
         this.playerName = prompt("Podaj Twoje imię");
         if (this.playerName.length > 10) {
             this.playerName = prompt("Twoje imie może mieć długość tylko 10 znaków");
         }
+
     }
     createScoresBoard() {
-        this.scoreBoard = [];
-        this.high_scores = document.querySelector(".best_score");
+        this.addScoreBoard()
+        this.scoreTable = [];
         this.bestScore = timer.score;
         this.high_scores.style.display = "block";
         this.high_scores.innerHTML = '';
-        const highScoreList = document.createElement('li');
-        highScoreList.innerText = `${this.playerName} ukończył grę w ${this.bestScore} s`;
-        this.high_scores.appendChild(highScoreList);
+        this.highScoreList.innerText = `${this.playerName} ukończył grę w ${this.bestScore} s`;
+        this.high_scores.appendChild(this.highScoreList);
+
+
+
 
     }
     addScoreBoard() {
@@ -287,34 +294,35 @@ class ScoreBoard {
 
         if (this.addFromStorage()) {
 
-            if (this.scoreBoard.length < 10) {
-                this.scoreBoard.push(this.userScoreBoard);
+            if (this.scoreTable.length < 5) {
+                this.scoreTable.push(this.userScoreBoard);
+                console.log('scoreTable: ', this.scoreTable)
             }
 
-            if (this.scoreBoard.length === 10) {
-                if (this.scoreBoard[9].bestScore <= this.userScoreBoard.bestScore) {
-                    this.scoreBoard.pop();
-                    this.scoreBoard.push(this.userScoreBoard);
+            if (this.scoreTable.length === 5) {
+                if (this.scoreTable[9].bestScore <= this.userScoreBoard.bestScore) {
+                    this.scoreTable.pop();
+                    this.scoreTable.push(this.userScoreBoard);
                 }
             }
-            this.scoreBoard.sort((a, b) => (a.bestScore < b.bestScore) ? 1 : -1);
+            this.scoreTable.sort((a, b) => (a.bestScore < b.bestScore) ? 1 : -1);
 
         } else {
-            this.scoreBoard.push(this.userScoreBoard);
+            this.scoreTable.push(this.userScoreBoard);
         }
 
     }
     addFromStorage() {
-        if (typeof (localStorage.getItem('scoreboard')) === "string") {
-            this.scoreBoard = JSON.parse(localStorage.getItem('scoreboard'))
-                .sort((a, b) => (a.score < b.score) ? 1 : -1);
+        if (typeof (localStorage.getItem('scoreboarddata')) === "string") {
+            this.scoreTable = JSON.parse(localStorage.getItem('scoreboarddata'))
+                .sort((a, b) => (a.bestScore < b.bestScore) ? 1 : -1);
             return true;
         }
         return false;
     }
 
-    putToStrage() {
-        localStorage.setItem('scoreboard', JSON.stringify(this.scoreBoard));
+    putToStorage() {
+        localStorage.setItem('scoreboarddata', JSON.stringify(this.scoreTable));
     }
 }
 
