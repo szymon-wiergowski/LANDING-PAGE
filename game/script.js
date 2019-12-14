@@ -1,7 +1,89 @@
 let pause = true,
     mapObjects = [],
-    player, bar, mapArray,
+    player, scoreBoard, bar, mapArray,
     timer, obstacle, playerImg, kebab;
+
+let userData = {};
+
+function removeScoreBoard() {
+    this.highScoresBox = document.querySelector(".score_board_box");
+    this.highScoresBox.style.display = "none";
+}
+removeScoreBoard();
+
+class ScoreBoard {
+    constructor() {
+        this.scoreTable = [];
+    }
+    addPlayerName() {
+        this.playerName = prompt("Podaj Twoje imię");
+        if (this.playerName.length > 10) {
+            this.playerName = prompt("Twoje imię może mieć długość tylko 10 znaków");
+        }
+        this.highScoresBox = document.querySelector(".score_board_box");
+        this.highScoresBox.style.display = "none";
+    }
+    createScoresBoard() {
+        this.addScoreBoard()
+        this.scoreTable = [];
+        this.bestScore = timer.score;
+        this.highScores = document.querySelector(".best_score");
+        this.highScores.style.display = "block";
+        this.highScoresBox.style.display = "block";
+        this.storageData = JSON.parse(localStorage.getItem("scoreboarddata"));
+
+        this.storageData.forEach(player => {
+            this.highScoreList = document.createElement('li');
+            this.highScores = document.querySelector(".best_score");
+            this.highScoreList.innerText = `${player.name} wynik: ${player.bestScore} s.`
+            this.highScores.appendChild(this.highScoreList);
+        });
+        return this.storageData;
+    }
+
+    addScoreBoard() {
+        this.userScoreBoard = {
+            bestScore: timer.score,
+            name: this.playerName,
+        }
+
+        if (this.addFromStorage()) {
+
+            if (this.scoreTable.length < 5) {
+                this.scoreTable.push(this.userScoreBoard);
+
+            }
+
+            if (this.scoreTable.length === 5) {
+                if (this.scoreTable[4].bestScore >= this.userScoreBoard.bestScore) {
+                    this.scoreTable.pop();
+                    this.scoreTable.push(this.userScoreBoard);
+                }
+            }
+            this.scoreTable.sort((first, second) => (first.bestScore < second.bestScore) ? -1 : 1);
+
+        } else {
+            this.scoreTable.push(this.userScoreBoard);
+        }
+        this.putToStorage()
+    }
+    addFromStorage() {
+        if (typeof (localStorage.getItem('scoreboarddata')) === "string") {
+            this.scoreTable = JSON.parse(localStorage.getItem('scoreboarddata'))
+                .sort((first, second) => (first.bestScore < second.bestScore) ? -1 : 1);
+
+            return true;
+        }
+        return false;
+    }
+    putToStorage() {
+        localStorage.setItem('scoreboarddata', JSON.stringify(this.scoreTable));
+    }
+    removeScoreBoard() {
+        this.highScoresBox = document.querySelector(".score_board_box");
+        this.highScoresBox.style.display = "none";
+    }
+}
 
 class Timer {
     constructor(m, s) {
@@ -61,6 +143,7 @@ class Timer {
                 document.getElementById("map").remove();
                 document.getElementById("beers").remove();
                 document.getElementById("restart").style.display = 'block';
+                scoreBoard.createScoresBoard();
             }
 
         }, 1000);
@@ -273,7 +356,6 @@ class Bar {
         this.drinkSound();
         player.addBeer(1);
         player.visitedBars();
-        console.log(player.visitedBarsNumbers);
         this.visited = true;
     }
     drinkSound() {
@@ -372,10 +454,11 @@ class Map {
     }
 }
 
-
 function gameMenu() {
     document.querySelector('#startGame').addEventListener('click', () => {
         player = new Player(5, 2);
+        scoreBoard = new ScoreBoard;
+        scoreBoard.addPlayerName();
         timer = new Timer(1, 50);
         document.getElementById("timer").style.display = 'block';
         document.getElementById("beers").style.display = 'block';
@@ -388,7 +471,8 @@ function gameMenu() {
             timer.stopGameTimer();
             pause = false;
         } else if (pause === false) {
-            timer.startGameTimer()
+            timer.startGameTimer();
+            scoreBoard.removeScoreBoard();
             pause = true;
         }
     });
@@ -399,34 +483,35 @@ function gameMenu() {
 
 gameMenu();
 
-function show_hide(){
-    const click= document.getElementById("drop-content");
-    if(click.style.display ==="none"){
-click.style.display="block";
-}
-else{
-click.style.display="none";
-}
-}
-
-function show(){
-    const click=document.getElementById("button");
-    document.getElementById("div1").innerHTML ="Odwiedź wszystkie bary z drinkami zanim skończy się czas. Pamiętaj, na wykonanie zadania masz tylko 2 minuty.";
+function show_hide() {
+    const click = document.getElementById("drop-content");
+    if (click.style.display === "none") {
+        click.style.display = "block";
+    }
+    else {
+        click.style.display = "none";
+    }
 }
 
-function show2(){
-    const click=document.getElementById("button2");
+function show() {
+    const click = document.getElementById("button");
+    document.getElementById("div1").innerHTML = "Odwiedź wszystkie bary z drinkami zanim skończy się czas. Pamiętaj, na wykonanie zadania masz tylko 2 minuty.";
+}
+
+function show2() {
+    const click = document.getElementById("button2");
     document.getElementById("div2").innerText = "Aby przejść grę, musisz zdobyć wszystkie sześć drinków.Drinki oznaczone są w taki sposób:";
 }
 
-function show3(){
-    const click=document.getElementById("button3");
+function show3() {
+    const click = document.getElementById("button3");
     document.getElementById("div3").innerText = "Podczas picia należy pamiętać o jedzeniu. Jedz kebaby, aby dłużej utrzymać się na nogach."
 
 }
 
-function show4(){
-    const click=document.getElementById("button4");
+function show4() {
+    const click = document.getElementById("button4");
     document.getElementById("div4").innerText = "Im więcej wypijesz, tym trudniej będzie się poruszać po mieście. Wzrost poziomu upojenia zmienia sterowanie graczem, aby to odwrócić pamiętaj o zdobywaniu pożywienia.";
 
 }
+
