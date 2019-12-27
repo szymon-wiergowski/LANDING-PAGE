@@ -143,7 +143,7 @@ class Timer {
                 document.getElementById("beers").remove();
                 document.getElementById("restart").style.display = 'block';
             }
-            if (player.visitedBarsNumbers === 1) {
+            if (player.visitedBarsNumbers === 6) {
                 clearInterval(this.idTimer);
                 let elem = document.getElementById('pauseGame');
                 elem.parentNode.removeChild(elem);
