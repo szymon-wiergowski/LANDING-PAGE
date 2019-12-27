@@ -72,10 +72,6 @@ class ScoreBoard {
     putToStorage() {
         localStorage.setItem('scoreboarddata', JSON.stringify(this.scoreTable));
     }
-    hideScoreBoard() {
-        this.highScoresBox = document.querySelector(".score_board_box");
-        this.highScoresBox.style.display = "none";
-    }
     createScoreBoardList() {
         this.storageData = JSON.parse(localStorage.getItem("scoreboarddata"));
         this.storageData.forEach(player => {
@@ -86,7 +82,6 @@ class ScoreBoard {
         });
         return this.storageData;
     }
-
     showScoreBoard() {
         this.highScoresBox = document.querySelector(".score_board_box");
         this.highScoresBox.style.display = "block";
@@ -484,7 +479,6 @@ function gameMenu() {
             pause = false;
         } else if (pause === false) {
             timer.startGameTimer();
-            scoreBoard.hideScoreBoard();
             pause = true;
         }
     });
