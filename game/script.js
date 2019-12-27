@@ -5,11 +5,11 @@ let pause = true,
 
 let userData = {};
 
-function removeScoreBoard() {
+function hideScoreBoard() {
     this.highScoresBox = document.querySelector(".score_board_box");
     this.highScoresBox.style.display = "none";
 }
-removeScoreBoard();
+hideScoreBoard();
 
 class ScoreBoard {
     constructor() {
@@ -29,16 +29,9 @@ class ScoreBoard {
         this.bestScore = timer.score;
         this.highScores = document.querySelector(".best_score");
         this.highScores.style.display = "block";
+        this.highScores.innerHTML = ''
         this.highScoresBox.style.display = "block";
-        this.storageData = JSON.parse(localStorage.getItem("scoreboarddata"));
-
-        this.storageData.forEach(player => {
-            this.highScoreList = document.createElement('li');
-            this.highScores = document.querySelector(".best_score");
-            this.highScoreList.innerText = `${player.name} wynik: ${player.bestScore} s.`
-            this.highScores.appendChild(this.highScoreList);
-        });
-        return this.storageData;
+        this.createScoreBoardList()
     }
 
     addScoreBoard() {
@@ -79,9 +72,27 @@ class ScoreBoard {
     putToStorage() {
         localStorage.setItem('scoreboarddata', JSON.stringify(this.scoreTable));
     }
-    removeScoreBoard() {
+    hideScoreBoard() {
         this.highScoresBox = document.querySelector(".score_board_box");
         this.highScoresBox.style.display = "none";
+    }
+    createScoreBoardList() {
+        this.storageData = JSON.parse(localStorage.getItem("scoreboarddata"));
+        this.storageData.forEach(player => {
+            this.highScoreList = document.createElement('li');
+            this.highScores = document.querySelector(".best_score");
+            this.highScoreList.innerText = `${player.name} wynik: ${player.bestScore} s.`
+            this.highScores.appendChild(this.highScoreList);
+        });
+        return this.storageData;
+    }
+
+    showScoreBoard() {
+        this.highScoresBox = document.querySelector(".score_board_box");
+        this.highScoresBox.style.display = "block";
+        this.highScores = document.querySelector(".best_score");
+        this.highScores.style.display = "block";
+        this.createScoreBoardList()
     }
 }
 
@@ -132,7 +143,7 @@ class Timer {
                 document.getElementById("beers").remove();
                 document.getElementById("restart").style.display = 'block';
             }
-            if (player.visitedBarsNumbers === 6) {
+            if (player.visitedBarsNumbers === 1) {
                 clearInterval(this.idTimer);
                 let elem = document.getElementById('pauseGame');
                 elem.parentNode.removeChild(elem);
@@ -457,7 +468,6 @@ class Map {
 function gameMenu() {
     document.querySelector('#startGame').addEventListener('click', () => {
         player = new Player(5, 2);
-        scoreBoard = new ScoreBoard;
         scoreBoard.addPlayerName();
         timer = new Timer(1, 50);
         document.getElementById("timer").style.display = 'block';
@@ -465,6 +475,8 @@ function gameMenu() {
     });
     document.querySelector('#mapGenerator').addEventListener('click', () => {
         map = new Map(10, 10);
+        scoreBoard = new ScoreBoard;
+        scoreBoard.showScoreBoard()
     });
     document.querySelector('#pauseGame').addEventListener('click', () => {
         if (pause === true) {
@@ -472,7 +484,7 @@ function gameMenu() {
             pause = false;
         } else if (pause === false) {
             timer.startGameTimer();
-            scoreBoard.removeScoreBoard();
+            scoreBoard.hideScoreBoard();
             pause = true;
         }
     });
