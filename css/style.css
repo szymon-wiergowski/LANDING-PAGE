@@ -8,7 +8,7 @@ body {
     border: none;
 }
 
-.empty_item{
+.empty_item {
     height: 80px;
 }
 
@@ -17,39 +17,40 @@ body {
 }
 
 .hero_item:after {
-    content:"";
-    display:block;
-    position:absolute;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
-    background:rgba(78, 73, 73, 0.3);
-    }
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(78, 73, 73, 0.3);
+}
 
-.hero_item-text{
-    position:absolute;
+.hero_item-text {
+    position: absolute;
     z-index: 1;
     top: 50%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%) 
+    transform: translate(-50%, -50%)
 }
+
 .hero_item h1 {
     font-size: 5.5rem;
-    }
+}
 
 @media (max-width: 992px) {
-.carousel-indicators{
-    display: none;
-}
-.hero_item h1  {
-    font-size: 3rem;
-    margin-top: 2.5rem;
-}
-.hero_item h3  {
-    display: none;
-}
+    .carousel-indicators {
+        display: none;
+    }
+    .hero_item h1 {
+        font-size: 3rem;
+        margin-top: 2.5rem;
+    }
+    .hero_item h3 {
+        display: none;
+    }
 }
 
 .basic_function_icon {
@@ -64,14 +65,19 @@ body {
     box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
-.basic_function_section {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+.basic_function {
+    padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
 }
 
 .basic_function_heading h3 {
     font-size: 1rem;
     text-transform: uppercase;
+}
+
+.more_functions {
+    padding-top: 2rem;
+    padding-bottom: 5.5rem;
 }
 
 .strong {
@@ -119,6 +125,12 @@ body {
 .contact-link:hover {
     color: black;
 }
+
+.sign_up {
+    padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
+}
+
 .navbar {
     height: 100px;
     transition: all 1s;
@@ -153,7 +165,7 @@ body {
     height: 250px;
     perspective: 1000px;
 }
-  
+
 .flip-card-inner {
     position: relative;
     width: 100%;
@@ -161,7 +173,7 @@ body {
     text-align: center;
     transition: transform 1s;
     transform-style: preserve-3d;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .flip-card:hover .flip-card-inner {
@@ -189,27 +201,36 @@ body {
     justify-content: center;
 }
 
-.flip-card-auto  {
+.flip-card-auto {
     transform: rotateY(360deg);
     transition: transform 3s;
 }
 
-.flip-card-auto-return  {
+.flip-card-auto-return {
     transition: transform 1s;
 }
 
+.team_section {
+    padding-top: 4rem;
+    padding-bottom: 1rem;
+}
+
 .highlightNav {
-    position:relative;
-    display:inline-block;
+    position: relative;
+    display: inline-block;
 }
 
 .highlightNav:after {
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:0;
-    right:0;
-    margin:auto;
-    background:#5cb85c;
-    height:5px;
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    background: #5cb85c;
+    height: 5px;
+}
+
+footer {
+    padding-bottom: 5.5rem;
 }

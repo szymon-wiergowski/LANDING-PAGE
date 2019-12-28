@@ -1,18 +1,18 @@
-  
+
 document.addEventListener("scroll", function () {
     let topScreenPosition = window.scrollY;
     const screenHigh = document.documentElement.clientHeight;
     let currentPosition = topScreenPosition + (screenHigh / 3.3);
     const bottomOfTheDocument = document.documentElement.scrollHeight;
-
+    const bottomScreenPosition = (Math.ceil(topScreenPosition) + screenHigh) - 1;
     const basicFunctionPosition = document.querySelector("#basic-function").offsetTop;
     const moreFunctionsPosition = document.querySelector("#more-functions").offsetTop;
     const signUpPosition = document.querySelector("#sign-up").offsetTop;
     const teamPosition = document.querySelector("#team").offsetTop;
     let addClass = "";
     let delateClass = "";
-   
-    if (currentPosition < basicFunctionPosition) {
+
+    if (bottomOfTheDocument / 2.2 < screenHigh || currentPosition < basicFunctionPosition) {
         delateClass = document.querySelectorAll(".data-section-basic-func, .data-section-more-func, .data-section-sign-up, .data-section-team");
         delateClass.forEach((item) => {
             item.classList.remove("highlightNav");
@@ -32,14 +32,14 @@ document.addEventListener("scroll", function () {
         });
         addClass = document.querySelector(".data-section-more-func");
         addClass.classList.add("highlightNav");
-    } else if (currentPosition > signUpPosition && currentPosition < teamPosition && bottomOfTheDocument != (Math.ceil(topScreenPosition) + screenHigh) - 1 ) {
+    } else if (currentPosition > signUpPosition && currentPosition < teamPosition && bottomOfTheDocument !== bottomScreenPosition) {
         delateClass = document.querySelectorAll(".data-section-basic-func, .data-section-more-func, .data-section-team");
         delateClass.forEach((item) => {
             item.classList.remove("highlightNav");
         });
         addClass = document.querySelector(".data-section-sign-up");
         addClass.classList.add("highlightNav");
-    } else if (currentPosition > teamPosition || bottomOfTheDocument === (Math.ceil(topScreenPosition) + screenHigh) - 1 ) {
+    } else if (bottomOfTheDocument === bottomScreenPosition) {
         delateClass = document.querySelectorAll(".data-section-basic-func, .data-section-more-func, .data-section-sign-up");
         delateClass.forEach((item) => {
             item.classList.remove("highlightNav");

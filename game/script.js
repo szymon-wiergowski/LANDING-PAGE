@@ -5,11 +5,11 @@ let pause = true,
 
 let userData = {};
 
-function removeScoreBoard() {
+function hideScoreBoard() {
     this.highScoresBox = document.querySelector(".score_board_box");
     this.highScoresBox.style.display = "none";
 }
-removeScoreBoard();
+hideScoreBoard();
 
 class ScoreBoard {
     constructor() {
@@ -29,16 +29,9 @@ class ScoreBoard {
         this.bestScore = timer.score;
         this.highScores = document.querySelector(".best_score");
         this.highScores.style.display = "block";
+        this.highScores.innerHTML = ''
         this.highScoresBox.style.display = "block";
-        this.storageData = JSON.parse(localStorage.getItem("scoreboarddata"));
-
-        this.storageData.forEach(player => {
-            this.highScoreList = document.createElement('li');
-            this.highScores = document.querySelector(".best_score");
-            this.highScoreList.innerText = `${player.name} wynik: ${player.bestScore} s.`
-            this.highScores.appendChild(this.highScoreList);
-        });
-        return this.storageData;
+        this.createScoreBoardList()
     }
 
     addScoreBoard() {
@@ -79,9 +72,22 @@ class ScoreBoard {
     putToStorage() {
         localStorage.setItem('scoreboarddata', JSON.stringify(this.scoreTable));
     }
-    removeScoreBoard() {
+    createScoreBoardList() {
+        this.storageData = JSON.parse(localStorage.getItem("scoreboarddata"));
+        this.storageData.forEach(player => {
+            this.highScoreList = document.createElement('li');
+            this.highScores = document.querySelector(".best_score");
+            this.highScoreList.innerText = `${player.name} wynik: ${player.bestScore} s.`
+            this.highScores.appendChild(this.highScoreList);
+        });
+        return this.storageData;
+    }
+    showScoreBoard() {
         this.highScoresBox = document.querySelector(".score_board_box");
-        this.highScoresBox.style.display = "none";
+        this.highScoresBox.style.display = "block";
+        this.highScores = document.querySelector(".best_score");
+        this.highScores.style.display = "block";
+        this.createScoreBoardList()
     }
 }
 
@@ -457,7 +463,6 @@ class Map {
 function gameMenu() {
     document.querySelector('#startGame').addEventListener('click', () => {
         player = new Player(5, 2);
-        scoreBoard = new ScoreBoard;
         scoreBoard.addPlayerName();
         timer = new Timer(1, 50);
         document.getElementById("timer").style.display = 'block';
@@ -465,6 +470,8 @@ function gameMenu() {
     });
     document.querySelector('#mapGenerator').addEventListener('click', () => {
         map = new Map(10, 10);
+        scoreBoard = new ScoreBoard;
+        scoreBoard.showScoreBoard()
     });
     document.querySelector('#pauseGame').addEventListener('click', () => {
         if (pause === true) {
@@ -472,7 +479,6 @@ function gameMenu() {
             pause = false;
         } else if (pause === false) {
             timer.startGameTimer();
-            scoreBoard.removeScoreBoard();
             pause = true;
         }
     });
