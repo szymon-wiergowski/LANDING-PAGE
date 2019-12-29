@@ -39,7 +39,7 @@ document.addEventListener("scroll", function () {
         });
         addClass = document.querySelector(".data-section-sign-up");
         addClass.classList.add("highlightNav");
-    } else if (bottomOfTheDocument === bottomScreenPosition) {
+    } else if (currentPosition > teamPosition || bottomOfTheDocument === bottomScreenPosition) {
         delateClass = document.querySelectorAll(".data-section-basic-func, .data-section-more-func, .data-section-sign-up");
         delateClass.forEach((item) => {
             item.classList.remove("highlightNav");
